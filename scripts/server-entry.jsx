@@ -21,10 +21,12 @@ export function routes() {
   return [...new Set(list)];
 }
 
+const BASE = process.env.PUBLIC_URL || "";
+
 export function render(url) {
   globalThis.__HEAD__ = null;
   const html = renderToString(
-    <StaticRouter location={url}>
+    <StaticRouter location={BASE + (url === "/" ? "/" : url)} basename={BASE || "/"}>
       <AppRoutes />
     </StaticRouter>
   );

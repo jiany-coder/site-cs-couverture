@@ -34,7 +34,7 @@ await build({
   jsx: "automatic",
   loader: { ".js": "jsx", ".css": "empty", ".svg": "dataurl", ".png": "dataurl", ".jpg": "dataurl" },
   plugins: [aliasPlugin],
-  define: { "process.env.NODE_ENV": '"production"', "process.env.REACT_APP_BACKEND_URL": '""' },
+  define: { "process.env.PUBLIC_URL": JSON.stringify(process.env.PUBLIC_URL || ""), "process.env.REACT_APP_SITE_URL": process.env.REACT_APP_SITE_URL ? JSON.stringify(process.env.REACT_APP_SITE_URL) : "undefined", "process.env.NODE_ENV": '"production"', "process.env.REACT_APP_BACKEND_URL": '""' },
   logLevel: "error",
 });
 
@@ -43,7 +43,7 @@ const { render, routes } = require(path.join(tmp, "server.cjs"));
 
 // Domaine : une seule source de vérité, src/data/company.js (champ site).
 const companySrc = fs.readFileSync(path.join(root, "src/data/company.js"), "utf8");
-const SITE = (process.env.SITE_URL || (companySrc.match(/site:\s*"([^"]+)"/) || [])[1] || "").replace(/\/$/, "");
+const SITE = (process.env.SITE_URL || (process.env.REACT_APP_SITE_URL || (companySrc.match(/site:[^\n]*?"(https?:[^"]+)"/) || [])[1]) || "").replace(/\/$/, "");
 if (!SITE) throw new Error("Domaine introuvable (champ site de company.js)");
 const template = fs.readFileSync(path.join(buildDir, "index.html"), "utf8");
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
@@ -77,6 +77,9 @@ function headTags(h) {
   ].join("");
 }
 
+const BASEP = process.env.PUBLIC_URL || "";
+const prefix = (h) => BASEP ? h.replace(new RegExp('(\\s(?:src|href)=")/(?!/)(?!' + BASEP.slice(1) + '/)', "g"), "$1" + BASEP + "/") : h;
+
 function page(url) {
   const { html, head } = render(url);
   const out = template
@@ -100,7 +103,7 @@ for (const url of list) {
   // ce qui correspond au canonical et au sitemap. (page/index.html redirigerait vers /page/.)
   const file = url === "/" ? path.join(buildDir, "index.html") : path.join(buildDir, url.slice(1) + ".html");
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, out);
+  fs.writeFileSync(file, prefix(out));
   const words = stripTags(html).split(/\s+/).filter(Boolean).length;
   const h1 = (html.match(/<h1[\s>]/g) || []).length;
   if (h1 !== 1) problems.push(`${url}: ${h1} balise(s) h1`);
@@ -116,7 +119,7 @@ for (const url of list) {
 
 // 404 : vrai code 404 (Cloudflare Pages sert 404.html pour toute adresse inconnue)
 const nf = page("/page-introuvable-404");
-fs.writeFileSync(path.join(buildDir, "404.html"), nf.out);
+fs.writeFileSync(path.join(buildDir, "404.html"), prefix(nf.out));
 
 // sitemap, robots, llms.txt, redirections, en-têtes
 const today = new Date().toISOString().slice(0, 10);

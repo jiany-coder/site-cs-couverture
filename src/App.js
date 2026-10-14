@@ -60,7 +60,7 @@ export function AppRoutes() {
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL || "/"}>
         <AppRoutes />
       </BrowserRouter>
     </HelmetProvider>

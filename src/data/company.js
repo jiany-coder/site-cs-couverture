@@ -26,7 +26,7 @@ export const COMPANY = {
   // Avis Google relevés dans l'audit du 13 octobre 2026 (à mettre à jour avec la fiche).
   rating: { value: "5", count: 18, asOf: "octobre 2026" },
   // Domaine : un seul endroit à changer. [À COMPLÉTER] domaine définitif.
-  site: "https://www.cs-couverture-caen.fr",
+  site: process.env.REACT_APP_SITE_URL || "https://www.cs-couverture-caen.fr",
   // Informations à fournir par le client : tant qu'elles sont nulles, elles ne sont pas affichées sur le site.
   labels: [],
   experienceYears: null,
