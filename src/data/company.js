@@ -16,8 +16,8 @@ export const COMPANY = {
   geo: { latitude: 49.1646369, longitude: -0.3431176 },
   radiusKm: 30,
   logos: {
-    main: "/logo-cs-couverture-512.webp",
-    icon: "/logo-cs-couverture-192.webp",
+    main: `${process.env.PUBLIC_URL || ""}/logo-cs-couverture-512.webp`,
+    icon: `${process.env.PUBLIC_URL || ""}/logo-cs-couverture-192.webp`,
   },
   social: {
     gbp: "https://www.google.com/maps/place/?q=place_id:ChIJXXNMmIPKD0ARObhgGYiNXpo",
@@ -41,4 +41,4 @@ export const COMPANY = {
 };
 
 export const telHref = `tel:${COMPANY.phoneRaw}`;
-export const logoUrl = (path = COMPANY.logos.main) => `${COMPANY.site}${path}`;
+export const logoUrl = (path = COMPANY.logos.main) => `${COMPANY.site}${path.replace(process.env.PUBLIC_URL || "", "")}`;
