@@ -39,7 +39,7 @@ export default function Home() {
     <>
       <SEO
         title={`Couvreur à Caen | Toiture, zinguerie | ${COMPANY.shortBrand}`}
-        description={`Couvreur à Caen : réparation de toiture, rénovation, démoussage, zinguerie, gouttières. Rayon de ${COMPANY.radiusKm} km, devis gratuit. Tél. ${COMPANY.phone}`}
+        description={`Couvreur à Caen : réparation, rénovation, démoussage et nettoyage de toiture, zinguerie. Rayon de ${COMPANY.radiusKm} km, devis gratuit. Tél. ${COMPANY.phone}`}
         canonical={`${COMPANY.site}/`}
         jsonLd={jsonLd}
       />

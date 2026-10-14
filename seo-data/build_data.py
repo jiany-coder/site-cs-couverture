@@ -265,8 +265,9 @@ def main(out_dir):
         if len(title) > 60: title = f"Couvreur {a} | {BRAND}"
         if len(title) > 60: title = f"Couvreur {a} | CS Couverture"
         if len(title) > 60: title = f"Couvreur {a}"[:60].rstrip()
-        desc = (f"Couvreur {a} ({c['cp']}) : réparation de toiture, rénovation, démoussage, zinguerie et gouttières. "
-                f"Devis gratuit, entreprise basée à Caen. Tél. {PHONE}.")
+        desc = f"Couvreur {a} ({c['cp']}) : réparation, rénovation, démoussage et nettoyage de toiture, zinguerie. Devis gratuit. Tél. {PHONE}."
+        if len(desc) > 160: desc = f"Couvreur {a} : réparation, rénovation, démoussage et nettoyage de toiture, zinguerie. Devis gratuit. Tél. {PHONE}."
+        if len(desc) > 160: desc = f"Couvreur {a} : réparation, rénovation, démoussage de toiture, zinguerie. Devis gratuit. Tél. {PHONE}."
         nbtxt = ", ".join(f"{o['nom']} ({round(km(c['pos'], o['pos']))} km)" for o in c["near"][:4])
         out[f"couvreur-{slug}"] = dict(
             slug=slug, nom=nom, cp=c["cp"], pop=c["pop"], km=c["km"], dir=c["dir"], region=REGION_LABEL[c["reg"]],

@@ -218,7 +218,7 @@ export const SERVICES = [
     h1: "Démoussage et nettoyage de toiture à Caen",
     short: "Nettoyage adapté au matériau et traitement anti-mousse pour préserver la couverture.",
     icon: "Sparkles",
-    metaTitle: "Démoussage toiture Caen | CS Couverture Rénovation",
+    metaTitle: "Nettoyage et démoussage toiture Caen | CS Couverture",
     metaDescription: "Démoussage et nettoyage de toiture à Caen et dans un rayon de 30 km, avec méthode adaptée au matériau. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["démoussage toiture caen", "nettoyage toiture caen", "anti-mousse toiture caen", "couvreur caen"],
     answer:
