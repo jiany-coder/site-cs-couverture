@@ -118,6 +118,172 @@ Quand le désordre est localisé et le reste de la couverture en bon état, une 
 
 Pour faire repérer l'origine d'une fuite, [demandez un devis gratuit](/contact).`,
   },
+  {
+    slug: "prix-toiture-m2-tuiles-ardoises-zinc",
+    title: "Prix d'une toiture au m² : tuiles, ardoises, zinc",
+    metaTitle: "Prix d'une toiture au m² : tuiles, ardoises, zinc",
+    category: "Rénovation",
+    readTime: "5 min",
+    date: "2026-10-14",
+    updated: "2026-10-14",
+    excerpt: "Une couverture neuve coûte en général de 90 € le m² en tuiles béton à 200 € le m² en ardoises naturelles, dépose comprise en plus. Comparatif sourcé.",
+    faq: [
+      { q: "Combien coûte une toiture neuve au m² ?", a: "Les guides publics indiquent environ 90 € le m² en tuiles béton, 125 € en zinc, 130 € en terre cuite et 200 € en ardoises naturelles, prix TTC fourni et posé." },
+      { q: "Combien coûte la dépose de l'ancienne couverture ?", a: "Compter environ 15 € le m² pour déposer l'ancienne couverture, en plus du prix de la nouvelle." },
+      { q: "Comment obtenir le prix exact ?", a: "Le prix dépend de la surface, de la pente, de l'accès et de l'état de la charpente. Un devis gratuit après examen de la toiture donne le montant de votre chantier." },
+    ],
+    content: `Une couverture neuve coûte en général d'environ 90 € le m² en tuiles béton à environ 200 € le m² en ardoises naturelles, prix TTC fourni et posé. La dépose de l'ancienne couverture s'ajoute, autour de 15 € le m². Ces repères viennent d'un guide public cité en fin d'article ; votre devis donne le prix réel.
+
+## Quel est le prix d'une toiture au m² selon le matériau ?
+
+| Matériau | Repère de prix TTC |
+|---|---|
+| Tuiles béton | environ 90 € le m² |
+| Zinc | environ 125 € le m² |
+| Tuiles terre cuite | environ 130 € le m² |
+| Ardoises naturelles | environ 200 € le m² |
+| Dépose de l'ancienne couverture | environ 15 € le m² |
+
+## Pourquoi le prix varie-t-il autant ?
+
+La pente, la hauteur du bâtiment, l'accès pour l'échafaudage, le nombre de points singuliers (cheminées, lucarnes, noues) et l'état de la charpente changent le chantier. Une toiture simple coûte moins cher qu'une toiture découpée.
+
+## Quel matériau choisir à Caen ?
+
+La tuile et l'ardoise sont les plus répandues dans le Calvados. Le choix dépend du style de la maison, des règles d'urbanisme locales et du budget. En secteur protégé, l'aspect de la couverture est encadré : renseignez-vous auprès de la mairie.
+
+## Faut-il refaire toute la toiture ?
+
+Pas toujours. Si le désordre est localisé, une [réparation de toiture](/reparation-toiture-caen) suffit. Si les tuiles sont poreuses ou la mousse envahissante, un [démoussage](/demoussage-toiture-caen) peut retarder la rénovation. Quand la couverture est en fin de vie, la [rénovation de toiture](/renovation-toiture-caen) devient pertinente. Voir aussi nos [tarifs](/tarifs-couvreur-caen).
+
+## Sources
+
+- La Maison Saint-Gobain, guide « Quel prix pour votre rénovation de toiture ? », mis à jour le 16 avril 2026 (prix TTC).
+
+Pour connaître le prix de votre toiture, [demandez un devis gratuit](/contact).`,
+  },
+  {
+    slug: "pose-velux-prix-autorisation",
+    title: "Pose d'un Velux : prix et autorisation à prévoir",
+    metaTitle: "Pose d'un Velux : prix et autorisation à prévoir",
+    category: "Fenêtres de toit",
+    readTime: "5 min",
+    date: "2026-10-14",
+    updated: "2026-10-14",
+    excerpt: "La pose d'un Velux coûte environ 300 € de main-d'œuvre, plus le prix de la fenêtre (240 à 1 300 €). Une déclaration préalable est en général nécessaire.",
+    faq: [
+      { q: "Combien coûte la pose d'un Velux ?", a: "Environ 300 € pour la pose, auxquels s'ajoute le prix de la fenêtre de toit, de 240 à 1 300 € selon le modèle, d'après les guides publics." },
+      { q: "Faut-il une autorisation pour poser une fenêtre de toit ?", a: "En général oui : l'ajout d'une fenêtre de toit modifie l'aspect extérieur et demande une déclaration préalable de travaux en mairie. Vérifiez auprès de votre mairie." },
+      { q: "Peut-on remplacer un Velux existant ?", a: "Oui. Le remplacement de la fenêtre et de ses raccords d'étanchéité fait partie des interventions courantes d'un couvreur." },
+    ],
+    content: `La pose d'un Velux coûte environ 300 € de main-d'œuvre, auxquels s'ajoute le prix de la fenêtre de toit, de 240 à 1 300 € selon le modèle. Une déclaration préalable de travaux est en général nécessaire quand on crée une nouvelle ouverture. Repères issus de guides publics, cités en fin d'article.
+
+## Combien coûte la pose d'un Velux ?
+
+| Poste | Repère de prix |
+|---|---|
+| Pose d'une fenêtre de toit | environ 300 € |
+| Fenêtre de toit (fourniture) | 240 à 1 300 € |
+
+Le prix final dépend du modèle (ouverture, motorisation, taille), de la découpe de la couverture et des raccords d'étanchéité autour de la fenêtre.
+
+## Faut-il une autorisation pour poser une fenêtre de toit ?
+
+Créer une ouverture dans la toiture modifie l'aspect extérieur de la maison. Une déclaration préalable de travaux est donc en général demandée en mairie, avant le chantier. Les règles peuvent être plus strictes en secteur protégé : renseignez-vous auprès du service urbanisme de votre commune.
+
+## Pourquoi l'étanchéité est-elle le point clé ?
+
+Une fenêtre de toit est un point sensible : les solins et raccords autour du cadre doivent être posés avec soin. Une mauvaise pose provoque des infiltrations. Voir la page [pose de Velux à Caen](/pose-velux-caen) et celle de l'[étanchéité de toiture](/etancheite-toiture-caen).
+
+## Sources
+
+- La Maison Saint-Gobain, guide « Quel prix pour votre rénovation de toiture ? », mis à jour le 16 avril 2026.
+- [justice.fr, faut-il une autorisation d'urbanisme pour installer une fenêtre de toit ?](https://www.justice.fr/fiche/autorisation-urbanisme-faut-deposer-installer-fenetre-toit)
+
+Pour un devis de pose ou de remplacement, [contactez-nous](/contact).`,
+  },
+  {
+    slug: "gouttieres-entretien-reparation-prix",
+    title: "Gouttières : entretien, réparation et prix",
+    metaTitle: "Gouttières : entretien, réparation et prix",
+    category: "Zinguerie",
+    readTime: "4 min",
+    date: "2026-10-14",
+    updated: "2026-10-14",
+    excerpt: "Le nettoyage d'une gouttière coûte de 12 à 25 € le mètre linéaire et une réparation de 150 à 225 €. Quand et comment entretenir ses gouttières.",
+    faq: [
+      { q: "Combien coûte le nettoyage d'une gouttière ?", a: "De 12 à 25 € le mètre linéaire selon les guides publics." },
+      { q: "Combien coûte la réparation d'une gouttière ?", a: "Compter de 150 à 225 € pour une réparation, selon l'étendue des dégâts." },
+      { q: "Quand nettoyer ses gouttières ?", a: "Après la chute des feuilles et après les tempêtes, pour éviter les débordements et les infiltrations en façade." },
+    ],
+    content: `Le nettoyage d'une gouttière coûte de 12 à 25 € le mètre linéaire, et une réparation de 150 à 225 €. Des gouttières bouchées font déborder l'eau sur la façade et les murs. Repères tirés d'un guide public cité en fin d'article.
+
+## Quel est le prix d'entretien et de réparation d'une gouttière ?
+
+| Intervention | Repère de prix |
+|---|---|
+| Nettoyage de gouttière | 12 à 25 € le mètre linéaire |
+| Réparation de gouttière | 150 à 225 € |
+
+## Pourquoi entretenir ses gouttières ?
+
+Feuilles, mousse et sédiments bouchent les gouttières et les descentes. L'eau déborde, abîme la façade et peut remonter sous les tuiles. Un nettoyage après l'automne évite ces désordres.
+
+## Quels signes montrent un problème ?
+
+- de l'eau qui déborde par temps de pluie ;
+- des traces vertes ou noires sur la façade sous la gouttière ;
+- des joints qui fuient ou une gouttière qui penche ;
+- de la végétation qui pousse dans le chéneau.
+
+## Que peut faire un couvreur zingueur ?
+
+Nettoyage, remplacement de tronçons, reprise des joints et pose de gouttières neuves. Voir la page [gouttières à Caen](/gouttieres-caen) et celle du [couvreur zingueur](/couvreur-zingueur-caen).
+
+## Sources
+
+- MesDépanneurs, guide « Fuite de toiture ? Les prix de réparation », mis à jour le 30 décembre 2025.
+
+Pour faire examiner vos gouttières, [demandez un devis gratuit](/contact).`,
+  },
+  {
+    slug: "traitement-charpente-xylophages-prix",
+    title: "Traitement de charpente : prix et signes d'alerte",
+    metaTitle: "Traitement de charpente : prix et signes d'alerte",
+    category: "Charpente",
+    readTime: "4 min",
+    date: "2026-10-14",
+    updated: "2026-10-14",
+    excerpt: "Le traitement contre les xylophages coûte de 30 à 50 € le mètre linéaire. Les signes d'une charpente attaquée et les prix de réparation.",
+    faq: [
+      { q: "Combien coûte un traitement de charpente ?", a: "Le traitement contre les xylophages revient de 30 à 50 € le mètre linéaire selon les guides publics." },
+      { q: "Combien coûte la réparation d'une charpente ?", a: "Environ 60 € le m² pour une réparation, et environ 188 € le m² pour un remplacement complet de charpente." },
+      { q: "Comment repérer une charpente attaquée ?", a: "Petits trous de sortie, poussière de bois sous les pièces, bois qui sonne creux ou s'effrite : faites contrôler la charpente par un professionnel." },
+    ],
+    content: `Le traitement d'une charpente contre les xylophages coûte de 30 à 50 € le mètre linéaire. Une réparation revient à environ 60 € le m², et un remplacement complet à environ 188 € le m². Ces prix viennent d'un guide public cité en fin d'article.
+
+## Quels sont les prix pour une charpente ?
+
+| Intervention | Repère de prix TTC |
+|---|---|
+| Traitement contre les xylophages | 30 à 50 € le mètre linéaire |
+| Réparation de charpente | environ 60 € le m² |
+| Remplacement de charpente | environ 188 € le m² |
+
+## Comment repérer une charpente attaquée ?
+
+Des petits trous de sortie, de la poussière de bois sous les pièces, un bois qui sonne creux ou qui s'effrite sont des signes d'alerte. L'humidité due à une fuite favorise aussi les champignons.
+
+## Pourquoi traiter vite ?
+
+Un bois attaqué perd de sa solidité. Un diagnostic permet de choisir entre un traitement et la reprise des pièces abîmées. Voir la page [traitement de charpente à Caen](/traitement-charpente-caen).
+
+## Sources
+
+- La Maison Saint-Gobain, guide « Quel prix pour votre rénovation de toiture ? », mis à jour le 16 avril 2026 (prix TTC).
+
+Pour faire contrôler votre charpente, [demandez un devis gratuit](/contact).`,
+  },
 ];
 
 export const getPost = (slug) => BLOG_POSTS.find((p) => p.slug === slug);

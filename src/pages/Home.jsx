@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, Star, MapPin, CheckCircle2, ExternalLink } from "lucide-react";
-import SEO, { buildLocalBusinessSchema, buildFAQSchema, DESCRIPTION } from "../components/SEO";
+import SEO, { buildWebSiteSchema, buildLocalBusinessSchema, buildFAQSchema, DESCRIPTION } from "../components/SEO";
 import { COMPANY, telHref } from "../data/company";
 import { SERVICES } from "../data/services";
 import { CITIES } from "../data/cities";
@@ -32,7 +32,7 @@ const STEPS = [
 ];
 
 export default function Home() {
-  const jsonLd = [buildLocalBusinessSchema(), buildFAQSchema(GLOBAL_FAQ)];
+  const jsonLd = [buildLocalBusinessSchema(), buildWebSiteSchema(), buildFAQSchema(GLOBAL_FAQ)];
   const gallery = HAS_PHOTOS ? PHOTOS.slice(0, 3) : null;
 
   return (

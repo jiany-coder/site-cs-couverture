@@ -98,6 +98,16 @@ export const buildLocalBusinessSchema = () => ({
   ...(/\d/.test(COMPANY.legal.siret) ? { taxID: COMPANY.legal.siret } : {}),
 });
 
+export const buildWebSiteSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${COMPANY.site}/#website`,
+  url: COMPANY.site,
+  name: COMPANY.brand,
+  inLanguage: "fr-FR",
+  publisher: { "@id": `${COMPANY.site}/#business` },
+});
+
 export const buildBreadcrumbSchema = (items) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
