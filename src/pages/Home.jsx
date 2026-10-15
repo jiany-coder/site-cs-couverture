@@ -79,7 +79,7 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-end bg-[#040F2F] overflow-hidden" data-testid="hero-section">
-        <HeroBg src="/hero-toiture.webp" strength={0.55} />
+        <HeroBg src="/hero-chantier.webp" strength={0.6} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-40 pb-20 w-full">
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-white mb-6 inline-block bg-[#C70909] px-4 py-2 rounded-full">Couvreur à Caen et dans le Pays d'Auge</p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white max-w-4xl mb-7">
