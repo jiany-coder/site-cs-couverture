@@ -79,7 +79,8 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-end bg-[#040F2F] overflow-hidden" data-testid="hero-section">
-        <HeroBg src="/hero-chantier.webp" strength={0.6} />
+        <HeroBg src="/hero-chantier.webp" strength={0.62} />
+        <img src={COMPANY.logos.main} alt="Logo CS Couverture, experts toiture à Caen" width="512" height="710" fetchPriority="high" className="hidden lg:block absolute right-12 xl:right-24 top-1/2 -translate-y-1/2 w-60 xl:w-72 h-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]" />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-40 pb-20 w-full">
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-white mb-6 inline-block bg-[#C70909] px-4 py-2 rounded-full">Couvreur à Caen et dans le Pays d'Auge</p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white max-w-4xl mb-7">
