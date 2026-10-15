@@ -27,7 +27,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20 lg:h-24">
           <Link to="/" className="flex items-center gap-3" data-testid="logo-link">
-            <img src={COMPANY.logos.icon} alt="CS Couverture Caen" width="64" height="64" className="h-14 w-14 lg:h-16 lg:w-16 object-contain" />
+            <img src={COMPANY.logos.icon} alt="CS Couverture Caen" width="46" height="64" className="h-14 w-auto lg:h-16 object-contain" />
             <div className="hidden sm:block leading-tight">
               <div className="font-serif text-[#0B1220] text-lg lg:text-xl font-semibold tracking-tight">{COMPANY.brand}</div>
               <div className="text-[10px] lg:text-xs tracking-[0.18em] uppercase text-[#0A2A5C] font-sans font-semibold">Couvreur à Caen · Calvados</div>
@@ -61,7 +61,7 @@ export default function Header() {
             </a>
             <Link
               to="/contact"
-              className="hidden md:inline-flex items-center justify-center bg-[#0A2A5C] text-[#F6F8FB] px-5 py-2.5 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:bg-[#061C42] hover:-translate-y-0.5"
+              className="hidden md:inline-flex items-center justify-center bg-[#D7141E] text-white px-5 py-2.5 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:bg-[#061C42] hover:-translate-y-0.5"
               data-testid="header-cta-devis"
             >
               Devis gratuit
@@ -86,10 +86,10 @@ export default function Header() {
               <NavLink key={n.to} to={n.to} className={({ isActive }) => `py-3 px-3 rounded-lg text-base font-sans ${isActive ? "bg-[#E4EAF3] text-[#0A2A5C] font-semibold" : "text-[#475569]"}`}>{n.label}</NavLink>
             ))}
             <div className="flex gap-3 mt-4">
-              <a href={telHref} className="flex-1 inline-flex items-center justify-center gap-2 bg-[#E4EAF3] text-[#0A2A5C] px-4 py-3 rounded-full font-semibold text-sm">
+              <a href={telHref} className="flex-1 inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-4 py-3 rounded-full font-semibold text-sm">
                 <Phone className="w-4 h-4" /> Appeler
               </a>
-              <Link to="/contact" className="flex-1 inline-flex items-center justify-center bg-[#0A2A5C] text-[#F6F8FB] px-4 py-3 rounded-full font-semibold text-sm">Devis gratuit</Link>
+              <Link to="/contact" className="flex-1 inline-flex items-center justify-center bg-[#D7141E] text-white px-4 py-3 rounded-full font-semibold text-sm">Devis gratuit</Link>
             </div>
           </nav>
         </div>

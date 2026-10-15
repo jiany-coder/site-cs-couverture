@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="bg-[#0B1220] text-[#F6F8FB]/85 pt-20 pb-10 mt-24" data-testid="site-footer">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
         <div className="md:col-span-4">
-          <img loading="lazy" decoding="async" src={COMPANY.logos.icon} alt="CS Couverture Caen" width="80" height="80" className="h-20 w-20 object-contain rounded-2xl bg-white p-1" />
+          <img loading="lazy" decoding="async" src={COMPANY.logos.icon} alt="CS Couverture Caen" width="58" height="80" className="h-20 w-auto object-contain" />
           <h3 className="font-serif text-xl font-semibold text-[#F6F8FB] mt-6 mb-3">{COMPANY.brand}</h3>
           <p className="text-sm leading-relaxed mb-6 text-[#F6F8FB]/70">
             Couvreur basé à Caen : réparation, rénovation et entretien de toiture dans un rayon d'environ {COMPANY.radiusKm} km.

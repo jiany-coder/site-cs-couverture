@@ -2,6 +2,8 @@ import React from "react";
 import { useLocation, Navigate, Link } from "react-router-dom";
 import { ArrowRight, Phone, MapPin, CheckCircle2 } from "lucide-react";
 import SEO, { buildLocalBusinessSchema, buildFAQSchema, buildBreadcrumbSchema, buildServiceSchema } from "../components/SEO";
+import HeroBg from "../components/HeroBg";
+import PhotoBand from "../components/PhotoBand";
 import { COMPANY, telHref } from "../data/company";
 import { PAGE_UPDATED } from "../data/services";
 import CONTENT from "../data/communes_content.json";
@@ -32,8 +34,8 @@ export default function CityPage() {
     <>
       <SEO title={d.title} description={d.desc} canonical={url} jsonLd={ld} />
 
-      <section className="relative bg-gradient-to-br from-[#0A2A5C] via-[#082350] to-[#061C42] overflow-hidden">
-        <RoofPattern opacity={0.13} />
+      <section className="relative bg-[#061C42] overflow-hidden">
+        <HeroBg src="/toiture-tuiles-rouges.webp" strength={0.82} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 w-full">
           <nav aria-label="Fil d'Ariane" className="text-sm text-[#E4EAF3]/80 font-sans">
             <Link to="/" className="hover:text-[#E4EAF3]">Accueil</Link> <span aria-hidden="true">/</span>{" "}
@@ -46,7 +48,7 @@ export default function CityPage() {
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.1] tracking-tight text-[#F6F8FB] max-w-4xl">{d.h1}</h1>
           <p className="text-lg sm:text-xl text-[#F6F8FB]/88 max-w-3xl mt-7 leading-relaxed">{d.intro}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-9">
-            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#E4EAF3] text-[#0A2A5C] px-8 py-4 rounded-full font-sans font-semibold text-base hover:bg-white hover:-translate-y-1 hover:shadow-xl transition-all">
+            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base hover:bg-[#B50F18] hover:-translate-y-1 hover:shadow-xl transition-all">
               Devis gratuit <ArrowRight className="w-5 h-5" />
             </Link>
             <a href={telHref} className="inline-flex items-center justify-center gap-2 bg-transparent text-[#F6F8FB] px-8 py-4 rounded-full font-sans font-semibold text-base border-2 border-[#E4EAF3]/40 hover:bg-[#E4EAF3] hover:text-[#0A2A5C] transition-all">
@@ -133,6 +135,7 @@ export default function CityPage() {
         </div>
       </section>
 
+      <PhotoBand src="/toiture-ardoise.webp" title={`Votre toiture à ${d.nom}`} text="Réparation, rénovation, démoussage, zinguerie : nous examinons la toiture puis remettons un devis gratuit." />
       <CTASection title={`Un couvreur à ${d.nom} ? Appelez-nous`} />
     </>
   );

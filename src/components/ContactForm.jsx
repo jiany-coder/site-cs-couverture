@@ -104,7 +104,7 @@ export default function ContactForm({ defaultService = "", defaultCity = "" }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full inline-flex items-center justify-center gap-2 bg-[#0A2A5C] text-[#F6F8FB] px-8 py-4 rounded-full font-sans font-semibold text-base transition-all duration-300 hover:bg-[#061C42] hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all duration-300 hover:bg-[#061C42] hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
         data-testid="contact-submit"
       >
         {loading ? <><Loader2 className="w-5 h-5 animate-spin" /> Envoi en cours...</> : <><Send className="w-5 h-5" /> Recevoir mon devis gratuit</>}

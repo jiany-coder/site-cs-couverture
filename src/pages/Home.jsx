@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Phone, Star, MapPin, CheckCircle2, ExternalLink } from "lucide-react";
 import SEO, { buildWebSiteSchema, buildLocalBusinessSchema, buildFAQSchema, DESCRIPTION } from "../components/SEO";
 import { COMPANY, telHref } from "../data/company";
+import HeroBg from "../components/HeroBg";
+import PhotoBand from "../components/PhotoBand";
 import { SERVICES } from "../data/services";
 import { CITIES } from "../data/cities";
 import { PRICE_GROUPS } from "../data/prices";
@@ -45,8 +47,8 @@ export default function Home() {
       />
 
       {/* HERO */}
-      <section className="relative min-h-[88vh] flex items-center bg-gradient-to-br from-[#0A2A5C] via-[#082350] to-[#061C42] overflow-hidden" data-testid="hero-section">
-        <RoofPattern opacity={0.13} />
+      <section className="relative min-h-[88vh] flex items-center bg-[#061C42] overflow-hidden" data-testid="hero-section">
+        <HeroBg src="/hero-toiture.webp" />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
           <div className="lg:col-span-8">
             <div className="inline-flex items-center gap-2 bg-[#E4EAF3]/12 backdrop-blur-md border border-[#E4EAF3]/30 px-4 py-2 rounded-full mb-7">
@@ -60,7 +62,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#E4EAF3] text-[#0A2A5C] px-8 py-4 rounded-full font-sans font-semibold text-base transition-all hover:bg-white hover:-translate-y-1 hover:shadow-xl"
+                className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all hover:bg-[#B50F18] hover:-translate-y-1 hover:shadow-xl"
                 data-testid="hero-cta-devis"
               >
                 Devis gratuit <ArrowRight className="w-5 h-5" strokeWidth={1.75} />
@@ -83,9 +85,7 @@ export default function Home() {
             </div>
           </div>
           <div className="lg:col-span-4 hidden lg:flex justify-end">
-            <div className="bg-white p-6 rounded-3xl shadow-2xl">
-              <img src={COMPANY.logos.main} alt="Logo CS Couverture Caen" width="260" height="288" className="w-60 h-auto object-contain" fetchPriority="high" decoding="async" />
-            </div>
+            <img src={COMPANY.logos.main} alt="Logo CS Couverture, experts toiture à Caen" width="512" height="710" className="w-64 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]" fetchPriority="high" decoding="async" />
           </div>
         </div>
       </section>
@@ -109,6 +109,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PhotoBand src="/toiture-tuiles-rouges.webp" title="Votre toiture mérite un vrai diagnostic" text="Nous examinons la couverture, repérons l'origine du problème, puis remettons un devis gratuit et détaillé." />
 
       {/* SITUATIONS */}
       <section className="py-24 bg-[#EDF1F7]" data-testid="situations-section">
@@ -212,6 +214,8 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <PhotoBand src="/toiture-ardoise.webp" title="Du littoral au bocage, nous venons chez vous" text="Caen et 86 communes dans un rayon d'environ 30 km : une seule entreprise, un seul interlocuteur." />
 
       {/* ZONE */}
       <section className="py-24 bg-[#EDF1F7]" data-testid="zone-section">

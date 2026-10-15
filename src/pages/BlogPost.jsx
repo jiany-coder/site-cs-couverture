@@ -106,7 +106,7 @@ export default function BlogPost() {
               <h3 className="font-serif text-3xl text-[#E4EAF3] mb-4">Parlons de votre projet</h3>
               <p className="text-[#F6F8FB]/80 mb-6">Nous examinons la toiture puis vous remettons un devis gratuit.</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#E4EAF3] text-[#0A2A5C] px-6 py-3 rounded-full font-sans font-semibold text-sm">Devis gratuit <ArrowRight className="w-4 h-4" /></Link>
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-6 py-3 rounded-full font-sans font-semibold text-sm">Devis gratuit <ArrowRight className="w-4 h-4" /></Link>
                 <a href={`${telHref}`} className="inline-flex items-center justify-center gap-2 border-2 border-[#E4EAF3]/40 text-[#E4EAF3] px-6 py-3 rounded-full font-sans font-semibold text-sm hover:bg-[#E4EAF3] hover:text-[#0A2A5C] transition-colors"><Phone className="w-4 h-4" /> {COMPANY.phone}</a>
               </div>
             </div>

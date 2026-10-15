@@ -16,7 +16,7 @@ export default function CTASection({ title = "Un problème de toiture ? Parlons-
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center gap-2 bg-[#E4EAF3] text-[#0A2A5C] px-8 py-4 rounded-full font-sans font-semibold text-base transition-all duration-300 hover:bg-white hover:-translate-y-1 hover:shadow-xl"
+            className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all duration-300 hover:bg-[#B50F18] hover:-translate-y-1 hover:shadow-xl"
             data-testid="cta-section-devis"
           >
             Demander un devis <ArrowRight className="w-5 h-5" strokeWidth={1.75} />

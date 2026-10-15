@@ -16,7 +16,7 @@ export default function FloatingCTA() {
       </Link>
       <a
         href={telHref}
-        className="w-14 h-14 rounded-full bg-[#0A2A5C] flex items-center justify-center float-shadow hover:scale-110 transition-transform"
+        className="w-14 h-14 rounded-full bg-[#D7141E] flex items-center justify-center float-shadow hover:scale-110 transition-transform"
         aria-label="Appeler CS Couverture Rénovation"
         data-testid="floating-phone"
       >

@@ -13,7 +13,7 @@ const SEO = ({ title, description, canonical, image, type = "website", jsonLd, n
   const desc = description || `Couvreur à Caen : réparation, rénovation et entretien de toiture dans un rayon de ${COMPANY.radiusKm} km. Devis gratuit. Tél. ${COMPANY.phone}`;
   const path = location.pathname === "/" ? "/" : location.pathname.replace(/\/$/, "");
   const url = canonical || `${COMPANY.site}${path}`;
-  const img = image || logoUrl();
+  const img = image || logoUrl(COMPANY.logos.og);
 
   // Prérendu (build) : on mémorise les balises de la page pour les écrire dans le HTML statique.
   if (typeof window === "undefined") {

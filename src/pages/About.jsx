@@ -43,7 +43,7 @@ export default function About() {
           </div>
           <div className="lg:col-span-5 reveal flex justify-center">
             <div className="bg-white p-6 rounded-3xl shadow-xl border border-[#D9E0EA]">
-              <img src={COMPANY.logos.main} alt="Logo CS Couverture Caen" width="240" height="266" className="w-56 h-auto object-contain" loading="lazy" decoding="async" />
+              <img src={COMPANY.logos.main} alt="Logo CS Couverture, experts toiture à Caen" width="512" height="710" className="w-48 h-auto object-contain" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

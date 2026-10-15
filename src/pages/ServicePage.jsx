@@ -2,6 +2,8 @@ import React from "react";
 import { useLocation, Link, Navigate } from "react-router-dom";
 import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 import SEO, { buildLocalBusinessSchema, buildFAQSchema, buildServiceSchema, buildBreadcrumbSchema } from "../components/SEO";
+import HeroBg from "../components/HeroBg";
+import PhotoBand from "../components/PhotoBand";
 import { COMPANY, telHref } from "../data/company";
 import { SERVICES, getService, ICONS, PRICE_SOURCE, PAGE_UPDATED } from "../data/services";
 import { CITIES } from "../data/cities";
@@ -36,8 +38,8 @@ export default function ServicePage() {
       <SEO title={service.metaTitle} description={service.metaDescription} canonical={url} jsonLd={jsonLd} />
 
       {/* HERO */}
-      <section className="relative bg-gradient-to-br from-[#0A2A5C] via-[#082350] to-[#061C42] overflow-hidden" data-testid="service-hero">
-        <RoofPattern opacity={0.13} />
+      <section className="relative bg-[#061C42] overflow-hidden" data-testid="service-hero">
+        <HeroBg src="/toiture-ardoise.webp" strength={0.82} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-20 pb-20 w-full">
           <nav aria-label="Fil d'Ariane" className="text-sm text-[#E4EAF3]/80 font-sans">
             <Link to="/" className="hover:text-[#E4EAF3]">Accueil</Link> <span aria-hidden="true">/</span> <span>{service.title}</span>
@@ -51,7 +53,7 @@ export default function ServicePage() {
           <div className="flex flex-col sm:flex-row gap-4 mt-9">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#E4EAF3] text-[#0A2A5C] px-8 py-4 rounded-full font-sans font-semibold text-base transition-all hover:bg-white hover:-translate-y-1 hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all hover:bg-[#B50F18] hover:-translate-y-1 hover:shadow-xl"
               data-testid="service-hero-cta"
             >
               Devis gratuit <ArrowRight className="w-5 h-5" strokeWidth={1.75} />
@@ -168,6 +170,7 @@ export default function ServicePage() {
         </div>
       </section>
 
+      <PhotoBand src="/toiture-tuiles-rouges.webp" title={`${service.title} : on s'en occupe`} text="Examen de la toiture, devis gratuit et détaillé, intervention dans un rayon de 30 km autour de Caen." />
       <CTASection />
     </>
   );
