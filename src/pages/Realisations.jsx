@@ -1,7 +1,7 @@
 import React from "react";
 import SEO, { buildPageSchema, buildBreadcrumbSchema } from "../components/SEO";
 import { COMPANY } from "../data/company";
-import { PHOTOS, HAS_PHOTOS } from "../data/photos";
+import { PHOTOS, HAS_PHOTOS, ILLUSTRATIONS } from "../data/photos";
 import CTASection from "../components/CTASection";
 import PhotoSlot from "../components/PhotoSlot";
 
@@ -47,7 +47,13 @@ export default function Realisations() {
                     )}
                   </figure>
                 ))
-              : [0, 1, 2, 3, 4, 5].map((i) => <PhotoSlot key={i} />)}
+              : ILLUSTRATIONS.slice(0, 9).map((p) => (
+                  <figure key={p.src} className="reveal">
+                    <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+                      <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                    </div>
+                  </figure>
+                ))}
           </div>
         </div>
       </section>

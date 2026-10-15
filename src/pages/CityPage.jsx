@@ -8,6 +8,7 @@ import { COMPANY, telHref } from "../data/company";
 import { PAGE_UPDATED } from "../data/services";
 import CONTENT from "../data/communes_content.json";
 import FAQAccordion from "../components/FAQAccordion";
+import { pickIllustrations, seedOf } from "../data/photos";
 import ContactForm from "../components/ContactForm";
 import CTASection from "../components/CTASection";
 import RoofPattern from "../components/RoofPattern";
@@ -135,6 +136,18 @@ export default function CityPage() {
         </div>
       </section>
 
+      <section className="py-14 bg-[#EDF1F7]" data-testid="city-photos">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-8">Toitures à {d.nom} et aux alentours</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {pickIllustrations(3, seedOf(d.nom)).map((p) => (
+              <div key={p.src} className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+                <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <PhotoBand src="/toiture-ardoise.webp" title={`Votre toiture à ${d.nom}`} text="Réparation, rénovation, démoussage, zinguerie : nous examinons la toiture puis remettons un devis gratuit." />
       <CTASection title={`Un couvreur à ${d.nom} ? Appelez-nous`} />
     </>

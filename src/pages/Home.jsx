@@ -9,7 +9,7 @@ import { SERVICES } from "../data/services";
 import { CITIES } from "../data/cities";
 import { PRICE_GROUPS } from "../data/prices";
 import { GLOBAL_FAQ } from "../data/faq";
-import { PHOTOS, HAS_PHOTOS } from "../data/photos";
+import { PHOTOS, HAS_PHOTOS, pickIllustrations } from "../data/photos";
 import ServiceCard from "../components/ServiceCard";
 import FAQAccordion from "../components/FAQAccordion";
 import TrustBar from "../components/TrustBar";
@@ -35,7 +35,7 @@ const STEPS = [
 
 export default function Home() {
   const jsonLd = [buildLocalBusinessSchema(), buildWebSiteSchema(), buildFAQSchema(GLOBAL_FAQ)];
-  const gallery = HAS_PHOTOS ? PHOTOS.slice(0, 3) : null;
+  const gallery = HAS_PHOTOS ? PHOTOS.slice(0, 6) : pickIllustrations(6, 2);
 
   return (
     <>
@@ -157,7 +157,7 @@ export default function Home() {
               Voir les réalisations <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {gallery
               ? gallery.map((p) => (
                   <div key={p.src} className="relative overflow-hidden rounded-2xl aspect-[4/3] reveal">

@@ -7,7 +7,8 @@ import PhotoBand from "../components/PhotoBand";
 import { COMPANY, telHref } from "../data/company";
 import { SERVICES, getService, ICONS, PRICE_SOURCE, PAGE_UPDATED } from "../data/services";
 import { CITIES } from "../data/cities";
-import { PHOTOS, HAS_PHOTOS } from "../data/photos";
+import { PHOTOS, HAS_PHOTOS, SERVICE_IMAGES, DEMOUSSAGE, pickIllustrations, seedOf } from "../data/photos";
+import BeforeAfter from "../components/BeforeAfter";
 import FAQAccordion from "../components/FAQAccordion";
 import ContactForm from "../components/ContactForm";
 import CTASection from "../components/CTASection";
@@ -24,7 +25,8 @@ export default function ServicePage() {
   const Icon = ICONS[service.icon] || ICONS.House;
   const url = `${COMPANY.site}/${slug}`;
   const related = service.related.map(getService).filter(Boolean);
-  const photos = HAS_PHOTOS ? PHOTOS.slice(0, 3) : null;
+  const photos = HAS_PHOTOS ? PHOTOS.slice(0, 3) : pickIllustrations(3, seedOf(service.slug) + 1);
+  const feature = SERVICE_IMAGES[service.slug];
 
   const jsonLd = [
     buildLocalBusinessSchema(),
@@ -119,16 +121,22 @@ export default function ServicePage() {
       {/* PHOTOS */}
       <section className="py-16 bg-[#EDF1F7]" data-testid="service-photos">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-8">Nos chantiers : {service.title.toLowerCase()}</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-8">{HAS_PHOTOS ? `Nos chantiers : ${service.title.toLowerCase()}` : `${service.title} : exemples de toitures`}</h2>
+          {service.slug === "demoussage-toiture-caen" ? (
+            <div className="mb-6 max-w-3xl mx-auto"><BeforeAfter before={DEMOUSSAGE.before.src} after={DEMOUSSAGE.after.src} /></div>
+          ) : feature && !HAS_PHOTOS ? (
+            <div className="relative overflow-hidden rounded-3xl aspect-[21/9] mb-6">
+              <img src={feature.src} alt={feature.alt} width="1200" height="800" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            </div>
+          ) : null}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {photos
-              ? photos.map((p) => (
-                  <div key={p.src} className="relative overflow-hidden rounded-2xl aspect-[4/3]">
-                    <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-                  </div>
-                ))
-              : [0, 1, 2].map((i) => <PhotoSlot key={i} />)}
+            {photos.map((p) => (
+              <div key={p.src} className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+                <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+              </div>
+            ))}
           </div>
+          {!HAS_PHOTOS && <p className="text-xs text-[#475569] mt-4">Images d'illustration : les photos de nos chantiers arrivent bientôt.</p>}
         </div>
       </section>
 

@@ -2,16 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { ICONS } from "../data/services";
-import RoofPattern from "./RoofPattern";
+import { SERVICE_IMAGES } from "../data/photos";
 
 export default function ServiceCard({ service }) {
   const Icon = ICONS[service.icon] || ICONS.House;
   return (
     <Link to={`/${service.slug}`} className="group block premium-card overflow-hidden" data-testid={`service-card-${service.slug}`}>
-      <div className="relative h-28 overflow-hidden bg-gradient-to-br from-[#0A2A5C] to-[#061C42]">
-        <RoofPattern opacity={0.16} />
-        <div className="absolute bottom-0 left-6 translate-y-1/2 w-14 h-14 rounded-full bg-[#E4EAF3] border-4 border-white flex items-center justify-center">
-          <Icon className="w-6 h-6 text-[#0A2A5C]" strokeWidth={1.5} />
+      <div className="relative h-48 overflow-hidden bg-[#0A2A5C]">
+        {SERVICE_IMAGES[service.slug] && <img src={SERVICE_IMAGES[service.slug].src} alt={SERVICE_IMAGES[service.slug].alt} width="1200" height="800" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#061C42]/60 to-transparent" />
+        <div className="absolute bottom-0 left-6 translate-y-1/2 w-14 h-14 rounded-full bg-[#D7141E] border-4 border-white flex items-center justify-center">
+          <Icon className="w-6 h-6 text-white" strokeWidth={1.5} />
         </div>
       </div>
       <div className="p-7 pt-10">
