@@ -15,7 +15,7 @@ import ContactForm from "../components/ContactForm";
 import HeroBg from "../components/HeroBg";
 
 const eyebrow = "text-xs font-bold tracking-[0.25em] uppercase text-[#C70909]";
-const h2 = "text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.08]";
+const h2 = "text-inherit text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.08]";
 
 const svc = (slug) => SERVICES.find((s) => s.slug === slug);
 
@@ -83,7 +83,7 @@ export default function Home() {
         <img src={COMPANY.logos.main} alt="Logo CS Couverture, experts toiture à Caen" width="512" height="710" fetchPriority="high" className="hidden lg:block absolute right-12 xl:right-24 top-1/2 -translate-y-1/2 w-60 xl:w-72 h-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]" />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-40 pb-20 w-full">
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-white mb-6 inline-block bg-[#C70909] px-4 py-2 rounded-full">Couvreur à Caen et dans le Pays d'Auge</p>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white max-w-4xl mb-7">
+          <h1 className="text-inherit text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white max-w-4xl mb-7">
             Un toit qui tient, <span className="italic font-medium text-white/80">de Caen au Pays d'Auge</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/85 max-w-2xl mb-10 leading-relaxed">{DESCRIPTION}</p>
@@ -158,7 +158,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-3">{metier.id}</h3>
+              <h3 className="text-inherit text-2xl font-bold mb-3">{metier.id}</h3>
               <p className="text-[#475569] leading-relaxed mb-6">{metier.intro}</p>
               <ul className="space-y-2.5 mb-8">
                 {metier.slugs.map((s) => (
@@ -184,7 +184,7 @@ export default function Home() {
             {STEPS.map(([t, d], i) => (
               <li key={t} className="rounded-3xl bg-white/[0.06] border border-white/10 p-7">
                 <span className="text-5xl font-bold text-[#C70909]">0{i + 1}</span>
-                <h3 className="text-xl font-bold mt-4 mb-2">{t}</h3>
+                <h3 className="text-inherit text-xl font-bold mt-4 mb-2">{t}</h3>
                 <p className="text-sm text-white/75 leading-relaxed">{d}</p>
               </li>
             ))}
@@ -202,7 +202,7 @@ export default function Home() {
             {TRUST.map(([t, d], i) => (
               <div key={t} className="bg-white rounded-3xl p-7 border border-[#040F2F]/5">
                 <span className="text-sm font-bold text-[#C70909]">0{i + 1}</span>
-                <h3 className="text-xl font-bold mt-2 mb-2">{t}</h3>
+                <h3 className="text-inherit text-xl font-bold mt-2 mb-2">{t}</h3>
                 <p className="text-sm text-[#475569] leading-relaxed">{d}</p>
               </div>
             ))}
@@ -261,7 +261,7 @@ export default function Home() {
             </dl>
           </div>
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 shadow-sm">
-            <h3 className="text-2xl font-bold mb-6">Votre devis toiture gratuit</h3>
+            <h3 className="text-inherit text-2xl font-bold mb-6">Votre devis toiture gratuit</h3>
             <ContactForm />
           </div>
         </div>
@@ -287,7 +287,7 @@ export default function Home() {
             {BLOG_POSTS.slice(0, 6).map((p) => (
               <Link key={p.slug} to={`/blog/${p.slug}`} className="bg-white rounded-3xl p-7 border border-[#040F2F]/5 hover:shadow-xl transition-shadow">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#C70909] mb-3">{p.category}</p>
-                <h3 className="text-lg font-bold leading-snug mb-3">{p.title}</h3>
+                <h3 className="text-inherit text-lg font-bold leading-snug mb-3">{p.title}</h3>
                 <p className="text-sm text-[#475569] leading-relaxed mb-4">{p.excerpt}</p>
                 <span className="text-sm font-bold text-[#1F2D5A]">Lire la suite →</span>
               </Link>
@@ -299,7 +299,7 @@ export default function Home() {
       {/* CTA FINAL */}
       <section className="py-20 bg-[#C70909] text-white text-center">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-5">Et si vous remettiez votre toiture à neuf cette année ?</h2>
+          <h2 className="text-inherit text-3xl sm:text-5xl font-bold tracking-tight mb-5">Et si vous remettiez votre toiture à neuf cette année ?</h2>
           <p className="text-lg text-white/90 mb-8">Dites-nous ce qui ne va pas sur votre toit : nous passons voir et vous répondons rapidement.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-white text-[#C70909] px-8 py-4 rounded-full font-bold">Demander un devis gratuit <ArrowUpRight className="w-5 h-5" /></Link>
