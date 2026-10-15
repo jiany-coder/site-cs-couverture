@@ -3,6 +3,9 @@ import list from "./cities.json";
 
 export const CITIES = list;
 
-export const COVERED_TOWNS = list.slice(0, 45).map((c) => c.name);
+export const PRIORITY_CITIES = list.filter((c) => c.priority).sort((a, b) => a.priority - b.priority);
+export const AUGE_CITIES = list.filter((c) => c.auge);
+const ordered = [...PRIORITY_CITIES, ...list.filter((c) => !c.priority)];
+export const COVERED_TOWNS = ordered.slice(0, 45).map((c) => c.name);
 
 export const getCity = (slug) => CITIES.find((c) => c.slug === slug);

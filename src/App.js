@@ -18,6 +18,7 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
 import ZonePage from "./pages/ZonePage";
 import Tarifs from "./pages/Tarifs";
+import AugePage from "./pages/AugePage";
 
 import { CITIES } from "./data/cities";
 import { SERVICES } from "./data/services";
@@ -38,13 +39,14 @@ export function AppRoutes() {
           <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
 
           <Route path="/tarifs-couvreur-caen" element={<Tarifs />} />
+          <Route path="/couvreur-pays-d-auge" element={<AugePage />} />
 
           {/* Pages services */}
           {SERVICES.map((sv) => (
             <Route key={sv.slug} path={`/${sv.slug}`} element={<ServicePage />} />
           ))}
 
-          {/* Pages communes (30 km autour de Caen) */}
+          {/* Pages communes (70 km autour de Caen) */}
           {CITIES.map((c) => (
             <Route key={c.slug} path={`/couvreur-${c.slug}`} element={<CityPage />} />
           ))}

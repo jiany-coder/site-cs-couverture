@@ -6,7 +6,7 @@ import { COMPANY, telHref } from "../data/company";
 import HeroBg from "../components/HeroBg";
 import PhotoBand from "../components/PhotoBand";
 import { SERVICES } from "../data/services";
-import { CITIES } from "../data/cities";
+import { CITIES, PRIORITY_CITIES } from "../data/cities";
 import { PRICE_GROUPS } from "../data/prices";
 import { GLOBAL_FAQ } from "../data/faq";
 import { PHOTOS, HAS_PHOTOS, pickIllustrations } from "../data/photos";
@@ -215,7 +215,7 @@ export default function Home() {
         </div>
       </section>
 
-      <PhotoBand src="/toiture-ardoise.webp" title="Du littoral au bocage, nous venons chez vous" text="Caen et 86 communes dans un rayon d'environ 30 km : une seule entreprise, un seul interlocuteur." />
+      <PhotoBand src="/toiture-ardoise.webp" title="Du littoral au bocage, nous venons chez vous" text={`Caen et ${CITIES.length} communes dans un rayon d'environ 70 km, de la côte au Pays d'Auge : une seule entreprise, un seul interlocuteur.`} />
 
       {/* ZONE */}
       <section className="py-24 bg-[#EDF1F7]" data-testid="zone-section">
@@ -224,15 +224,26 @@ export default function Home() {
             <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Zone d'intervention</p>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#0B1220] font-light leading-tight tracking-tight mb-5">Où intervient CS Couverture Rénovation ?</h2>
             <p className="text-lg text-[#475569] leading-relaxed mb-6">
-              L'entreprise est basée à Caen et se déplace dans un rayon d'environ {COMPANY.radiusKm} km : {CITIES.length + 1} communes du Calvados, de la côte de Nacre à Bayeux et à Villers-Bocage. Chaque commune a sa page.
+              L'entreprise est basée à Caen et se déplace dans un rayon d'environ {COMPANY.radiusKm} km : {CITIES.length + 1} communes, de la côte de Nacre au Pays d'Auge, jusqu'à Lisieux, Bernay, Vimoutiers, Falaise et Argentan. Chaque commune a sa page.
             </p>
             <Link to="/zone-d-intervention" className="inline-flex items-center gap-2 bg-[#0A2A5C] text-[#F6F8FB] px-7 py-3.5 rounded-full font-sans font-semibold text-sm hover:bg-[#061C42] transition-colors">
               Toutes les communes <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           <div className="lg:col-span-7 reveal">
+            <p className="text-xs font-sans font-bold tracking-[0.2em] uppercase text-[#D7141E] mb-3">Secteurs prioritaires</p>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+              {PRIORITY_CITIES.map((c) => (
+                <li key={c.slug}>
+                  <Link to={`/couvreur-${c.slug}`} className="block rounded-xl bg-[#0A2A5C] text-white border border-[#0A2A5C] px-4 py-3 text-sm font-semibold hover:bg-[#D7141E] hover:border-[#D7141E] transition-colors">
+                    Couvreur {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link to="/couvreur-pays-d-auge" className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-[#0A2A5C] link-underline mb-6">Couvreur dans tout le Pays d'Auge <ArrowRight className="w-4 h-4" /></Link>
             <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {CITIES.slice(0, 24).map((c) => (
+              {CITIES.filter((c) => !c.priority).slice(0, 15).map((c) => (
                 <li key={c.slug}>
                   <Link to={`/couvreur-${c.slug}`} className="block rounded-xl bg-white border border-[#D9E0EA] px-4 py-3 text-sm text-[#0B1220] hover:border-[#0A2A5C] hover:text-[#0A2A5C] transition-colors">
                     Couvreur {c.name}

@@ -12,10 +12,10 @@ export const SERVICES = [
     short: "Recherche de l'origine d'une fuite puis réparation ciblée, sans refaire ce qui est sain.",
     icon: "Wrench",
     metaTitle: "Réparation toiture Caen | CS Couverture Rénovation",
-    metaDescription: "Réparation de toiture et de fuite à Caen et dans un rayon de 30 km : tuiles, faîtage, solins, gouttières. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Réparation de toiture et de fuite à Caen et dans un rayon de 70 km : tuiles, faîtage, solins, gouttières. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["réparation toiture caen", "fuite toiture caen", "couvreur caen", "dépannage toiture caen"],
     answer:
-      "Une réparation de toiture consiste à retrouver l'origine d'une infiltration ou d'un désordre (tuile, ardoise, faîtage, solin, noue, gouttière), puis à reprendre uniquement ce qui est abîmé. CS Couverture Rénovation intervient à Caen et dans un rayon d'environ 30 km, après examen de la toiture et devis gratuit.",
+      "Une réparation de toiture consiste à retrouver l'origine d'une infiltration ou d'un désordre (tuile, ardoise, faîtage, solin, noue, gouttière), puis à reprendre uniquement ce qui est abîmé. CS Couverture Rénovation intervient à Caen et dans un rayon d'environ 70 km, après examen de la toiture et devis gratuit.",
     benefits: [
       "Examen de la toiture avant tout devis",
       "Réparation ciblée sur la cause réelle de la fuite",
@@ -64,7 +64,7 @@ export const SERVICES = [
     short: "Réfection de la couverture quand les réparations ponctuelles ne suffisent plus.",
     icon: "House",
     metaTitle: "Rénovation toiture Caen | CS Couverture Rénovation",
-    metaDescription: "Rénovation et réfection de toiture à Caen et dans un rayon de 30 km : tuiles, ardoises, zinc. Examen de la toiture et devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Rénovation et réfection de toiture à Caen et dans un rayon de 70 km : tuiles, ardoises, zinc. Examen de la toiture et devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["rénovation toiture caen", "réfection toiture caen", "refaire toiture caen", "couvreur caen"],
     answer:
       "La rénovation de toiture consiste à refaire tout ou partie de la couverture lorsque les réparations ponctuelles ne suffisent plus : dépose, contrôle du support, pose du nouveau matériau et reprise des raccords. CS Couverture Rénovation examine la toiture existante puis chiffre gratuitement les travaux.",
@@ -117,10 +117,10 @@ export const SERVICES = [
     short: "Remplacement des éléments cassés, déplacés ou fissurés en respectant le matériau existant.",
     icon: "Layers",
     metaTitle: "Remplacement tuiles et ardoises Caen | CS Couverture",
-    metaDescription: "Remplacement de tuiles et d'ardoises cassées à Caen et dans un rayon de 30 km, avec reprise du matériau existant. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Remplacement de tuiles et d'ardoises cassées à Caen et dans un rayon de 70 km, avec reprise du matériau existant. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["remplacement tuiles caen", "tuile cassée caen", "remplacement ardoises caen", "couvreur caen"],
     answer:
-      "Remplacer des tuiles ou des ardoises consiste à retirer les éléments cassés, fissurés ou déplacés et à les remplacer par des pièces compatibles avec la couverture existante. CS Couverture Rénovation intervient à Caen et dans un rayon d'environ 30 km, après un examen de la toiture et un devis gratuit.",
+      "Remplacer des tuiles ou des ardoises consiste à retirer les éléments cassés, fissurés ou déplacés et à les remplacer par des pièces compatibles avec la couverture existante. CS Couverture Rénovation intervient à Caen et dans un rayon d'environ 70 km, après un examen de la toiture et un devis gratuit.",
     benefits: [
       "Remplacement à l'identique quand c'est possible",
       "Contrôle des éléments voisins avant de refermer",
@@ -168,7 +168,7 @@ export const SERVICES = [
     short: "Contrôle et reprise des tuiles faîtières et de leurs scellements, point sensible après le vent.",
     icon: "Triangle",
     metaTitle: "Réparation faîtage Caen | CS Couverture Rénovation",
-    metaDescription: "Réparation de faîtage à Caen et dans un rayon de 30 km : tuiles faîtières, scellements, reprise après tempête. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Réparation de faîtage à Caen et dans un rayon de 70 km : tuiles faîtières, scellements, reprise après tempête. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["réparation faîtage caen", "faîtage toiture caen", "tuile faîtière caen", "couvreur caen"],
     answer:
       "Le faîtage est la ligne qui ferme le sommet de la toiture, recouverte de tuiles faîtières posées au mortier ou à sec. Quand le mortier se fissure ou qu'une tuile se décale, l'eau s'infiltre. CS Couverture Rénovation contrôle le faîtage et reprend les éléments abîmés, avec un devis gratuit.",
@@ -219,7 +219,7 @@ export const SERVICES = [
     short: "Nettoyage adapté au matériau et traitement anti-mousse pour préserver la couverture.",
     icon: "Sparkles",
     metaTitle: "Nettoyage et démoussage toiture Caen | CS Couverture",
-    metaDescription: "Démoussage et nettoyage de toiture à Caen et dans un rayon de 30 km, avec méthode adaptée au matériau. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Démoussage et nettoyage de toiture à Caen et dans un rayon de 70 km, avec méthode adaptée au matériau. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["démoussage toiture caen", "nettoyage toiture caen", "anti-mousse toiture caen", "couvreur caen"],
     answer:
       "Le démoussage de toiture consiste à retirer mousses, lichens et dépôts de la couverture, puis à appliquer un traitement anti-mousse. Il coûte en général de 25 à 35 € le m². CS Couverture Rénovation choisit la méthode selon le matériau et son état, après examen de la toiture et devis gratuit.",
@@ -270,7 +270,7 @@ export const SERVICES = [
     short: "Protection appliquée sur une couverture saine et propre, jamais pour masquer un défaut.",
     icon: "Droplets",
     metaTitle: "Hydrofuge toiture Caen | CS Couverture Rénovation",
-    metaDescription: "Traitement hydrofuge de toiture à Caen et dans un rayon de 30 km, après nettoyage et contrôle de la couverture. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Traitement hydrofuge de toiture à Caen et dans un rayon de 70 km, après nettoyage et contrôle de la couverture. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["hydrofuge toiture caen", "traitement hydrofuge caen", "hydrofuge coloré toiture", "couvreur caen"],
     answer:
       "Le traitement hydrofuge est un produit appliqué sur une couverture saine et propre pour limiter l'absorption d'eau par les tuiles. Il coûte en général de 15 à 35 € le m². CS Couverture Rénovation ne le propose qu'après contrôle de la toiture : il ne remplace jamais une réparation.",
@@ -321,7 +321,7 @@ export const SERVICES = [
     short: "Solins, noues, rives et abergements : les raccords qui guident l'eau loin des murs.",
     icon: "Ruler",
     metaTitle: "Couvreur zingueur Caen | CS Couverture Rénovation",
-    metaDescription: "Couvreur zingueur à Caen et dans un rayon de 30 km : solins, noues, rives, abergements et chéneaux. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Couvreur zingueur à Caen et dans un rayon de 70 km : solins, noues, rives, abergements et chéneaux. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["couvreur zingueur caen", "zinguerie caen", "solin cheminée caen", "noue toiture caen"],
     answer:
       "La zinguerie regroupe les éléments métalliques qui assurent l'étanchéité aux points de raccord de la toiture : solins, noues, rives, abergements et chéneaux. Un défaut discret peut provoquer une infiltration importante. CS Couverture Rénovation contrôle et reprend la zinguerie, avec un devis gratuit.",
@@ -371,10 +371,10 @@ export const SERVICES = [
     short: "Pose, remplacement, réparation et nettoyage des gouttières et descentes d'eaux pluviales.",
     icon: "CloudRain",
     metaTitle: "Gouttières Caen | CS Couverture Rénovation",
-    metaDescription: "Pose, réparation et nettoyage de gouttières à Caen et dans un rayon de 30 km. Examen sur place et devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Pose, réparation et nettoyage de gouttières à Caen et dans un rayon de 70 km. Examen sur place et devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["gouttière caen", "réparation gouttière caen", "nettoyage gouttière caen", "couvreur caen"],
     answer:
-      "Les gouttières collectent l'eau de pluie de la toiture et l'évacuent par les descentes. Encombrées ou affaissées, elles débordent sur la façade. CS Couverture Rénovation pose, remplace, répare et nettoie les gouttières à Caen et dans un rayon d'environ 30 km, avec un devis gratuit.",
+      "Les gouttières collectent l'eau de pluie de la toiture et l'évacuent par les descentes. Encombrées ou affaissées, elles débordent sur la façade. CS Couverture Rénovation pose, remplace, répare et nettoie les gouttières à Caen et dans un rayon d'environ 70 km, avec un devis gratuit.",
     benefits: [
       "Pose, remplacement, réparation et nettoyage",
       "Contrôle des crochets, joints et descentes",
@@ -421,7 +421,7 @@ export const SERVICES = [
     short: "Traitement des points singuliers : raccords, souches de cheminée et jonctions qui laissent passer l'eau.",
     icon: "ShieldCheck",
     metaTitle: "Étanchéité toiture Caen | CS Couverture Rénovation",
-    metaDescription: "Étanchéité de toiture à Caen et dans un rayon de 30 km : raccords, cheminées, jonctions et fuites récurrentes. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Étanchéité de toiture à Caen et dans un rayon de 70 km : raccords, cheminées, jonctions et fuites récurrentes. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["étanchéité toiture caen", "infiltration toiture caen", "fuite récurrente toiture", "couvreur caen"],
     answer:
       "L'étanchéité d'une toiture dépend de sa couverture, mais surtout de ses points sensibles : raccords, solins, souches de cheminée, noues, jonctions avec un mur ou une fenêtre de toit. CS Couverture Rénovation recherche le point précis qui laisse passer l'eau, puis le reprend, avec un devis gratuit.",
@@ -472,7 +472,7 @@ export const SERVICES = [
     short: "Contrôle des bois et traitement adapté à leur état : humidité, insectes xylophages.",
     icon: "Hammer",
     metaTitle: "Traitement charpente Caen | CS Couverture Rénovation",
-    metaDescription: "Contrôle et traitement de charpente à Caen et dans un rayon de 30 km : humidité, insectes xylophages. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Contrôle et traitement de charpente à Caen et dans un rayon de 70 km : humidité, insectes xylophages. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["traitement charpente caen", "charpente xylophages caen", "diagnostic charpente caen", "couvreur caen"],
     answer:
       "Le traitement de charpente protège les bois contre les insectes xylophages et les champignons liés à l'humidité. Il se décide après un contrôle de l'état des bois, car certains traitements ne se justifient pas. CS Couverture Rénovation contrôle la charpente et propose un traitement adapté, avec un devis gratuit.",
@@ -523,10 +523,10 @@ export const SERVICES = [
     short: "Pose ou remplacement de fenêtres de toit avec reprise soignée de l'étanchéité autour du châssis.",
     icon: "PanelTop",
     metaTitle: "Pose Velux Caen | CS Couverture Rénovation",
-    metaDescription: "Pose et remplacement de Velux et fenêtres de toit à Caen et dans un rayon de 30 km, avec reprise de l'étanchéité. Devis gratuit. Tél. 06 04 11 66 68.",
+    metaDescription: "Pose et remplacement de Velux et fenêtres de toit à Caen et dans un rayon de 70 km, avec reprise de l'étanchéité. Devis gratuit. Tél. 06 04 11 66 68.",
     keywords: ["pose velux caen", "fenêtre de toit caen", "remplacement velux caen", "couvreur caen"],
     answer:
-      "Poser ou remplacer une fenêtre de toit (Velux) demande une découpe précise de la couverture et un raccord d'étanchéité compatible avec le matériau de toiture. CS Couverture Rénovation pose et remplace les fenêtres de toit à Caen et dans un rayon d'environ 30 km, avec un devis gratuit.",
+      "Poser ou remplacer une fenêtre de toit (Velux) demande une découpe précise de la couverture et un raccord d'étanchéité compatible avec le matériau de toiture. CS Couverture Rénovation pose et remplace les fenêtres de toit à Caen et dans un rayon d'environ 70 km, avec un devis gratuit.",
     benefits: [
       "Pose et remplacement de fenêtres de toit",
       "Raccord d'étanchéité adapté à la couverture",

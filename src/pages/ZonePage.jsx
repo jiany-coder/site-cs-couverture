@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import SEO, { buildPageSchema, buildBreadcrumbSchema, buildLocalBusinessSchema } from "../components/SEO";
 import { COMPANY } from "../data/company";
-import { CITIES } from "../data/cities";
+import { CITIES, PRIORITY_CITIES } from "../data/cities";
 import CTASection from "../components/CTASection";
 
-const ORDER = ["agglomération caennaise", "plaine de Caen", "littoral normand", "Pays d'Auge", "bocage normand", "sud du Calvados"];
+const ORDER = ["agglomération caennaise", "plaine de Caen", "littoral normand", "Pays d'Auge et alentours", "bocage normand", "sud du Calvados et nord de l'Orne"];
 const INTRO = {
   "agglomération caennaise": "Caen et les communes voisines : notre base, avec les trajets les plus courts.",
   "plaine de Caen": "Les bourgs et villages de la plaine, au sud, à l'est et au nord de Caen.",
   "littoral normand": "De la côte de Nacre à Cabourg et Houlgate : toitures exposées aux embruns et au vent.",
-  "Pays d'Auge": "Les communes du Pays d'Auge comprises dans le rayon d'intervention.",
+  "Pays d'Auge et alentours": "Secteur prioritaire : Lisieux, Orbec, Livarot, Vimoutiers, Pont-l'Évêque, Mézidon, Cambremer, ainsi que Bernay.",
   "bocage normand": "Bayeux, Villers-Bocage et le bocage : grandes toitures, pierre et ardoise.",
-  "sud du Calvados": "Les communes du sud de Caen, jusqu'à Thury-Harcourt-le-Hom.",
+  "sud du Calvados et nord de l'Orne": "Secteur prioritaire : Falaise et Argentan, avec les communes du sud de Caen jusqu'à Thury-Harcourt-le-Hom.",
 };
 
 export default function ZonePage() {
@@ -24,11 +24,11 @@ export default function ZonePage() {
     <>
       <SEO
         title={`Zone d'intervention couvreur Caen | ${COMPANY.shortBrand}`}
-        description={`Couvreur à Caen et dans ${all.length - 1} communes du Calvados, dans un rayon de ${COMPANY.radiusKm} km : liste complète avec codes postaux. Devis gratuit.`}
+        description={`Couvreur à Caen et dans ${all.length - 1} communes du Calvados, de l'Orne et de l'Eure, dans un rayon de ${COMPANY.radiusKm} km : liste complète avec codes postaux. Devis gratuit.`}
         canonical={url}
         jsonLd={[
           buildLocalBusinessSchema(),
-          buildPageSchema("CollectionPage", "Zone d'intervention de CS Couverture Rénovation", url, `Communes du Calvados desservies par ${COMPANY.brand}, dans un rayon d'environ ${COMPANY.radiusKm} km autour de Caen.`),
+          buildPageSchema("CollectionPage", "Zone d'intervention de CS Couverture Rénovation", url, `Communes desservies par ${COMPANY.brand}, dans un rayon d'environ ${COMPANY.radiusKm} km autour de Caen.`),
           buildBreadcrumbSchema([["Accueil", COMPANY.site + "/"], ["Zone d'intervention", url]]),
         ]}
       />
@@ -39,11 +39,22 @@ export default function ZonePage() {
             Couvreur à Caen et dans un rayon de {COMPANY.radiusKm} km
           </h1>
           <p className="text-lg text-[#475569] leading-relaxed mb-4">
-            {COMPANY.brand} est basée à Caen, au {COMPANY.address}, et intervient dans les {all.length} communes du Calvados situées dans un rayon d'environ {COMPANY.radiusKm} km. Cette page les recense avec leur code postal et renvoie vers la page de chaque commune.
+            {COMPANY.brand} est basée à Caen, au {COMPANY.address}, et intervient dans les {all.length} communes situées dans un rayon d'environ {COMPANY.radiusKm} km. Cette page les recense avec leur code postal et renvoie vers la page de chaque commune.
           </p>
           <p className="text-lg text-[#475569] leading-relaxed">
             Votre commune n'apparaît pas ou se trouve juste au-delà du rayon ? Appelez le {COMPANY.phone} : nous vous indiquons si le déplacement est possible.
           </p>
+        </div>
+      </section>
+
+      <section className="pb-12 bg-[#F6F8FB]">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-5">Nos secteurs prioritaires</h2>
+          <ul className="flex flex-wrap gap-3">
+            {PRIORITY_CITIES.map((c) => (
+              <li key={c.slug}><Link to={`/couvreur-${c.slug}`} className="inline-block rounded-full bg-[#0A2A5C] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[#D7141E] transition-colors">Couvreur {c.name}</Link></li>
+            ))}
+          </ul>
         </div>
       </section>
 

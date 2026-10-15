@@ -14,7 +14,7 @@ export const COMPANY = {
   department: "Calvados (14)",
   hours: "Lun-Sam : 8h00 à 20h00", // horaires de la fiche Google
   geo: { latitude: 49.1646369, longitude: -0.3431176 },
-  radiusKm: 30,
+  radiusKm: 70,
   logos: {
     og: `${process.env.PUBLIC_URL || ""}/og-cs-couverture.jpg`,
     main: `${process.env.PUBLIC_URL || ""}/logo-cs-couverture-512.webp`,
@@ -29,6 +29,8 @@ export const COMPANY = {
   // Domaine : un seul endroit à changer. [À COMPLÉTER] domaine définitif.
   site: process.env.REACT_APP_SITE_URL || "https://www.cs-couverture-caen.fr",
   // Informations à fournir par le client : tant qu'elles sont nulles, elles ne sont pas affichées sur le site.
+  // Offre affichée dans le bandeau du haut : à valider avec le client avant la mise en ligne (mettre enabled: false sinon).
+  promo: { enabled: true, text: "Profitez-en ! 10 % de remise pour tout service de couvreur avant le 11/12/2026", until: "2026-12-11" },
   labels: [],
   experienceYears: null,
   urgence: null,

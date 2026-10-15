@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import FloatingCTA from "./FloatingCTA";
+import PromoBar from "./PromoBar";
+import CookieNotice from "./CookieNotice";
 
 export default function Layout({ children }) {
   const { pathname } = useLocation();
@@ -21,10 +23,12 @@ export default function Layout({ children }) {
 
   return (
     <div className="App">
+      <PromoBar />
       <Header />
       <main>{children}</main>
       <Footer />
       <FloatingCTA />
+      <CookieNotice />
     </div>
   );
 }

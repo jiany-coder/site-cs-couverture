@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { COMPANY, telHref } from "../data/company";
 import { SERVICES } from "../data/services";
 
 const NAV = [
   { to: "/", label: "Accueil" },
+  { to: "/couvreur-pays-d-auge", label: "Pays d'Auge" },
   { to: "/zone-d-intervention", label: "Zone" },
   { to: "/tarifs-couvreur-caen", label: "Tarifs" },
   { to: "/realisations", label: "Réalisations" },
@@ -24,13 +25,22 @@ export default function Header() {
 
   return (
     <header data-testid="site-header" className="sticky top-0 z-40 backdrop-blur-xl bg-[#F6F8FB]/90 border-b border-[#0A2A5C]/10">
+      <div className="hidden md:block border-b border-[#0A2A5C]/10 bg-white/70">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-9 flex items-center justify-between text-xs font-sans text-[#475569]">
+          <div className="flex items-center gap-6">
+            <a href={telHref} className="inline-flex items-center gap-1.5 font-semibold text-[#0A2A5C]"><Phone className="w-3.5 h-3.5" strokeWidth={2} /> {COMPANY.phone}</a>
+            {COMPANY.email && <a href={`mailto:${COMPANY.email}`} className="inline-flex items-center gap-1.5"><Mail className="w-3.5 h-3.5" strokeWidth={2} /> {COMPANY.email}</a>}
+          </div>
+          <span>{COMPANY.hours} · Devis gratuit · Caen, Pays d'Auge et Calvados</span>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20 lg:h-24">
           <Link to="/" className="flex items-center gap-3" data-testid="logo-link">
             <img src={COMPANY.logos.icon} alt="CS Couverture Caen" width="46" height="64" className="h-14 w-auto lg:h-16 object-contain" />
             <div className="hidden sm:block leading-tight">
               <div className="font-serif text-[#0B1220] text-lg lg:text-xl font-semibold tracking-tight">{COMPANY.brand}</div>
-              <div className="text-[10px] lg:text-xs tracking-[0.18em] uppercase text-[#0A2A5C] font-sans font-semibold">Couvreur à Caen · Calvados</div>
+              <div className="text-[10px] lg:text-xs tracking-[0.18em] uppercase text-[#0A2A5C] font-sans font-semibold">Couvreur à Caen · Pays d'Auge</div>
             </div>
           </Link>
 
@@ -64,7 +74,7 @@ export default function Header() {
               className="hidden md:inline-flex items-center justify-center bg-[#D7141E] text-white px-5 py-2.5 rounded-full font-sans font-semibold text-sm transition-all duration-300 hover:bg-[#061C42] hover:-translate-y-0.5"
               data-testid="header-cta-devis"
             >
-              Devis gratuit
+              Demander un devis
             </Link>
             <button className="lg:hidden p-2 -mr-2 text-[#0A2A5C]" onClick={() => setOpen((v) => !v)} aria-label="Menu" data-testid="mobile-menu-toggle">
               {open ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}

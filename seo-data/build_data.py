@@ -12,7 +12,7 @@ import csv, json, math, os, re, sys, unicodedata, zlib
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BRAND = "CS Couverture Rénovation"
 PHONE = "06 04 11 66 68"
-RADIUS_KM = 30
+RADIUS_KM = 70
 BASE = (-0.3431176, 49.1646369)  # 13 rue des Quatre Vents, 14000 Caen (position de la fiche Google)
 
 
@@ -56,17 +56,24 @@ def pop_class(p):
 
 COASTAL = {"Ouistreham", "Colleville-Montgomery", "Hermanville-sur-Mer", "Lion-sur-Mer", "Luc-sur-Mer", "Langrune-sur-Mer",
            "Saint-Aubin-sur-Mer", "Bernières-sur-Mer", "Courseulles-sur-Mer", "Merville-Franceville-Plage", "Cabourg",
-           "Dives-sur-Mer", "Houlgate", "Blonville-sur-Mer", "Villers-sur-Mer", "Auberville", "Gonneville-sur-Mer", "Varaville"}
-AUGE = {"Mézidon Vallée d'Auge", "Cambremer", "Saint-Pierre-en-Auge", "Dozulé", "Vimont", "Valorbiquet"}
+           "Dives-sur-Mer", "Houlgate", "Blonville-sur-Mer", "Villers-sur-Mer", "Auberville", "Gonneville-sur-Mer", "Varaville",
+           "Deauville", "Trouville-sur-Mer", "Touques", "Tourgéville", "Saint-Arnoult", "Villerville", "Honfleur", "Équemauville", "Genneville",
+           "Gonneville-sur-Honfleur", "La Rivière-Saint-Sauveur", "Ablon", "Port-en-Bessin-Huppain", "Isigny-sur-Mer", "Grandcamp-Maisy"}
+AUGE = {"Mézidon Vallée d'Auge", "Cambremer", "Saint-Pierre-en-Auge", "Dozulé", "Vimont", "Valorbiquet", "Le Pré-d'Auge", "Lisieux", "Pont-l'Évêque",
+        "Le Breuil-en-Auge", "Livarot-Pays-d'Auge", "Orbec", "Vimoutiers", "Bernay", "Saint-Désir", "Ouilly-le-Vicomte", "Saint-Germain-de-Livet",
+        "Saint-Martin-de-la-Lieue", "Beuvillers", "Glos", "Hermival-les-Vaux", "Courtonne-la-Meurdrac", "Courtonne-les-Deux-Églises", "Marolles",
+        "Saint-Martin-de-Mailloc", "Bonnebosq", "Coquainvilliers", "Saint-Hymer", "Blangy-le-Château", "Saint-Philbert-des-Champs",
+        "Bonneville-la-Louvet", "La Vespière-Friardel", "Le Pin", "Moyaux", "Saint-Gatien-des-Bois"}
 BOCAGE = {"Villers-Bocage", "Aurseulles", "Les Monts d'Aunay", "Val d'Arry", "Creully sur Seulles", "Bayeux", "Saint-Vigor-le-Grand",
-          "Souleuvre en Bocage", "Tilly-sur-Seulles"}
-SUD = {"Falaise", "Potigny", "Thury-Harcourt-le-Hom", "Bretteville-sur-Laize", "Laize-Clinchamps", "Valambray"}
+          "Souleuvre en Bocage", "Tilly-sur-Seulles", "Vire Normandie", "Condé-en-Normandie", "Valdallière", "Noues de Sienne",
+          "Caumont-sur-Aure", "Le Molay-Littry"}
+SUD = {"Argentan", "Falaise", "Potigny", "Thury-Harcourt-le-Hom", "Bretteville-sur-Laize", "Laize-Clinchamps", "Valambray"}
 URBAN = {"Hérouville-Saint-Clair", "Mondeville", "Ifs", "Colombelles", "Fleury-sur-Orne", "Cormelles-le-Royal", "Giberville", "Louvigny",
          "Épron", "Blainville-sur-Orne", "Carpiquet", "Bretteville-sur-Odon", "Saint-Germain-la-Blanche-Herbe", "Biéville-Beuville",
          "Authie", "Saint-Contest"}
 
 REGION_LABEL = {"ville": "agglomération caennaise", "plaine": "plaine de Caen", "littoral": "littoral normand",
-                "auge": "Pays d'Auge", "bocage": "bocage normand", "sud": "sud du Calvados"}
+                "auge": "Pays d'Auge et alentours", "bocage": "bocage normand", "sud": "sud du Calvados et nord de l'Orne"}
 
 
 def region(n):
@@ -180,7 +187,7 @@ CONTEXT_ALT = {
 INTRO_T = [
     "Vous cherchez un couvreur {a} ? {B}, entreprise de couverture basée à Caen, intervient à {nom} ({cp}) pour la réparation, la rénovation et l'entretien de toiture : fuites, tuiles et ardoises, faîtage, zinguerie, gouttières et démoussage.",
     "Une fuite, des tuiles déplacées ou une toiture couverte de mousse {a} ? {B} se déplace à {nom} ({cp}) depuis Caen pour examiner la toiture et vous remettre un devis gratuit.",
-    "{B} met à votre service un couvreur {a} pour la couverture, la zinguerie et l'entretien des toits. Basée à Caen, l'entreprise intervient à {nom} ({cp}) dans un rayon d'environ 30 km.",
+    "{B} met à votre service un couvreur {a} pour la couverture, la zinguerie et l'entretien des toits. Basée à Caen, l'entreprise intervient à {nom} ({cp}) dans un rayon d'environ {R} km.",
 ]
 
 POP_NOTE = {
@@ -216,6 +223,10 @@ LQ = [
 ]
 
 
+PRIORITY = ["Lisieux", "Bernay", "Orbec", "Argences", "Vimoutiers", "Livarot-Pays-d'Auge", "Mézidon Vallée d'Auge", "Argentan", "Falaise",
+            "Pont-l'Évêque", "Saint-Pierre-en-Auge", "Cambremer"]
+
+
 def main(out_dir):
     communes = []
     with open(os.path.join(ROOT, "data", "communes.csv"), encoding="utf-8") as f:
@@ -239,7 +250,7 @@ def main(out_dir):
         ctx, alt = CONTEXT[c["reg"]], CONTEXT_ALT[c["reg"]]
         k = zlib.crc32(slug.encode())
         a = a_(nom)
-        intro = INTRO_T[k % 3].format(a=a, nom=nom, cp=c["cp"], B=BRAND)
+        intro = INTRO_T[k % 3].format(a=a, nom=nom, cp=c["cp"], B=BRAND, R=RADIUS_KM)
         geo = (f"{nom} ({c['cp']}), {pop_class(c['pop'])} de {fr(c['pop'])} habitants, se situe à environ {c['km']} km {c['dir']} de notre base de Caen, "
                f"dans le secteur {REGION_LABEL[c['reg']]}. Le déplacement est simple à organiser.")
         minutes = max(5, round(c["km"] * 1.35 / 55 * 60))
@@ -258,7 +269,7 @@ def main(out_dir):
         rows.sort(key=PRICES.index)
         fq = [LQ[(k >> 2) % 3](nom, a, c["cp"]),
               (f"À quelle distance de Caen se trouve {nom} ?",
-               f"{nom} est à environ {c['km']} km de Caen, {c['dir']}, soit environ {minutes} minutes de route. Elle fait partie du secteur {REGION_LABEL[c['reg']]}, dans le rayon d'environ 30 km desservi depuis Caen."),
+               f"{nom} est à environ {c['km']} km de Caen, {c['dir']}, soit environ {minutes} minutes de route. Elle fait partie du secteur {REGION_LABEL[c['reg']]}, dans la zone d'environ {RADIUS_KM} km desservie depuis Caen."),
               [FAQ_COMMON[(k >> 6) % 4][0].format(nom=nom), FAQ_COMMON[(k >> 6) % 4][1].format(nom=nom)]]
         h1 = f"Couvreur {a} ({c['cp']})"
         title = f"{h1} | {BRAND}"
@@ -282,7 +293,8 @@ def main(out_dir):
         )
 
     cities = [dict(slug=c["slug"], name=c["nom"], code=c["cp"], distance=f"{c['km']} km de Caen", population=f"{fr(c['pop'])} habitants",
-                   sector=REGION_LABEL[c["reg"]], intro=out[f"couvreur-{c['slug']}"]["geo"], km=c["km"]) for c in communes]
+                   sector=REGION_LABEL[c["reg"]], intro=out[f"couvreur-{c['slug']}"]["geo"], km=c["km"],
+                   priority=PRIORITY.index(c["nom"]) + 1 if c["nom"] in PRIORITY else 0, auge=c["reg"] == "auge") for c in communes]
     os.makedirs(out_dir, exist_ok=True)
     json.dump(out, open(os.path.join(out_dir, "communes_content.json"), "w", encoding="utf-8"), ensure_ascii=False)
     json.dump(cities, open(os.path.join(out_dir, "cities.json"), "w", encoding="utf-8"), ensure_ascii=False)

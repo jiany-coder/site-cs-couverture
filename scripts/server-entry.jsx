@@ -13,7 +13,7 @@ export const CITIES_COUNT = CITIES.length;
 export function routes() {
   const list = [
     "/", "/a-propos", "/realisations", "/contact", "/blog",
-    "/zone-d-intervention", "/tarifs-couvreur-caen", "/mentions-legales", "/politique-de-confidentialite",
+    "/zone-d-intervention", "/couvreur-pays-d-auge", "/tarifs-couvreur-caen", "/mentions-legales", "/politique-de-confidentialite",
     ...SERVICES.map((s) => `/${s.slug}`),
     ...BLOG_POSTS.map((p) => `/blog/${p.slug}`),
   ];

@@ -4,7 +4,7 @@ import { COMPANY } from "./company";
 export const GLOBAL_FAQ = [
   {
     q: "Quelle est la zone d'intervention de CS Couverture Rénovation ?",
-    a: "CS Couverture Rénovation est basée à Caen, au 13 rue des Quatre Vents, et intervient dans un rayon d'environ 30 km autour de Caen : Hérouville-Saint-Clair, Mondeville, Ifs, Ouistreham, Courseulles-sur-Mer, Cabourg, Bayeux, Villers-Bocage et les communes voisines.",
+    a: "CS Couverture Rénovation est basée à Caen, au 13 rue des Quatre Vents, et intervient dans un rayon d'environ 70 km autour de Caen : Hérouville-Saint-Clair, Mondeville, Ifs, Ouistreham, Courseulles-sur-Mer, Cabourg, Bayeux, Villers-Bocage et les communes voisines.",
   },
   {
     q: "Le devis est-il gratuit ?",
