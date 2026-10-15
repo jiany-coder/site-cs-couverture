@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <div className="font-sans text-[#040F2F]">
       <SEO
-        title={`Couvreur à Caen | Toiture, zinguerie | ${COMPANY.shortBrand}`}
+        title="Couvreur Caen et Pays d'Auge | CS Couverture Rénovation"
         description={`Couvreur à Caen et dans le Pays d'Auge : réparation, rénovation, démoussage de toiture, zinguerie. Devis gratuit. Tél. ${COMPANY.phone}`}
         canonical={`${COMPANY.site}/`}
         jsonLd={jsonLd}
@@ -84,7 +84,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-40 pb-20 w-full">
           <p className="text-xs font-bold tracking-[0.25em] uppercase text-white mb-6 inline-block bg-[#C70909] px-4 py-2 rounded-full">Couvreur à Caen et dans le Pays d'Auge</p>
           <h1 className="text-inherit text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white max-w-4xl mb-7">
-            Un toit qui tient, <span className="italic font-medium text-white/80">de Caen au Pays d'Auge</span>
+            Couvreur à Caen et dans le Pays d'Auge : <span className="italic font-medium text-white/80">un toit qui tient</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/85 max-w-2xl mb-10 leading-relaxed">{DESCRIPTION}</p>
           <div className="flex flex-col sm:flex-row gap-4 mb-12">

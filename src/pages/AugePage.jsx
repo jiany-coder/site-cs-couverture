@@ -22,7 +22,7 @@ export default function AugePage() {
   return (
     <>
       <SEO
-        title="Couvreur Pays d'Auge : Lisieux, Orbec, Livarot | CS Couverture"
+        title="Couvreur Pays d'Auge : Lisieux, Orbec, Livarot"
         description={`Couvreur dans le Pays d'Auge : Lisieux, Bernay, Orbec, Livarot, Vimoutiers, Mézidon. Réparation, démoussage, zinguerie. Devis gratuit. Tél. ${COMPANY.phone}`}
         canonical={url}
         jsonLd={[
