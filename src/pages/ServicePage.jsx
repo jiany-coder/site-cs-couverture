@@ -7,7 +7,7 @@ import PhotoBand from "../components/PhotoBand";
 import { COMPANY, telHref } from "../data/company";
 import { SERVICES, getService, ICONS, PRICE_SOURCE, PAGE_UPDATED } from "../data/services";
 import { CITIES } from "../data/cities";
-import { PHOTOS, HAS_PHOTOS, SERVICE_IMAGES, DEMOUSSAGE, pickIllustrations, seedOf } from "../data/photos";
+import { PHOTOS, HAS_PHOTOS, SERVICE_IMAGES, PAIR_BY_SERVICE, pickIllustrations, seedOf } from "../data/photos";
 import BeforeAfter from "../components/BeforeAfter";
 import FAQAccordion from "../components/FAQAccordion";
 import ContactForm from "../components/ContactForm";
@@ -25,7 +25,8 @@ export default function ServicePage() {
   const Icon = ICONS[service.icon] || ICONS.House;
   const url = `${COMPANY.site}/${slug}`;
   const related = service.related.map(getService).filter(Boolean);
-  const photos = HAS_PHOTOS ? PHOTOS.slice(0, 3) : pickIllustrations(3, seedOf(service.slug) + 1);
+  const photos = pickIllustrations(3, seedOf(service.slug) + 1);
+  const pair = PAIR_BY_SERVICE[service.slug];
   const feature = SERVICE_IMAGES[service.slug];
 
   const jsonLd = [
@@ -122,8 +123,8 @@ export default function ServicePage() {
       <section className="py-16 bg-[#E8EBF1]" data-testid="service-photos">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-8">{HAS_PHOTOS ? `Nos chantiers : ${service.title.toLowerCase()}` : `${service.title} : exemples de toitures`}</h2>
-          {service.slug === "demoussage-toiture-caen" ? (
-            <div className="mb-6 max-w-3xl mx-auto"><BeforeAfter before={DEMOUSSAGE.before.src} after={DEMOUSSAGE.after.src} /></div>
+          {pair ? (
+            <div className="mb-6 max-w-3xl mx-auto"><BeforeAfter before={pair.before.src} after={pair.after.src} /><p className="text-sm text-[#475569] mt-3 text-center">{pair.title} : faites glisser pour comparer.</p></div>
           ) : feature && !HAS_PHOTOS ? (
             <div className="relative overflow-hidden rounded-3xl aspect-[21/9] mb-6">
               <img src={feature.src} alt={feature.alt} width="1200" height="800" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />

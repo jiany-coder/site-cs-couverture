@@ -1,42 +1,66 @@
-// Photos de chantiers réels du client : à ajouter dans PHOTOS (déposer le fichier dans /public/photos/).
-// Format : { src: "/photos/nom.webp", alt: "Description précise : travaux, commune", w: 1100, h: 825, title: "Titre court", desc: "Une phrase sur le chantier" }
-// Tant que PHOTOS est vide, le site affiche des images d'illustration de toitures (voir ILLUSTRATIONS), à remplacer par les vraies photos.
+// Photos de chantiers de CS Couverture Rénovation (fournies par le client).
+// Pour en ajouter : déposer le fichier .webp dans /public/photos/ puis ajouter une ligne dans PHOTOS.
 import { asset } from "./company";
 
-export const PHOTOS = [];
+const p = (f, cat, title, alt, w, h) => ({ src: asset(`/photos/${f}.webp`), cat, title, alt, w, h });
+
+export const PHOTOS = [
+  p("ardoise-velux-pierre", "Velux", "Couverture en ardoises et fenêtre de toit", "Toiture en ardoises naturelles avec fenêtre de toit et gouttière zinc sur une maison en pierre", 1600, 1200),
+  p("ardoise-lucarnes-colombage", "Couverture", "Couverture en ardoises, lucarnes à colombages", "Couverture en ardoises avec deux lucarnes sur une maison à colombages", 1600, 1200),
+  p("tuiles-terre-cuite-velux", "Velux", "Tuiles terre cuite et fenêtres de toit", "Toiture en tuiles plates terre cuite avec fenêtres de toit et gouttières zinc sur une maison en bardage bois", 1200, 1500),
+  p("depose-couverture-chantier", "Couverture", "Dépose de la couverture et pose de l'écran sous-toiture", "Chantier de rénovation de toiture : dépose des tuiles, écran sous-toiture et liteaux posés", 1536, 1152),
+  p("renov-velux-apres", "Couverture", "Rénovation de toiture : après", "Toiture rénovée en tuiles avec fenêtres de toit et gouttière zinc", 1179, 594),
+  p("ardoise-lucarnes-pierre", "Couverture", "Ardoises et lucarnes sur maison en pierre", "Toiture en ardoises avec lucarnes et souche de cheminée en brique", 1600, 1200),
+  p("etancheite-toit-terrasse-apres-1", "Étanchéité", "Étanchéité de toit-terrasse", "Toit-terrasse avec étanchéité bitumineuse posée et relevés d'étanchéité", 1080, 675),
+  p("reparation-arete-ouverte", "Couverture", "Réparation d'un arêtier de toiture", "Couvreur au travail sur un arêtier de toiture en tuiles, dépose des éléments pour réparation", 946, 1264),
+  p("ardoise-velux-colombage", "Couverture", "Toiture en ardoises, maison à colombages", "Toiture en ardoises naturelles avec fenêtre de toit au-dessus d'une façade à colombages", 1600, 1200),
+  p("zinc-bac-acier-avant-1", "Zinguerie", "Zinguerie et bac acier : avant travaux", "Raccord de zinguerie et couverture en bac acier avant intervention", 1080, 675),
+  p("etancheite-acrotere", "Étanchéité", "Étanchéité d'un acrotère", "Étanchéité d'un acrotère avec platines d'évacuation, vue du dessus, après travaux", 1080, 1350),
+  p("egout-ardoise-gouttiere-zinc", "Zinguerie", "Égout en ardoise et gouttière zinc", "Détail d'un égout de toit en ardoises avec gouttière zinc sur une charpente en chêne", 1536, 2048),
+  p("tuiles-maison-pierre", "Couverture", "Couverture en tuiles sur maison en pierre", "Toiture en tuiles plates rouges sur une maison en pierre avec gouttières", 1179, 1153),
+  p("renov-pierre-apres", "Couverture", "Changement de couverture : après", "Maison en pierre avec toiture neuve en tuiles et bandeau bois, après travaux", 1179, 609),
+  p("toiture-tuiles-vue-aerienne", "Couverture", "Réparation de faîtage en tuiles", "Vue aérienne d'une toiture en tuiles avec arêtiers et faîtage en cours de réparation", 1000, 750),
+  p("souche-cheminee-tuiles", "Couverture", "Intervention sur souche de cheminée", "Couvreur sur une toiture en tuiles à proximité de souches de cheminée", 640, 480),
+  p("tuiles-brunes-pavillon", "Couverture", "Toiture en tuiles brunes", "Pavillon avec toiture en tuiles brunes et gouttières", 946, 712),
+  p("ardoise-deux-velux", "Velux", "Ardoises, deux fenêtres de toit", "Toiture en ardoises avec deux fenêtres de toit et faîtières en terre cuite", 768, 575),
+  p("ardoise-faitieres-tuiles", "Couverture", "Ardoises et faîtières en terre cuite", "Toiture en ardoises avec faîtage en tuiles faîtières en terre cuite", 768, 487),
+  p("charpente-colombage-pignon", "Charpente", "Charpente colombage, pignon couvert", "Pignon d'une charpente à colombages en chêne avec couverture en ardoises", 1536, 2048),
+  p("etancheite-toit-terrasse-apres-2", "Étanchéité", "Toit-terrasse : étanchéité terminée", "Toit-terrasse après pose de l'étanchéité, avec sorties de ventilation et relevés", 1080, 675),
+  p("renov-pierre-avant", "Couverture", "Changement de couverture : avant", "Maison en pierre avec ancienne toiture en tuiles foncées, avant travaux", 1179, 609),
+  p("renov-velux-avant", "Démoussage", "Toiture envahie par la mousse : avant", "Ancienne toiture en tuiles couverte de mousse avec fenêtres de toit, avant rénovation", 1179, 595),
+  p("zinc-bac-acier-avant-2", "Zinguerie", "Bac acier et faîtière : avant travaux", "Couverture en bac acier et faîtière avec joints à reprendre, avant intervention", 1080, 675),
+];
 export const HAS_PHOTOS = PHOTOS.length > 0;
 
-const img = (f, alt) => ({ src: asset(`/photos/${f}.webp`), alt, w: 1200, h: 800 });
-
-export const ILLUSTRATIONS = [
-  img("tuiles-rouges", "Toiture en tuiles terre cuite avec cheminée (illustration)"),
-  img("tuiles-bleues", "Toiture en tuiles bleu ardoise vernissées (illustration)"),
-  img("ardoise", "Couverture en ardoises naturelles (illustration)"),
-  img("faitage", "Faîtage d'une toiture en tuiles (illustration)"),
-  img("gouttiere", "Gouttière zinc en bas de toiture (illustration)"),
-  img("velux", "Fenêtre de toit posée dans une couverture en ardoises (illustration)"),
-  img("zinc", "Couverture en zinc à joints debout (illustration)"),
-  img("tuiles-brunes", "Toiture en tuiles brunes avec souche de cheminée (illustration)"),
-  img("hydrofuge", "Tuiles traitées avec un hydrofuge (illustration)"),
-  img("demoussage-apres", "Toiture en tuiles après démoussage (illustration)"),
-];
+const by = (f) => PHOTOS.find((x) => x.src.endsWith(`/${f}.webp`));
+export const ILLUSTRATIONS = PHOTOS; // ancien nom, conservé pour les composants existants
 
 export const SERVICE_IMAGES = {
-  "reparation-toiture-caen": img("tuiles-rouges", "Réparation de toiture en tuiles (illustration)"),
-  "renovation-toiture-caen": img("tuiles-bleues", "Rénovation de toiture en tuiles (illustration)"),
-  "remplacement-tuiles-ardoises-caen": img("ardoise", "Remplacement de tuiles et d'ardoises (illustration)"),
-  "reparation-faitage-caen": img("faitage", "Réparation de faîtage (illustration)"),
-  "demoussage-toiture-caen": img("demoussage-apres", "Démoussage et nettoyage de toiture (illustration)"),
-  "hydrofuge-toiture-caen": img("hydrofuge", "Traitement hydrofuge de toiture (illustration)"),
-  "couvreur-zingueur-caen": img("zinc", "Couverture et zinguerie en zinc (illustration)"),
-  "gouttieres-caen": img("gouttiere", "Gouttières en zinc (illustration)"),
-  "etancheite-toiture-caen": img("etancheite", "Étanchéité d'une toiture plate (illustration)"),
-  "traitement-charpente-caen": img("charpente", "Charpente en bois sous toiture (illustration)"),
-  "pose-velux-caen": img("velux", "Pose de fenêtre de toit (illustration)"),
+  "reparation-toiture-caen": by("toiture-tuiles-vue-aerienne"),
+  "renovation-toiture-caen": by("renov-velux-apres"),
+  "remplacement-tuiles-ardoises-caen": by("ardoise-lucarnes-colombage"),
+  "reparation-faitage-caen": by("reparation-arete-ouverte"),
+  "demoussage-toiture-caen": by("renov-velux-avant"),
+  "hydrofuge-toiture-caen": by("tuiles-maison-pierre"),
+  "couvreur-zingueur-caen": by("egout-ardoise-gouttiere-zinc"),
+  "gouttieres-caen": by("tuiles-terre-cuite-velux"),
+  "etancheite-toiture-caen": by("etancheite-toit-terrasse-apres-1"),
+  "traitement-charpente-caen": by("charpente-colombage-pignon"),
+  "pose-velux-caen": by("ardoise-velux-pierre"),
 };
 
-export const DEMOUSSAGE = { before: img("demoussage-avant", "Toiture envahie par la mousse (illustration)"), after: img("demoussage-apres", "Toiture nettoyée après démoussage (illustration)") };
+// Montages avant/après réels, utilisés dans le curseur.
+export const PAIRS = {
+  renovation: { before: by("renov-velux-avant"), after: by("renov-velux-apres"), title: "Rénovation de toiture" },
+  remplacement: { before: by("renov-pierre-avant"), after: by("renov-pierre-apres"), title: "Changement de couverture" },
+};
+export const PAIR_BY_SERVICE = {
+  "renovation-toiture-caen": PAIRS.renovation,
+  "remplacement-tuiles-ardoises-caen": PAIRS.remplacement,
+};
+export const DEMOUSSAGE = PAIRS.renovation;
 
-// Choisit n illustrations différentes, décalées selon une graine (pour varier d'une page à l'autre).
-export const pickIllustrations = (n, seed = 0) => Array.from({ length: n }, (_, i) => ILLUSTRATIONS[(seed + i * 3) % ILLUSTRATIONS.length]);
+// Photos par catégorie, pour les pages services et communes.
+const MAIN = PHOTOS.filter((x) => !/avant/.test(x.src));
+export const pickIllustrations = (n, seed = 0) => Array.from({ length: n }, (_, i) => MAIN[(seed + i * 3) % MAIN.length]);
 export const seedOf = (str = "") => Array.from(str).reduce((a, c) => a + c.charCodeAt(0), 0);

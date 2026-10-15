@@ -8,7 +8,7 @@ import { CITIES, PRIORITY_CITIES } from "../data/cities";
 import { PRICE_GROUPS } from "../data/prices";
 import { GLOBAL_FAQ } from "../data/faq";
 import { BLOG_POSTS } from "../data/blog_all";
-import { PHOTOS, HAS_PHOTOS, SERVICE_IMAGES, DEMOUSSAGE } from "../data/photos";
+import { PHOTOS, HAS_PHOTOS, SERVICE_IMAGES, PAIRS } from "../data/photos";
 import BeforeAfter from "../components/BeforeAfter";
 import FAQAccordion from "../components/FAQAccordion";
 import ContactForm from "../components/ContactForm";
@@ -19,7 +19,7 @@ const h2 = "text-inherit text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tig
 
 const svc = (slug) => SERVICES.find((s) => s.slug === slug);
 
-const FILTERS = ["Tout voir", "Couverture", "Zinguerie", "Démoussage", "Velux", "Étanchéité"];
+const FILTERS = ["Tout voir", "Couverture", "Zinguerie", "Velux", "Étanchéité", "Charpente"];
 const CHANTIERS = [
   { cat: "Couverture", img: SERVICE_IMAGES["reparation-toiture-caen"], t: "Réparation de toiture en tuiles", to: "/reparation-toiture-caen" },
   { cat: "Couverture", img: SERVICE_IMAGES["remplacement-tuiles-ardoises-caen"], t: "Couverture en ardoises", to: "/remplacement-tuiles-ardoises-caen" },
@@ -140,8 +140,8 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <p className={`${eyebrow} mb-3`}>Avant / après</p>
           <h2 className={`${h2} mb-10`}>Des toits remis à neuf</h2>
-          <div className="max-w-3xl mx-auto"><BeforeAfter before={DEMOUSSAGE.before.src} after={DEMOUSSAGE.after.src} /></div>
-          <p className="text-[#475569] mt-5 text-sm">Démoussage et nettoyage de toiture. {!HAS_PHOTOS && "Image d'illustration."} <Link to="/demoussage-toiture-caen" className="underline text-[#1F2D5A] font-semibold">En savoir plus sur le démoussage</Link></p>
+          <div className="max-w-3xl mx-auto"><BeforeAfter before={PAIRS.renovation.before.src} after={PAIRS.renovation.after.src} /></div>
+          <p className="text-[#475569] mt-5 text-sm">Rénovation de toiture : avant et après. <Link to="/renovation-toiture-caen" className="underline text-[#1F2D5A] font-semibold">En savoir plus sur la rénovation</Link></p>
         </div>
       </section>
 

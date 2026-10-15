@@ -1,6 +1,6 @@
 import React from "react";
 import SEO, { buildPageSchema, buildBreadcrumbSchema } from "../components/SEO";
-import { COMPANY } from "../data/company";
+import { COMPANY, logoUrl } from "../data/company";
 import { PHOTOS, HAS_PHOTOS, ILLUSTRATIONS } from "../data/photos";
 import CTASection from "../components/CTASection";
 import PhotoSlot from "../components/PhotoSlot";
@@ -16,7 +16,7 @@ export default function Realisations() {
         noindex={!HAS_PHOTOS}
         jsonLd={[
           buildPageSchema("CollectionPage", "Réalisations de CS Couverture Rénovation", url, "Photos de chantiers de toiture à Caen et dans le Calvados.", HAS_PHOTOS ? {
-            mainEntity: { "@type": "ImageGallery", name: "Chantiers de toiture à Caen", image: PHOTOS.map((p) => ({ "@type": "ImageObject", contentUrl: `${COMPANY.site}${p.src}`, description: p.alt })) },
+            mainEntity: { "@type": "ImageGallery", name: "Chantiers de toiture à Caen", image: PHOTOS.map((p) => ({ "@type": "ImageObject", contentUrl: logoUrl(p.src), description: p.alt })) },
           } : {}),
           buildBreadcrumbSchema([["Accueil", COMPANY.site + "/"], ["Réalisations", url]]),
         ]}
