@@ -4,7 +4,7 @@ import { asset } from "./company";
 
 const p = (f, cat, title, alt, w, h) => ({ src: asset(`/photos/${f}.webp`), cat, title, alt, w, h });
 
-export const PHOTOS = [
+const RAW = [
   p("ardoise-velux-pierre", "Velux", "Couverture en ardoises et fenêtre de toit", "Toiture en ardoises naturelles avec fenêtre de toit et gouttière zinc sur une maison en pierre", 1600, 1200),
   p("ardoise-lucarnes-colombage", "Couverture", "Couverture en ardoises, lucarnes à colombages", "Couverture en ardoises avec deux lucarnes sur une maison à colombages", 1600, 1200),
   p("tuiles-terre-cuite-velux", "Velux", "Tuiles terre cuite et fenêtres de toit", "Toiture en tuiles plates terre cuite avec fenêtres de toit et gouttières zinc sur une maison en bardage bois", 1200, 1500),
@@ -30,6 +30,15 @@ export const PHOTOS = [
   p("renov-velux-avant", "Démoussage", "Toiture envahie par la mousse : avant", "Ancienne toiture en tuiles couverte de mousse avec fenêtres de toit, avant rénovation", 1179, 595),
   p("zinc-bac-acier-avant-2", "Zinguerie", "Bac acier et faîtière : avant travaux", "Couverture en bac acier et faîtière avec joints à reprendre, avant intervention", 1080, 675),
 ];
+// Villes prioritaires du client, réparties dans un ordre mélangé (fixe) sur les photos.
+// Elles servent uniquement à l'attribut alt (« couvreur à <ville> ») : ce n'est pas le lieu de prise de vue.
+// À remplacer par la vraie commune de chaque chantier dès qu'elle est connue (champ `ville` de p()).
+const VILLES = ["Argences", "Lisieux", "Falaise", "Bernay", "Mézidon-Canon", "Orbec", "Argentan", "Vimoutiers", "Livarot"];
+const ORDRE = [3, 7, 0, 5, 1, 8, 4, 2, 6, 2, 5, 8, 0, 6, 3, 1, 7, 4, 6, 1, 4, 7, 2, 5, 8];
+export const PHOTOS = RAW.map((x, i) => {
+  const ville = VILLES[ORDRE[i % ORDRE.length] % VILLES.length];
+  return { ...x, ville, alt: `${x.alt}, couvreur à ${ville}` };
+});
 export const HAS_PHOTOS = PHOTOS.length > 0;
 
 const by = (f) => PHOTOS.find((x) => x.src.endsWith(`/${f}.webp`));
