@@ -26,7 +26,7 @@ export default function Realisations() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center reveal">
           <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Réalisations</p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#0B1220] font-light leading-[1.1] tracking-tight mb-5">Nos chantiers de toiture à Caen et dans le Calvados</h1>
-          <p className="text-lg text-[#475569] max-w-2xl mx-auto">Réparation, rénovation, démoussage, zinguerie : des chantiers réels, avec leur commune et leur type de travaux.</p>
+          <p className="text-lg text-[#475569] max-w-2xl mx-auto">{HAS_PHOTOS ? "Réparation, rénovation, démoussage, zinguerie : des chantiers réels, avec leur commune et leur type de travaux." : "Réparation, rénovation, démoussage, zinguerie : exemples de toitures en images. Les photos de nos propres chantiers arrivent bientôt."}</p>
         </div>
       </section>
 
