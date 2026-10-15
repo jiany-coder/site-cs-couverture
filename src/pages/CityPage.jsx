@@ -35,28 +35,28 @@ export default function CityPage() {
     <>
       <SEO title={d.title} description={d.desc} canonical={url} jsonLd={ld} />
 
-      <section className="relative bg-[#061C42] overflow-hidden">
+      <section className="relative bg-[#040F2F] overflow-hidden">
         <HeroBg src="/toiture-tuiles-rouges.webp" strength={0.82} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 w-full">
-          <nav aria-label="Fil d'Ariane" className="text-sm text-[#E4EAF3]/80 font-sans">
-            <Link to="/" className="hover:text-[#E4EAF3]">Accueil</Link> <span aria-hidden="true">/</span>{" "}
-            <Link to="/zone-d-intervention" className="hover:text-[#E4EAF3]">Zone d'intervention</Link> <span aria-hidden="true">/</span> <span>{d.nom}</span>
+          <nav aria-label="Fil d'Ariane" className="text-sm text-[#DCE1EB]/80 font-sans">
+            <Link to="/" className="hover:text-[#DCE1EB]">Accueil</Link> <span aria-hidden="true">/</span>{" "}
+            <Link to="/zone-d-intervention" className="hover:text-[#DCE1EB]">Zone d'intervention</Link> <span aria-hidden="true">/</span> <span>{d.nom}</span>
           </nav>
-          <div className="inline-flex items-center gap-2 bg-[#E4EAF3]/12 backdrop-blur-md border border-[#E4EAF3]/30 px-4 py-2 rounded-full mt-6 mb-6">
-            <MapPin className="w-4 h-4 text-[#E4EAF3]" strokeWidth={1.75} />
-            <span className="text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#E4EAF3]">{d.cp} · {d.km} km de Caen</span>
+          <div className="inline-flex items-center gap-2 bg-[#DCE1EB]/12 backdrop-blur-md border border-[#DCE1EB]/30 px-4 py-2 rounded-full mt-6 mb-6">
+            <MapPin className="w-4 h-4 text-[#DCE1EB]" strokeWidth={1.75} />
+            <span className="text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#DCE1EB]">{d.cp} · {d.km} km de Caen</span>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.1] tracking-tight text-[#F6F8FB] max-w-4xl">{d.h1}</h1>
-          <p className="text-lg sm:text-xl text-[#F6F8FB]/88 max-w-3xl mt-7 leading-relaxed">{d.intro}</p>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.1] tracking-tight text-[#F1F2F5] max-w-4xl">{d.h1}</h1>
+          <p className="text-lg sm:text-xl text-[#F1F2F5]/88 max-w-3xl mt-7 leading-relaxed">{d.intro}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-9">
-            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base hover:bg-[#B50F18] hover:-translate-y-1 hover:shadow-xl transition-all">
+            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#C70909] text-white px-8 py-4 rounded-full font-sans font-semibold text-base hover:bg-[#9E0707] hover:-translate-y-1 hover:shadow-xl transition-all">
               Devis gratuit <ArrowRight className="w-5 h-5" />
             </Link>
-            <a href={telHref} className="inline-flex items-center justify-center gap-2 bg-transparent text-[#F6F8FB] px-8 py-4 rounded-full font-sans font-semibold text-base border-2 border-[#E4EAF3]/40 hover:bg-[#E4EAF3] hover:text-[#0A2A5C] transition-all">
+            <a href={telHref} className="inline-flex items-center justify-center gap-2 bg-transparent text-[#F1F2F5] px-8 py-4 rounded-full font-sans font-semibold text-base border-2 border-[#DCE1EB]/40 hover:bg-[#DCE1EB] hover:text-[#1F2D5A] transition-all">
               <Phone className="w-5 h-5" /> {COMPANY.phone}
             </a>
           </div>
-          <p className="text-xs text-[#F6F8FB]/60 mt-8 font-sans">Page mise à jour le <time dateTime={PAGE_UPDATED.iso}>{PAGE_UPDATED.label}</time></p>
+          <p className="text-xs text-[#F1F2F5]/60 mt-8 font-sans">Page mise à jour le <time dateTime={PAGE_UPDATED.iso}>{PAGE_UPDATED.label}</time></p>
         </div>
       </section>
 
@@ -72,16 +72,16 @@ export default function CityPage() {
           <ul className="space-y-3 list-none ml-0">
             {d.services.map(([slug, t, p]) => (
               <li key={slug} className="flex items-start gap-3 mb-3">
-                <CheckCircle2 className="w-5 h-5 text-[#0A2A5C] mt-1 shrink-0" strokeWidth={1.75} />
-                <span className="text-lg text-[#475569]"><Link to={`/${slug}`} className="font-semibold text-[#0A2A5C] underline">{t}</Link> : {p}</span>
+                <CheckCircle2 className="w-5 h-5 text-[#1F2D5A] mt-1 shrink-0" strokeWidth={1.75} />
+                <span className="text-lg text-[#475569]"><Link to={`/${slug}`} className="font-semibold text-[#1F2D5A] underline">{t}</Link> : {p}</span>
               </li>
             ))}
           </ul>
-          <p className="text-lg leading-[1.75]">Retrouvez aussi toutes nos prestations sur la page <Link to="/" className="text-[#0A2A5C] underline">couvreur à Caen</Link>.</p>
+          <p className="text-lg leading-[1.75]">Retrouvez aussi toutes nos prestations sur la page <Link to="/" className="text-[#1F2D5A] underline">couvreur à Caen</Link>.</p>
 
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Les toitures de {d.nom} : ce qu'il faut savoir</h2>
           {d.roof.map((p, i) => <p key={i} className="text-lg leading-[1.75]">{p}</p>)}
-          <p className="text-lg leading-[1.75] bg-[#E4EAF3] rounded-2xl p-5"><strong>Conseil.</strong> {d.tip}</p>
+          <p className="text-lg leading-[1.75] bg-[#DCE1EB] rounded-2xl p-5"><strong>Conseil.</strong> {d.tip}</p>
 
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Comment demander un devis à {d.nom} ?</h2>
           <p className="text-lg leading-[1.75]">{d.how}</p>
@@ -90,7 +90,7 @@ export default function CityPage() {
           <p className="text-lg leading-[1.75]">Quelques repères de prix publiés en France pour ces travaux. Chaque toiture est différente : le devis est gratuit.</p>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse bg-white rounded-2xl overflow-hidden">
-              <thead><tr className="bg-[#E4EAF3] text-[#0B1220]"><th className="p-4">Prestation</th><th className="p-4">Repère de prix</th></tr></thead>
+              <thead><tr className="bg-[#DCE1EB] text-[#0B1220]"><th className="p-4">Prestation</th><th className="p-4">Repère de prix</th></tr></thead>
               <tbody>
                 {d.prices.map(([a, b]) => (
                   <tr key={a} className="border-b border-[#D9E0EA]"><td className="p-4">{a}</td><td className="p-4 font-medium text-[#0B1220]">{b}</td></tr>
@@ -98,7 +98,7 @@ export default function CityPage() {
               </tbody>
             </table>
           </div>
-          <p className="text-sm text-[#475569] mt-3">Prix indicatifs publiés par La Maison Saint-Gobain et MesDépanneurs (2025 et 2026). <Link to="/tarifs-couvreur-caen" className="text-[#0A2A5C] underline">Voir tous les repères de prix</Link></p>
+          <p className="text-sm text-[#475569] mt-3">Prix indicatifs publiés par La Maison Saint-Gobain et MesDépanneurs (2025 et 2026). <Link to="/tarifs-couvreur-caen" className="text-[#1F2D5A] underline">Voir tous les repères de prix</Link></p>
 
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Fiche pratique : {d.nom}</h2>
           <div className="overflow-x-auto">
@@ -114,14 +114,14 @@ export default function CityPage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Communes voisines de {d.nom}</h2>
           <ul className="flex flex-wrap gap-3 list-none ml-0">
             {d.near.map((n) => (
-              <li key={n.slug}><Link to={`/couvreur-${n.slug}`} className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#0B1220] hover:border-[#0A2A5C]">Couvreur {n.nom} ({n.km} km)</Link></li>
+              <li key={n.slug}><Link to={`/couvreur-${n.slug}`} className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#0B1220] hover:border-[#1F2D5A]">Couvreur {n.nom} ({n.km} km)</Link></li>
             ))}
-            <li><Link to="/" className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#0B1220] hover:border-[#0A2A5C]">Couvreur Caen</Link></li>
+            <li><Link to="/" className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#0B1220] hover:border-[#1F2D5A]">Couvreur Caen</Link></li>
           </ul>
         </div>
       </section>
 
-      <section className="py-20 bg-[#EDF1F7]">
+      <section className="py-20 bg-[#E8EBF1]">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#0B1220] font-light tracking-tight mb-8">Questions fréquentes à {d.nom}</h2>
           <FAQAccordion items={d.faq.map(([q, a]) => ({ q, a }))} />
@@ -136,7 +136,7 @@ export default function CityPage() {
         </div>
       </section>
 
-      <section className="py-14 bg-[#EDF1F7]" data-testid="city-photos">
+      <section className="py-14 bg-[#E8EBF1]" data-testid="city-photos">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-8">Toitures à {d.nom} et aux alentours</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">

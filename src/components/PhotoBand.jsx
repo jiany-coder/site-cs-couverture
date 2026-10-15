@@ -13,8 +13,8 @@ export default function PhotoBand({ src = "/toiture-tuiles-rouges.webp", title, 
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.1] tracking-tight text-white max-w-2xl mb-5">{title}</h2>
         <p className="text-lg text-white/85 max-w-xl mb-8 leading-relaxed">{text}</p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold hover:bg-[#B50F18] transition-colors">Devis gratuit <ArrowRight className="w-5 h-5" /></Link>
-          <a href={telHref} className="inline-flex items-center justify-center gap-2 border-2 border-white/60 text-white px-8 py-4 rounded-full font-sans font-semibold hover:bg-white hover:text-[#0A2A5C] transition-colors"><Phone className="w-5 h-5" /> {COMPANY.phone}</a>
+          <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#C70909] text-white px-8 py-4 rounded-full font-sans font-semibold hover:bg-[#9E0707] transition-colors">Devis gratuit <ArrowRight className="w-5 h-5" /></Link>
+          <a href={telHref} className="inline-flex items-center justify-center gap-2 border-2 border-white/60 text-white px-8 py-4 rounded-full font-sans font-semibold hover:bg-white hover:text-[#1F2D5A] transition-colors"><Phone className="w-5 h-5" /> {COMPANY.phone}</a>
         </div>
       </div>
     </section>

@@ -35,50 +35,50 @@ export default function ContactForm({ defaultService = "", defaultCity = "" }) {
     <form onSubmit={submit} className="space-y-5" data-testid="contact-form">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#0A2A5C] mb-2">Nom complet *</label>
+          <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#1F2D5A] mb-2">Nom complet *</label>
           <input
             required name="name" value={form.name} onChange={onChange}
             placeholder="Jean Dupont"
-            className="w-full px-4 py-3.5 rounded-xl bg-[#F6F8FB] border border-[#D9E0EA] focus:outline-none focus:border-[#0A2A5C] focus:ring-2 focus:ring-[#0A2A5C]/20 transition"
+            className="w-full px-4 py-3.5 rounded-xl bg-[#F1F2F5] border border-[#D9E0EA] focus:outline-none focus:border-[#1F2D5A] focus:ring-2 focus:ring-[#1F2D5A]/20 transition"
             data-testid="contact-input-name"
           />
         </div>
         <div>
-          <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#0A2A5C] mb-2">Téléphone *</label>
+          <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#1F2D5A] mb-2">Téléphone *</label>
           <input
             required name="phone" value={form.phone} onChange={onChange} type="tel"
             placeholder="06 12 34 56 78"
-            className="w-full px-4 py-3.5 rounded-xl bg-[#F6F8FB] border border-[#D9E0EA] focus:outline-none focus:border-[#0A2A5C] focus:ring-2 focus:ring-[#0A2A5C]/20 transition"
+            className="w-full px-4 py-3.5 rounded-xl bg-[#F1F2F5] border border-[#D9E0EA] focus:outline-none focus:border-[#1F2D5A] focus:ring-2 focus:ring-[#1F2D5A]/20 transition"
             data-testid="contact-input-phone"
           />
         </div>
       </div>
 
       <div>
-        <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#0A2A5C] mb-2">Email *</label>
+        <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#1F2D5A] mb-2">Email *</label>
         <input
           required name="email" value={form.email} onChange={onChange} type="email"
           placeholder="vous@email.com"
-          className="w-full px-4 py-3.5 rounded-xl bg-[#F6F8FB] border border-[#D9E0EA] focus:outline-none focus:border-[#0A2A5C] focus:ring-2 focus:ring-[#0A2A5C]/20 transition"
+          className="w-full px-4 py-3.5 rounded-xl bg-[#F1F2F5] border border-[#D9E0EA] focus:outline-none focus:border-[#1F2D5A] focus:ring-2 focus:ring-[#1F2D5A]/20 transition"
           data-testid="contact-input-email"
         />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
-          <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#0A2A5C] mb-2">Ville</label>
+          <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#1F2D5A] mb-2">Ville</label>
           <input
             name="city" value={form.city} onChange={onChange}
             placeholder="Caen, Ouistreham, Bayeux..."
-            className="w-full px-4 py-3.5 rounded-xl bg-[#F6F8FB] border border-[#D9E0EA] focus:outline-none focus:border-[#0A2A5C] focus:ring-2 focus:ring-[#0A2A5C]/20 transition"
+            className="w-full px-4 py-3.5 rounded-xl bg-[#F1F2F5] border border-[#D9E0EA] focus:outline-none focus:border-[#1F2D5A] focus:ring-2 focus:ring-[#1F2D5A]/20 transition"
             data-testid="contact-input-city"
           />
         </div>
         <div>
-          <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#0A2A5C] mb-2">Service souhaité</label>
+          <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#1F2D5A] mb-2">Service souhaité</label>
           <select
             name="service" value={form.service} onChange={onChange}
-            className="w-full px-4 py-3.5 rounded-xl bg-[#F6F8FB] border border-[#D9E0EA] focus:outline-none focus:border-[#0A2A5C] focus:ring-2 focus:ring-[#0A2A5C]/20 transition appearance-none"
+            className="w-full px-4 py-3.5 rounded-xl bg-[#F1F2F5] border border-[#D9E0EA] focus:outline-none focus:border-[#1F2D5A] focus:ring-2 focus:ring-[#1F2D5A]/20 transition appearance-none"
             data-testid="contact-input-service"
           >
             <option value="">Sélectionnez un service</option>
@@ -91,12 +91,12 @@ export default function ContactForm({ defaultService = "", defaultCity = "" }) {
       </div>
 
       <div>
-        <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#0A2A5C] mb-2">Votre demande *</label>
+        <label className="block text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#1F2D5A] mb-2">Votre demande *</label>
         <textarea
           required name="message" value={form.message} onChange={onChange}
           rows={5}
           placeholder="Décrivez le problème ou le projet : fuite, tuiles cassées, mousse, gouttière, rénovation..."
-          className="w-full px-4 py-3.5 rounded-xl bg-[#F6F8FB] border border-[#D9E0EA] focus:outline-none focus:border-[#0A2A5C] focus:ring-2 focus:ring-[#0A2A5C]/20 transition resize-none"
+          className="w-full px-4 py-3.5 rounded-xl bg-[#F1F2F5] border border-[#D9E0EA] focus:outline-none focus:border-[#1F2D5A] focus:ring-2 focus:ring-[#1F2D5A]/20 transition resize-none"
           data-testid="contact-input-message"
         />
       </div>
@@ -104,7 +104,7 @@ export default function ContactForm({ defaultService = "", defaultCity = "" }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all duration-300 hover:bg-[#061C42] hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full inline-flex items-center justify-center gap-2 bg-[#C70909] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all duration-300 hover:bg-[#040F2F] hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
         data-testid="contact-submit"
       >
         {loading ? <><Loader2 className="w-5 h-5 animate-spin" /> Envoi en cours...</> : <><Send className="w-5 h-5" /> Recevoir mon devis gratuit</>}

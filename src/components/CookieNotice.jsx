@@ -12,8 +12,8 @@ export default function CookieNotice() {
   const close = () => { try { localStorage.setItem(KEY, "1"); } catch {} setShow(false); };
   return (
     <div className="fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm z-50 bg-white border border-[#D9E0EA] rounded-2xl shadow-2xl p-5" role="dialog" aria-label="Cookies" data-testid="cookie-notice">
-      <p className="text-sm text-[#475569] leading-relaxed mb-4">Ce site n'utilise que les cookies nécessaires à son fonctionnement et ne dépose aucun traceur publicitaire. <Link to="/politique-de-confidentialite" className="text-[#0A2A5C] underline">Politique de confidentialité</Link></p>
-      <button onClick={close} className="bg-[#0A2A5C] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#061C42]">J'ai compris</button>
+      <p className="text-sm text-[#475569] leading-relaxed mb-4">Ce site n'utilise que les cookies nécessaires à son fonctionnement et ne dépose aucun traceur publicitaire. <Link to="/politique-de-confidentialite" className="text-[#1F2D5A] underline">Politique de confidentialité</Link></p>
+      <button onClick={close} className="bg-[#1F2D5A] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#040F2F]">J'ai compris</button>
     </div>
   );
 }

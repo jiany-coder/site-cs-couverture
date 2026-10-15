@@ -19,12 +19,12 @@ export default function TrustBar() {
   if (COMPANY.urgence) items.push({ Icon: Siren, label: "Urgences", desc: COMPANY.urgence });
 
   return (
-    <section className="py-14 bg-[#EDF1F7] border-y border-[#D9E0EA]" data-testid="trust-bar">
+    <section className="py-14 bg-[#E8EBF1] border-y border-[#D9E0EA]" data-testid="trust-bar">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {items.map(({ Icon, label, desc }) => (
             <div key={label} className="flex flex-col items-start reveal">
-              <Icon className="w-8 h-8 text-[#0A2A5C] mb-3" strokeWidth={1.5} />
+              <Icon className="w-8 h-8 text-[#1F2D5A] mb-3" strokeWidth={1.5} />
               <p className="font-sans font-semibold text-[#0B1220] text-sm mb-1">{label}</p>
               <p className="text-xs text-[#475569] leading-relaxed">{desc}</p>
             </div>

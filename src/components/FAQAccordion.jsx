@@ -7,7 +7,7 @@ export default function FAQAccordion({ items }) {
       {items.map((f, i) => (
         <AccordionItem key={i} value={`item-${i}`} className="border-b border-[#D9E0EA]">
           <AccordionTrigger
-            className="text-left py-6 font-serif text-xl md:text-2xl text-[#0B1220] hover:text-[#0A2A5C] hover:no-underline"
+            className="text-left py-6 font-serif text-xl md:text-2xl text-[#0B1220] hover:text-[#1F2D5A] hover:no-underline"
             data-testid={`faq-trigger-${i}`}
           >
             {f.q}

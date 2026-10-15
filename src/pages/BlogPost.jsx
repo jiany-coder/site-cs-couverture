@@ -20,8 +20,8 @@ function md(content) {
   };
   const inline = (s) =>
     s
-      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-[#0A2A5C] underline">$1</a>')
-      .replace(/\[([^\]]+)\]\((\/[^)]*)\)/g, '<a href="$2" class="text-[#0A2A5C] underline">$1</a>')
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-[#1F2D5A] underline">$1</a>')
+      .replace(/\[([^\]]+)\]\((\/[^)]*)\)/g, '<a href="$2" class="text-[#1F2D5A] underline">$1</a>')
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
       .replace(/`(.*?)`/g, "<code>$1</code>");
 
@@ -75,11 +75,11 @@ export default function BlogPost() {
       <article>
         <section className="pt-32 pb-12">
           <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-            <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-[#0A2A5C] font-sans font-semibold link-underline mb-8">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-[#1F2D5A] font-sans font-semibold link-underline mb-8">
               <ArrowLeft className="w-4 h-4" /> Retour au blog
             </Link>
             <div className="flex items-center gap-3 text-xs font-sans text-[#475569] mb-5">
-              <span className="font-semibold tracking-[0.18em] uppercase text-[#0A2A5C]">{post.category}</span>
+              <span className="font-semibold tracking-[0.18em] uppercase text-[#1F2D5A]">{post.category}</span>
               <span>·</span>
               <Clock className="w-3 h-3" /> {post.readTime}
               <span>·</span>
@@ -101,25 +101,25 @@ export default function BlogPost() {
               </div>
             )}
 
-            <div className="mt-14 p-8 rounded-2xl bg-[#0A2A5C] text-[#F6F8FB]">
-              <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#E4EAF3] mb-3">Besoin d'un devis ?</p>
-              <h3 className="font-serif text-3xl text-[#E4EAF3] mb-4">Parlons de votre projet</h3>
-              <p className="text-[#F6F8FB]/80 mb-6">Nous examinons la toiture puis vous remettons un devis gratuit.</p>
+            <div className="mt-14 p-8 rounded-2xl bg-[#1F2D5A] text-[#F1F2F5]">
+              <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#DCE1EB] mb-3">Besoin d'un devis ?</p>
+              <h3 className="font-serif text-3xl text-[#DCE1EB] mb-4">Parlons de votre projet</h3>
+              <p className="text-[#F1F2F5]/80 mb-6">Nous examinons la toiture puis vous remettons un devis gratuit.</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-6 py-3 rounded-full font-sans font-semibold text-sm">Devis gratuit <ArrowRight className="w-4 h-4" /></Link>
-                <a href={`${telHref}`} className="inline-flex items-center justify-center gap-2 border-2 border-[#E4EAF3]/40 text-[#E4EAF3] px-6 py-3 rounded-full font-sans font-semibold text-sm hover:bg-[#E4EAF3] hover:text-[#0A2A5C] transition-colors"><Phone className="w-4 h-4" /> {COMPANY.phone}</a>
+                <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#C70909] text-white px-6 py-3 rounded-full font-sans font-semibold text-sm">Devis gratuit <ArrowRight className="w-4 h-4" /></Link>
+                <a href={`${telHref}`} className="inline-flex items-center justify-center gap-2 border-2 border-[#DCE1EB]/40 text-[#DCE1EB] px-6 py-3 rounded-full font-sans font-semibold text-sm hover:bg-[#DCE1EB] hover:text-[#1F2D5A] transition-colors"><Phone className="w-4 h-4" /> {COMPANY.phone}</a>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-[#EDF1F7]">
+        <section className="py-20 bg-[#E8EBF1]">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <h2 className="font-serif text-3xl sm:text-4xl text-[#0B1220] font-light mb-10">À lire également</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {related.map((p) => (
                 <Link key={p.slug} to={`/blog/${p.slug}`} className="group block">
-                  <h3 className="font-serif text-xl text-[#0B1220] leading-tight mb-2 group-hover:text-[#0A2A5C]">{p.title}</h3>
+                  <h3 className="font-serif text-xl text-[#0B1220] leading-tight mb-2 group-hover:text-[#1F2D5A]">{p.title}</h3>
                   <p className="text-sm text-[#475569]">{p.excerpt}</p>
                 </Link>
               ))}

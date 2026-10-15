@@ -5,16 +5,16 @@
 @tailwind utilities;
 
 :root {
-    --brand-primary: #0A2A5C;
-    --brand-primary-hover: #061C42;
-    --brand-secondary: #E4EAF3;
+    --brand-primary: #1F2D5A;
+    --brand-primary-hover: #040F2F;
+    --brand-secondary: #DCE1EB;
     --brand-secondary-hover: #D2DCEB;
-    --surface-bg: #F6F8FB;
+    --surface-bg: #F1F2F5;
     --surface-card: #FFFFFF;
-    --surface-tinted: #EDF1F7;
+    --surface-tinted: #E8EBF1;
     --text-heading: #0B1220;
     --text-body: #475569;
-    --text-inverse: #F6F8FB;
+    --text-inverse: #F1F2F5;
     --accent-border: #D9E0EA;
 }
 

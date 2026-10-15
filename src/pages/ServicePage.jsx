@@ -40,42 +40,42 @@ export default function ServicePage() {
       <SEO title={service.metaTitle} description={service.metaDescription} canonical={url} jsonLd={jsonLd} />
 
       {/* HERO */}
-      <section className="relative bg-[#061C42] overflow-hidden" data-testid="service-hero">
+      <section className="relative bg-[#040F2F] overflow-hidden" data-testid="service-hero">
         <HeroBg src="/toiture-ardoise.webp" strength={0.82} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-20 pb-20 w-full">
-          <nav aria-label="Fil d'Ariane" className="text-sm text-[#E4EAF3]/80 font-sans">
-            <Link to="/" className="hover:text-[#E4EAF3]">Accueil</Link> <span aria-hidden="true">/</span> <span>{service.title}</span>
+          <nav aria-label="Fil d'Ariane" className="text-sm text-[#DCE1EB]/80 font-sans">
+            <Link to="/" className="hover:text-[#DCE1EB]">Accueil</Link> <span aria-hidden="true">/</span> <span>{service.title}</span>
           </nav>
-          <div className="inline-flex items-center gap-2 bg-[#E4EAF3]/12 backdrop-blur-md border border-[#E4EAF3]/30 px-4 py-2 rounded-full mt-6 mb-6">
-            <Icon className="w-4 h-4 text-[#E4EAF3]" strokeWidth={1.75} />
-            <span className="text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#E4EAF3]">{COMPANY.shortBrand} · Caen</span>
+          <div className="inline-flex items-center gap-2 bg-[#DCE1EB]/12 backdrop-blur-md border border-[#DCE1EB]/30 px-4 py-2 rounded-full mt-6 mb-6">
+            <Icon className="w-4 h-4 text-[#DCE1EB]" strokeWidth={1.75} />
+            <span className="text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#DCE1EB]">{COMPANY.shortBrand} · Caen</span>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.1] tracking-tight text-[#F6F8FB] max-w-4xl">{service.h1}</h1>
-          <p className="text-lg sm:text-xl text-[#F6F8FB]/88 max-w-3xl mt-7 leading-relaxed" data-testid="service-answer">{service.answer}</p>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.1] tracking-tight text-[#F1F2F5] max-w-4xl">{service.h1}</h1>
+          <p className="text-lg sm:text-xl text-[#F1F2F5]/88 max-w-3xl mt-7 leading-relaxed" data-testid="service-answer">{service.answer}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-9">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all hover:bg-[#B50F18] hover:-translate-y-1 hover:shadow-xl"
+              className="inline-flex items-center justify-center gap-2 bg-[#C70909] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all hover:bg-[#9E0707] hover:-translate-y-1 hover:shadow-xl"
               data-testid="service-hero-cta"
             >
               Devis gratuit <ArrowRight className="w-5 h-5" strokeWidth={1.75} />
             </Link>
             <a
               href={telHref}
-              className="inline-flex items-center justify-center gap-2 bg-transparent text-[#F6F8FB] px-8 py-4 rounded-full font-sans font-semibold text-base border-2 border-[#E4EAF3]/40 transition-all hover:bg-[#E4EAF3] hover:text-[#0A2A5C]"
+              className="inline-flex items-center justify-center gap-2 bg-transparent text-[#F1F2F5] px-8 py-4 rounded-full font-sans font-semibold text-base border-2 border-[#DCE1EB]/40 transition-all hover:bg-[#DCE1EB] hover:text-[#1F2D5A]"
             >
               <Phone className="w-5 h-5" strokeWidth={1.75} /> {COMPANY.phone}
             </a>
           </div>
-          <p className="text-xs text-[#F6F8FB]/60 mt-8 font-sans">Page mise à jour le <time dateTime={PAGE_UPDATED.iso}>{PAGE_UPDATED.label}</time></p>
+          <p className="text-xs text-[#F1F2F5]/60 mt-8 font-sans">Page mise à jour le <time dateTime={PAGE_UPDATED.iso}>{PAGE_UPDATED.label}</time></p>
         </div>
       </section>
 
       {/* BENEFITS */}
-      <section className="py-16 sm:py-20 bg-[#EDF1F7]">
+      <section className="py-16 sm:py-20 bg-[#E8EBF1]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
-            <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Notre intervention</p>
+            <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#1F2D5A] mb-4">Notre intervention</p>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#0B1220] font-light leading-tight tracking-tight">
               Ce que comprend notre prestation : {service.title.toLowerCase()}
             </h2>
@@ -83,7 +83,7 @@ export default function ServicePage() {
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
             {service.benefits.map((b) => (
               <div key={b} className="bg-white border border-[#D9E0EA] p-6 rounded-2xl flex items-start gap-4">
-                <CheckCircle2 className="w-6 h-6 text-[#0A2A5C] flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                <CheckCircle2 className="w-6 h-6 text-[#1F2D5A] flex-shrink-0 mt-0.5" strokeWidth={1.5} />
                 <p className="text-[#0B1220] font-sans font-medium leading-relaxed">{b}</p>
               </div>
             ))}
@@ -105,7 +105,7 @@ export default function ServicePage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse bg-white rounded-2xl overflow-hidden">
               <thead>
-                <tr className="bg-[#E4EAF3] text-[#0B1220]"><th className="p-4">Prestation</th><th className="p-4">Repère de prix</th></tr>
+                <tr className="bg-[#DCE1EB] text-[#0B1220]"><th className="p-4">Prestation</th><th className="p-4">Repère de prix</th></tr>
               </thead>
               <tbody>
                 {service.table.rows.map(([a, b]) => (
@@ -114,12 +114,12 @@ export default function ServicePage() {
               </tbody>
             </table>
           </div>
-          <p className="text-sm text-[#475569] mt-3">{PRICE_SOURCE} <Link to="/tarifs-couvreur-caen" className="text-[#0A2A5C] underline">Voir tous les repères de prix</Link></p>
+          <p className="text-sm text-[#475569] mt-3">{PRICE_SOURCE} <Link to="/tarifs-couvreur-caen" className="text-[#1F2D5A] underline">Voir tous les repères de prix</Link></p>
         </div>
       </section>
 
       {/* PHOTOS */}
-      <section className="py-16 bg-[#EDF1F7]" data-testid="service-photos">
+      <section className="py-16 bg-[#E8EBF1]" data-testid="service-photos">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-8">{HAS_PHOTOS ? `Nos chantiers : ${service.title.toLowerCase()}` : `${service.title} : exemples de toitures`}</h2>
           {service.slug === "demoussage-toiture-caen" ? (
@@ -143,7 +143,7 @@ export default function ServicePage() {
       {/* FAQ */}
       <section className="py-20 sm:py-24">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Questions fréquentes</p>
+          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#1F2D5A] mb-4">Questions fréquentes</p>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#0B1220] font-light leading-tight tracking-tight mb-8">
             Vos questions sur : {service.title.toLowerCase()}
           </h2>
@@ -152,7 +152,7 @@ export default function ServicePage() {
       </section>
 
       {/* RELATED + ZONE */}
-      <section className="py-20 bg-[#EDF1F7]">
+      <section className="py-20 bg-[#E8EBF1]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-8">À lire aussi</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -162,9 +162,9 @@ export default function ServicePage() {
           <p className="text-[#475569] mb-5">{COMPANY.brand} intervient dans un rayon d'environ {COMPANY.radiusKm} km autour de Caen. Retrouvez la page de votre commune :</p>
           <ul className="flex flex-wrap gap-3">
             {CITIES.slice(0, 12).map((c) => (
-              <li key={c.slug}><Link to={`/couvreur-${c.slug}`} className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#0B1220] hover:border-[#0A2A5C] hover:text-[#0A2A5C]">Couvreur {c.name}</Link></li>
+              <li key={c.slug}><Link to={`/couvreur-${c.slug}`} className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#0B1220] hover:border-[#1F2D5A] hover:text-[#1F2D5A]">Couvreur {c.name}</Link></li>
             ))}
-            <li><Link to="/zone-d-intervention" className="inline-block rounded-full bg-[#0A2A5C] px-4 py-2 text-sm text-[#F6F8FB]">Toutes les communes</Link></li>
+            <li><Link to="/zone-d-intervention" className="inline-block rounded-full bg-[#1F2D5A] px-4 py-2 text-sm text-[#F1F2F5]">Toutes les communes</Link></li>
           </ul>
         </div>
       </section>

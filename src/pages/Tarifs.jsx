@@ -30,9 +30,9 @@ export default function Tarifs() {
         ]}
       />
 
-      <section className="pt-28 pb-12 bg-[#F6F8FB]">
+      <section className="pt-28 pb-12 bg-[#F1F2F5]">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 reveal">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Tarifs</p>
+          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#1F2D5A] mb-4">Tarifs</p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#0B1220] font-light leading-[1.1] tracking-tight mb-6">Prix d'un couvreur à Caen : repères de tarifs pour votre toiture</h1>
           <p className="text-lg text-[#475569] leading-relaxed mb-4">
             Une réparation de fuite de toiture coûte en général de 400 à 2 500 €, un démoussage de 25 à 35 € le m², et une couverture neuve fournie et posée de 90 à 200 € le m² selon le matériau. Ces repères viennent de guides publics français ; le devis gratuit de {COMPANY.brand} donne le prix de votre chantier.
@@ -48,7 +48,7 @@ export default function Tarifs() {
               <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mb-5">{g.title}</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse bg-white rounded-2xl overflow-hidden">
-                  <thead><tr className="bg-[#E4EAF3] text-[#0B1220]"><th className="p-4">Prestation</th><th className="p-4">Repère de prix</th></tr></thead>
+                  <thead><tr className="bg-[#DCE1EB] text-[#0B1220]"><th className="p-4">Prestation</th><th className="p-4">Repère de prix</th></tr></thead>
                   <tbody>
                     {g.rows.map(([a, b]) => (
                       <tr key={a} className="border-b border-[#D9E0EA]"><td className="p-4">{a}</td><td className="p-4 font-medium text-[#0B1220]">{b}</td></tr>
@@ -62,7 +62,7 @@ export default function Tarifs() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#EDF1F7]">
+      <section className="py-16 bg-[#E8EBF1]">
         <div className="max-w-4xl mx-auto px-6 sm:px-8">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mb-6">Qu'est-ce qui fait varier le prix d'une toiture ?</h2>
           <dl className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -73,7 +73,7 @@ export default function Tarifs() {
               </div>
             ))}
           </dl>
-          <p className="text-[#475569] mt-8">Le détail de chaque prestation est sur sa page : <Link to="/reparation-toiture-caen" className="text-[#0A2A5C] underline">réparation de toiture</Link>, <Link to="/renovation-toiture-caen" className="text-[#0A2A5C] underline">rénovation</Link>, <Link to="/demoussage-toiture-caen" className="text-[#0A2A5C] underline">démoussage</Link>, <Link to="/gouttieres-caen" className="text-[#0A2A5C] underline">gouttières</Link>.</p>
+          <p className="text-[#475569] mt-8">Le détail de chaque prestation est sur sa page : <Link to="/reparation-toiture-caen" className="text-[#1F2D5A] underline">réparation de toiture</Link>, <Link to="/renovation-toiture-caen" className="text-[#1F2D5A] underline">rénovation</Link>, <Link to="/demoussage-toiture-caen" className="text-[#1F2D5A] underline">démoussage</Link>, <Link to="/gouttieres-caen" className="text-[#1F2D5A] underline">gouttières</Link>.</p>
         </div>
       </section>
 

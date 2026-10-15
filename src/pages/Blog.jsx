@@ -19,9 +19,9 @@ export default function Blog() {
           buildBreadcrumbSchema([["Accueil", COMPANY.site + "/"], ["Blog", COMPANY.site + "/blog"]]),
         ]}
       />
-      <section className="pt-32 pb-12 bg-[#F6F8FB]">
+      <section className="pt-32 pb-12 bg-[#F1F2F5]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center reveal">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Notre blog</p>
+          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#1F2D5A] mb-4">Notre blog</p>
           <h1 className="font-serif text-4xl sm:text-5xl text-[#0B1220] font-light leading-[1] tracking-tight mb-5">
             Conseils toiture à Caen et dans le Calvados
           </h1>
@@ -35,13 +35,13 @@ export default function Blog() {
             {BLOG_POSTS.map((p) => (
               <Link key={p.slug} to={`/blog/${p.slug}`} className="group block premium-card p-8 reveal" data-testid={`blog-card-${p.slug}`}>
                 <div className="flex items-center gap-3 text-xs font-sans text-[#475569] mb-3">
-                  <span className="font-semibold tracking-[0.18em] uppercase text-[#0A2A5C]">{p.category}</span>
+                  <span className="font-semibold tracking-[0.18em] uppercase text-[#1F2D5A]">{p.category}</span>
                   <span>·</span>
                   <Clock className="w-3 h-3" /> {p.readTime}
                 </div>
-                <h2 className="font-serif text-2xl text-[#0B1220] leading-tight mb-3 group-hover:text-[#0A2A5C] transition-colors">{p.title}</h2>
+                <h2 className="font-serif text-2xl text-[#0B1220] leading-tight mb-3 group-hover:text-[#1F2D5A] transition-colors">{p.title}</h2>
                 <p className="text-sm text-[#475569] leading-relaxed mb-4">{p.excerpt}</p>
-                <span className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-[#0A2A5C]">Lire l'article <ArrowRight className="w-4 h-4" /></span>
+                <span className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-[#1F2D5A]">Lire l'article <ArrowRight className="w-4 h-4" /></span>
               </Link>
             ))}
           </div>

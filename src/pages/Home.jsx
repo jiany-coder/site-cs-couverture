@@ -1,288 +1,311 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Phone, Star, MapPin, CheckCircle2, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowLeft, ArrowUpRight, Phone, Star, ShieldCheck, MapPin, Clock } from "lucide-react";
 import SEO, { buildWebSiteSchema, buildLocalBusinessSchema, buildFAQSchema, DESCRIPTION } from "../components/SEO";
 import { COMPANY, telHref } from "../data/company";
-import HeroBg from "../components/HeroBg";
-import PhotoBand from "../components/PhotoBand";
 import { SERVICES } from "../data/services";
 import { CITIES, PRIORITY_CITIES } from "../data/cities";
 import { PRICE_GROUPS } from "../data/prices";
 import { GLOBAL_FAQ } from "../data/faq";
-import { PHOTOS, HAS_PHOTOS, pickIllustrations } from "../data/photos";
-import ServiceCard from "../components/ServiceCard";
+import { BLOG_POSTS } from "../data/blog_all";
+import { PHOTOS, HAS_PHOTOS, SERVICE_IMAGES, DEMOUSSAGE } from "../data/photos";
+import BeforeAfter from "../components/BeforeAfter";
 import FAQAccordion from "../components/FAQAccordion";
-import TrustBar from "../components/TrustBar";
-import CTASection from "../components/CTASection";
-import RoofPattern from "../components/RoofPattern";
-import PhotoSlot from "../components/PhotoSlot";
+import ContactForm from "../components/ContactForm";
+import HeroBg from "../components/HeroBg";
 
-const SITUATIONS = [
-  ["Tache au plafond ou fuite après la pluie", "Un raccord, une tuile ou le faîtage à reprendre", "reparation-toiture-caen", "Réparation de toiture"],
-  ["Tuiles ou ardoises au sol ou décalées", "Remplacement ciblé des éléments abîmés", "remplacement-tuiles-ardoises-caen", "Remplacement de tuiles"],
-  ["Mousse, lichens, toiture noircie", "Démoussage, puis hydrofuge si la couverture est saine", "demoussage-toiture-caen", "Démoussage"],
-  ["Gouttière qui déborde", "Nettoyage, réparation ou remplacement", "gouttieres-caen", "Gouttières"],
-  ["Fuite près d'une cheminée ou d'un mur", "Solin ou noue à reprendre", "couvreur-zingueur-caen", "Couvreur zingueur"],
-  ["Fuites sur plusieurs zones, couverture en fin de vie", "Rénovation partielle ou complète", "renovation-toiture-caen", "Rénovation de toiture"],
+const eyebrow = "text-xs font-bold tracking-[0.25em] uppercase text-[#C70909]";
+const h2 = "text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.08]";
+
+const svc = (slug) => SERVICES.find((s) => s.slug === slug);
+
+const FILTERS = ["Tout voir", "Couverture", "Zinguerie", "Démoussage", "Velux", "Étanchéité"];
+const CHANTIERS = [
+  { cat: "Couverture", img: SERVICE_IMAGES["reparation-toiture-caen"], t: "Réparation de toiture en tuiles", to: "/reparation-toiture-caen" },
+  { cat: "Couverture", img: SERVICE_IMAGES["remplacement-tuiles-ardoises-caen"], t: "Couverture en ardoises", to: "/remplacement-tuiles-ardoises-caen" },
+  { cat: "Couverture", img: SERVICE_IMAGES["renovation-toiture-caen"], t: "Rénovation de toiture", to: "/renovation-toiture-caen" },
+  { cat: "Couverture", img: SERVICE_IMAGES["reparation-faitage-caen"], t: "Réparation de faîtage", to: "/reparation-faitage-caen" },
+  { cat: "Zinguerie", img: SERVICE_IMAGES["couvreur-zingueur-caen"], t: "Couverture et zinguerie en zinc", to: "/couvreur-zingueur-caen" },
+  { cat: "Zinguerie", img: SERVICE_IMAGES["gouttieres-caen"], t: "Gouttières zinc", to: "/gouttieres-caen" },
+  { cat: "Démoussage", img: SERVICE_IMAGES["demoussage-toiture-caen"], t: "Démoussage de toiture", to: "/demoussage-toiture-caen" },
+  { cat: "Démoussage", img: SERVICE_IMAGES["hydrofuge-toiture-caen"], t: "Traitement hydrofuge", to: "/hydrofuge-toiture-caen" },
+  { cat: "Velux", img: SERVICE_IMAGES["pose-velux-caen"], t: "Pose de fenêtre de toit", to: "/pose-velux-caen" },
+  { cat: "Étanchéité", img: SERVICE_IMAGES["etancheite-toiture-caen"], t: "Étanchéité de toiture", to: "/etancheite-toiture-caen" },
+];
+
+const METIERS = [
+  { id: "Couverture", intro: "Réparation, rénovation et entretien de tous types de toitures : tuiles, ardoises, faîtage, démoussage, hydrofuge.", slugs: ["reparation-toiture-caen", "renovation-toiture-caen", "remplacement-tuiles-ardoises-caen", "reparation-faitage-caen", "demoussage-toiture-caen", "hydrofuge-toiture-caen"] },
+  { id: "Zinguerie", intro: "Solins, noues, rives, abergements, gouttières et descentes : les éléments qui guident l'eau loin des murs.", slugs: ["couvreur-zingueur-caen", "gouttieres-caen"] },
+  { id: "Étanchéité", intro: "Traitement des points singuliers (raccords, cheminées, jonctions) quand une fuite revient au même endroit.", slugs: ["etancheite-toiture-caen"] },
+  { id: "Charpente", intro: "Contrôle des bois sous la couverture et traitement adapté à leur état : humidité, insectes xylophages.", slugs: ["traitement-charpente-caen"] },
+  { id: "Velux", intro: "Pose ou remplacement de fenêtres de toit, avec reprise soignée de l'étanchéité autour du châssis.", slugs: ["pose-velux-caen"] },
 ];
 
 const STEPS = [
-  ["Vous nous contactez", `Par téléphone au ${COMPANY.phone} ou avec le formulaire, en décrivant le problème (fuite, mousse, gouttière, projet de rénovation).`],
-  ["Examen de la toiture", "Nous regardons la couverture, les raccords et les gouttières pour identifier la cause réelle."],
-  ["Devis gratuit", "Vous recevez un devis détaillé poste par poste, sans engagement, avant de décider."],
-  ["Intervention", "Les travaux sont réalisés selon le devis accepté, avec la méthode adaptée au matériau de votre toiture."],
+  ["Premier contact", `Un appel au ${COMPANY.phone} ou le formulaire, avec quelques photos si possible : nous vous rappelons rapidement.`],
+  ["Visite du toit", "Nous examinons la couverture, les raccords et les gouttières pour identifier la cause réelle du problème."],
+  ["Devis détaillé", "Vous recevez un devis gratuit, poste par poste, sans engagement, avant de décider."],
+  ["Réalisation", "Les travaux sont réalisés selon le devis accepté, avec la méthode adaptée au matériau de votre toiture."],
+];
+
+const TRUST = [
+  ["Examen avant devis", "Nous regardons la toiture avant de chiffrer, pour que le devis corresponde au chantier réel."],
+  ["Devis clair et gratuit", "Le détail des postes, du matériau à la main-d'œuvre, pour décider en connaissance de cause."],
+  ["Entreprise de proximité", `Basée à Caen, ${COMPANY.brand} se déplace de la côte au Pays d'Auge.`],
+  ["Réparation ciblée", "Quand le désordre est localisé et le reste sain, nous réparons plutôt que de refaire le toit."],
 ];
 
 export default function Home() {
   const jsonLd = [buildLocalBusinessSchema(), buildWebSiteSchema(), buildFAQSchema(GLOBAL_FAQ)];
-  const gallery = HAS_PHOTOS ? PHOTOS.slice(0, 6) : pickIllustrations(6, 2);
+  const [filter, setFilter] = useState("Tout voir");
+  const rail = useRef(null);
+  const [tab, setTab] = useState("Couverture");
+  const items = HAS_PHOTOS
+    ? PHOTOS.map((p) => ({ cat: p.cat || "Couverture", img: p, t: p.title || p.alt, to: "/realisations" }))
+    : CHANTIERS;
+  const shown = items.filter((c) => filter === "Tout voir" || c.cat === filter);
+  const scroll = (d) => rail.current && rail.current.scrollBy({ left: d * 340, behavior: "smooth" });
+  const metier = METIERS.find((m) => m.id === tab);
+  const priceRows = [PRICE_GROUPS[1].rows[0], PRICE_GROUPS[0].rows[0], PRICE_GROUPS[0].rows[1], PRICE_GROUPS[1].rows[1], PRICE_GROUPS[2].rows[2], PRICE_GROUPS[2].rows[3]];
 
   return (
-    <>
+    <div className="font-sans text-[#040F2F]">
       <SEO
         title={`Couvreur à Caen | Toiture, zinguerie | ${COMPANY.shortBrand}`}
-        description={`Couvreur à Caen : réparation, rénovation, démoussage et nettoyage de toiture, zinguerie. Rayon de ${COMPANY.radiusKm} km, devis gratuit. Tél. ${COMPANY.phone}`}
+        description={`Couvreur à Caen et dans le Pays d'Auge : réparation, rénovation, démoussage de toiture, zinguerie. Devis gratuit. Tél. ${COMPANY.phone}`}
         canonical={`${COMPANY.site}/`}
         jsonLd={jsonLd}
       />
 
       {/* HERO */}
-      <section className="relative min-h-[88vh] flex items-center bg-[#061C42] overflow-hidden" data-testid="hero-section">
-        <HeroBg src="/hero-toiture.webp" />
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-          <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 bg-[#E4EAF3]/12 backdrop-blur-md border border-[#E4EAF3]/30 px-4 py-2 rounded-full mb-7">
-              <MapPin className="w-3.5 h-3.5 text-[#E4EAF3]" strokeWidth={1.75} />
-              <span className="text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#E4EAF3]">Caen · Calvados · {COMPANY.radiusKm} km autour</span>
+      <section className="relative min-h-[92vh] flex items-end bg-[#040F2F] overflow-hidden" data-testid="hero-section">
+        <HeroBg src="/hero-toiture.webp" strength={0.55} />
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-40 pb-20 w-full">
+          <p className={`${eyebrow} mb-6`}>Couvreur qualifié à Caen et dans le Pays d'Auge</p>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white max-w-4xl mb-7">
+            Un toit qui tient, <span className="italic font-medium text-white/80">de Caen au Pays d'Auge</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-white/85 max-w-2xl mb-10 leading-relaxed">{DESCRIPTION}</p>
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#C70909] text-white px-8 py-4 rounded-full font-bold hover:bg-[#9E0707] transition-colors" data-testid="hero-cta-devis">Demander mon devis <ArrowUpRight className="w-5 h-5" /></Link>
+            <a href="#services" className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors">Découvrir nos services</a>
+          </div>
+          <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/85 font-semibold">
+            <li className="inline-flex items-center gap-2"><Star className="w-4 h-4 fill-[#D4A841] text-[#D4A841]" strokeWidth={1} /> {COMPANY.rating.value}/5 · {COMPANY.rating.count} avis Google</li>
+            <li className="inline-flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Devis gratuit et détaillé</li>
+            <li className="inline-flex items-center gap-2"><Clock className="w-4 h-4" /> {COMPANY.hours}</li>
+            <li className="inline-flex items-center gap-2"><MapPin className="w-4 h-4" /> {CITIES.length + 1} communes desservies</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* CHANTIERS */}
+      <section className="py-20 sm:py-24 bg-[#040F2F] text-white" data-testid="chantiers-section">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex items-end justify-between gap-6 mb-8">
+            <div>
+              <p className={`${eyebrow} mb-3`}>{HAS_PHOTOS ? "Nos chantiers" : "Nos toitures en images"}</p>
+              <h2 className={h2}>{HAS_PHOTOS ? "Nos dernières toitures" : "Les toitures que nous traitons"}</h2>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.05] tracking-tight text-[#F6F8FB] mb-7">
-              Couvreur à Caen : <span className="italic font-light">réparation, rénovation</span> et entretien de toiture
-            </h1>
-            <p className="text-lg sm:text-xl text-[#F6F8FB]/85 max-w-2xl mb-10 leading-relaxed">{DESCRIPTION}</p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#D7141E] text-white px-8 py-4 rounded-full font-sans font-semibold text-base transition-all hover:bg-[#B50F18] hover:-translate-y-1 hover:shadow-xl"
-                data-testid="hero-cta-devis"
-              >
-                Devis gratuit <ArrowRight className="w-5 h-5" strokeWidth={1.75} />
+            <div className="hidden sm:flex gap-3">
+              <button onClick={() => scroll(-1)} className="w-12 h-12 rounded-full bg-white text-[#040F2F] flex items-center justify-center" aria-label="Précédent"><ArrowLeft className="w-5 h-5" /></button>
+              <button onClick={() => scroll(1)} className="w-12 h-12 rounded-full bg-white text-[#040F2F] flex items-center justify-center" aria-label="Suivant"><ArrowRight className="w-5 h-5" /></button>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2 mb-8">
+            {FILTERS.map((f) => (
+              <button key={f} onClick={() => setFilter(f)} className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${filter === f ? "bg-[#C70909] border-[#C70909] text-white" : "border-white/30 text-white hover:bg-white/10"}`}>{f}</button>
+            ))}
+          </div>
+          <div ref={rail} className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 sm:mx-0 sm:px-0" style={{ scrollbarWidth: "none" }}>
+            {shown.map((c) => (
+              <Link key={c.t} to={c.to} className="group snap-start shrink-0 w-[78vw] sm:w-[320px]">
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-[#1F2D5A]">
+                  <img src={c.img.src} alt={c.img.alt} width="1200" height="800" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#040F2F]/85 via-transparent to-transparent" />
+                  <span className="absolute top-4 left-4 bg-black/55 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">{c.cat}</span>
+                  <p className="absolute bottom-5 left-5 right-5 font-bold text-lg leading-tight">{c.t}</p>
+                </div>
               </Link>
-              <a
-                href={telHref}
-                className="inline-flex items-center justify-center gap-2 bg-transparent text-[#F6F8FB] px-8 py-4 rounded-full font-sans font-semibold text-base border-2 border-[#E4EAF3]/40 transition-all hover:bg-[#E4EAF3] hover:text-[#0A2A5C]"
-                data-testid="hero-cta-phone"
-              >
-                <Phone className="w-5 h-5" strokeWidth={1.75} /> {COMPANY.phone}
-              </a>
-            </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-10 text-[#F6F8FB]/80 text-sm">
-              <span className="inline-flex items-center gap-1.5 font-sans">
-                {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="w-4 h-4 fill-[#D4A841] text-[#D4A841]" strokeWidth={1} />)}
-                <span className="ml-1">{COMPANY.rating.value}/5 · {COMPANY.rating.count} avis Google</span>
-              </span>
-              <span className="hidden sm:inline-block w-px h-4 bg-[#F6F8FB]/30" />
-              <span className="font-sans">Lundi au samedi, 8 h à 20 h</span>
-            </div>
+            ))}
           </div>
-          <div className="lg:col-span-4 hidden lg:flex justify-end">
-            <img src={COMPANY.logos.main} alt="Logo CS Couverture, experts toiture à Caen" width="512" height="710" className="w-64 h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]" fetchPriority="high" decoding="async" />
-          </div>
+          {!HAS_PHOTOS && <p className="text-xs text-white/60 mt-4">Images d'illustration : les photos de nos propres chantiers arrivent bientôt.</p>}
+          <p className="mt-8"><Link to="/realisations" className="inline-flex items-center gap-2 font-bold text-sm border-b-2 border-[#C70909] pb-1">Parcourir tous nos chantiers <ArrowRight className="w-4 h-4" /></Link></p>
         </div>
       </section>
 
-      <TrustBar />
+      {/* AVANT / APRES */}
+      <section className="py-20 sm:py-24 bg-[#F1F2F5]">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <p className={`${eyebrow} mb-3`}>Avant / après</p>
+          <h2 className={`${h2} mb-10`}>Des toits remis à neuf</h2>
+          <div className="max-w-3xl mx-auto"><BeforeAfter before={DEMOUSSAGE.before.src} after={DEMOUSSAGE.after.src} /></div>
+          <p className="text-[#475569] mt-5 text-sm">Démoussage et nettoyage de toiture. {!HAS_PHOTOS && "Image d'illustration."} <Link to="/demoussage-toiture-caen" className="underline text-[#1F2D5A] font-semibold">En savoir plus sur le démoussage</Link></p>
+        </div>
+      </section>
 
-      {/* SERVICES */}
-      <section className="py-24 sm:py-28" data-testid="services-section">
+      {/* METIERS */}
+      <section id="services" className="py-20 sm:py-24 bg-white" data-testid="services-section">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="max-w-3xl mb-14 reveal">
-            <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Nos prestations</p>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#0B1220] font-light leading-[1.1] tracking-tight mb-5">
-              Quels travaux de toiture réalise un couvreur à Caen ?
-            </h2>
-            <p className="text-lg text-[#475569] leading-relaxed">
-              {COMPANY.brand} traite la couverture, la zinguerie, les gouttières et l'entretien des toits : onze prestations, chacune avec sa page dédiée, ses repères de prix et ses réponses aux questions fréquentes.
-            </p>
+          <p className={`${eyebrow} mb-3`}>Nos travaux</p>
+          <h2 className={`${h2} mb-4`}>Nos métiers de la toiture</h2>
+          <p className="text-lg text-[#475569] max-w-2xl mb-10">Avec {COMPANY.brand}, à Caen : couverture, zinguerie, charpente, Velux et entretien de toiture.</p>
+          <div className="flex flex-wrap gap-2 mb-8" role="tablist">
+            {METIERS.map((m) => (
+              <button key={m.id} role="tab" aria-selected={tab === m.id} onClick={() => setTab(m.id)} className={`px-5 py-2.5 rounded-full text-sm font-bold border transition-colors ${tab === m.id ? "bg-[#040F2F] border-[#040F2F] text-white" : "border-[#040F2F]/20 hover:bg-[#F1F2F5]"}`}>{m.id}</button>
+            ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((s) => <div key={s.slug} className="reveal"><ServiceCard service={s} /></div>)}
-          </div>
-        </div>
-      </section>
-
-      <PhotoBand src="/toiture-tuiles-rouges.webp" title="Votre toiture mérite un vrai diagnostic" text="Nous examinons la couverture, repérons l'origine du problème, puis remettons un devis gratuit et détaillé." />
-
-      {/* SITUATIONS */}
-      <section className="py-24 bg-[#EDF1F7]" data-testid="situations-section">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4 reveal">Le bon réflexe</p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#0B1220] font-light leading-tight tracking-tight mb-5 reveal">
-            Réparer, entretenir ou rénover : que faire selon ce que vous voyez ?
-          </h2>
-          <p className="text-lg text-[#475569] leading-relaxed mb-10 reveal">
-            Un désordre localisé sur une toiture saine se règle en général par une réparation ciblée. Des fuites sur plusieurs zones ou une couverture en fin de vie justifient une rénovation. Ce tableau donne les cas les plus courants ; l'examen de la toiture confirme le diagnostic.
-          </p>
-          <div className="overflow-x-auto reveal">
-            <table className="w-full text-left border-collapse bg-white rounded-2xl overflow-hidden">
-              <thead>
-                <tr className="bg-[#E4EAF3] text-[#0B1220]">
-                  <th className="p-4">Ce que vous constatez</th>
-                  <th className="p-4">Ce qui est le plus probable</th>
-                  <th className="p-4">Notre page</th>
-                </tr>
-              </thead>
-              <tbody>
-                {SITUATIONS.map(([a, b, slug, label]) => (
-                  <tr key={slug} className="border-b border-[#D9E0EA] align-top">
-                    <td className="p-4 font-medium text-[#0B1220]">{a}</td>
-                    <td className="p-4">{b}</td>
-                    <td className="p-4"><Link to={`/${slug}`} className="text-[#0A2A5C] underline">{label}</Link></td>
-                  </tr>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-3">{metier.id}</h3>
+              <p className="text-[#475569] leading-relaxed mb-6">{metier.intro}</p>
+              <ul className="space-y-2.5 mb-8">
+                {metier.slugs.map((s) => (
+                  <li key={s}><Link to={`/${s}`} className="inline-flex items-center gap-2 font-semibold text-[#1F2D5A] hover:text-[#C70909]"><ArrowRight className="w-4 h-4 text-[#C70909]" /> {svc(s).title}</Link></li>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* PHOTOS */}
-      <section className="py-24" data-testid="gallery-section">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
-            <div className="max-w-2xl reveal">
-              <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Chantiers</p>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#0B1220] font-light leading-[1.1] tracking-tight">Des toitures de Caen et de ses environs</h2>
+              </ul>
+              <Link to="/contact" className="inline-flex items-center gap-2 bg-[#C70909] text-white px-7 py-3.5 rounded-full font-bold text-sm hover:bg-[#9E0707]">Demander un devis <ArrowUpRight className="w-4 h-4" /></Link>
             </div>
-            <Link to="/realisations" className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-[#0A2A5C] link-underline">
-              Voir les réalisations <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {gallery
-              ? gallery.map((p) => (
-                  <div key={p.src} className="relative overflow-hidden rounded-2xl aspect-[4/3] reveal">
-                    <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-                  </div>
-                ))
-              : [0, 1, 2].map((i) => <PhotoSlot key={i} />)}
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-[#1F2D5A]">
+              <img src={SERVICE_IMAGES[metier.slugs[0]].src} alt={SERVICE_IMAGES[metier.slugs[0]].alt} width="1200" height="800" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="py-24 bg-[#0A2A5C] text-[#F6F8FB] relative overflow-hidden">
-        <RoofPattern opacity={0.08} />
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#E4EAF3] mb-4">Comment ça se passe</p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#F6F8FB] font-light leading-tight tracking-tight mb-14 max-w-3xl">
-            Du premier appel à l'intervention : quatre étapes
-          </h2>
-          <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* ETAPES */}
+      <section className="py-20 sm:py-24 bg-[#040F2F] text-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <p className={`${eyebrow} mb-3`}>Comment nous travaillons</p>
+          <h2 className={`${h2} mb-3`}>Votre chantier en 4 étapes</h2>
+          <p className="text-white/75 max-w-2xl mb-12">Du premier coup de fil à la réalisation des travaux, vous gardez le même interlocuteur.</p>
+          <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {STEPS.map(([t, d], i) => (
-              <li key={t} className="border-t-2 border-[#E4EAF3]/40 pt-6 reveal">
-                <span className="font-serif text-5xl font-light text-[#E4EAF3]/60">0{i + 1}</span>
-                <h3 className="font-serif text-xl font-semibold text-[#F6F8FB] mt-3 mb-3">{t}</h3>
-                <p className="text-sm text-[#F6F8FB]/75 leading-relaxed">{d}</p>
+              <li key={t} className="rounded-3xl bg-white/[0.06] border border-white/10 p-7">
+                <span className="text-5xl font-bold text-[#C70909]">0{i + 1}</span>
+                <h3 className="text-xl font-bold mt-4 mb-2">{t}</h3>
+                <p className="text-sm text-white/75 leading-relaxed">{d}</p>
               </li>
             ))}
           </ol>
+          <Link to="/contact" className="mt-10 inline-flex items-center gap-2 bg-[#C70909] text-white px-8 py-4 rounded-full font-bold hover:bg-[#9E0707]">Lancer mon projet <ArrowUpRight className="w-5 h-5" /></Link>
+        </div>
+      </section>
+
+      {/* CONFIANCE */}
+      <section className="py-20 sm:py-24 bg-[#F1F2F5]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <p className={`${eyebrow} mb-3`}>Pourquoi nous faire confiance</p>
+          <h2 className={`${h2} mb-12`}>Ce qui distingue {COMPANY.shortBrand}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {TRUST.map(([t, d], i) => (
+              <div key={t} className="bg-white rounded-3xl p-7 border border-[#040F2F]/5">
+                <span className="text-sm font-bold text-[#C70909]">0{i + 1}</span>
+                <h3 className="text-xl font-bold mt-2 mb-2">{t}</h3>
+                <p className="text-sm text-[#475569] leading-relaxed">{d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* PRIX */}
-      <section className="py-24" data-testid="prices-section">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4 reveal">Repères de prix</p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#0B1220] font-light leading-tight tracking-tight mb-5 reveal">Combien coûtent les travaux de toiture ?</h2>
-          <p className="text-lg text-[#475569] leading-relaxed mb-8 reveal">
-            Une réparation de fuite coûte en général de 400 à 2 500 €, un démoussage de 25 à 35 € le m² et une couverture neuve de 90 à 200 € le m² selon le matériau. Ces repères viennent de guides publics, cités en bas de la page des tarifs : seul le devis gratuit donne le prix de votre toiture.
-          </p>
-          <div className="overflow-x-auto reveal">
-            <table className="w-full text-left border-collapse bg-white rounded-2xl overflow-hidden">
-              <thead>
-                <tr className="bg-[#E4EAF3] text-[#0B1220]"><th className="p-4">Prestation</th><th className="p-4">Repère de prix</th></tr>
-              </thead>
-              <tbody>
-                {[PRICE_GROUPS[1].rows[0], PRICE_GROUPS[0].rows[0], PRICE_GROUPS[0].rows[1], PRICE_GROUPS[1].rows[1], PRICE_GROUPS[2].rows[2], PRICE_GROUPS[2].rows[3]].map(([a, b]) => (
-                  <tr key={a} className="border-b border-[#D9E0EA]"><td className="p-4">{a}</td><td className="p-4 font-medium text-[#0B1220]">{b}</td></tr>
-                ))}
-              </tbody>
+      <section className="py-20 sm:py-24 bg-white" data-testid="prices-section">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <p className={`${eyebrow} mb-3`}>Repères de prix</p>
+          <h2 className={`${h2} mb-5`}>Combien coûtent les travaux de toiture ?</h2>
+          <p className="text-lg text-[#475569] leading-relaxed mb-8">Une réparation de fuite coûte en général de 400 à 2 500 €, un démoussage de 25 à 35 € le m² et une couverture neuve de 90 à 200 € le m² selon le matériau. Ces repères viennent de guides publics, cités sur la page tarifs.</p>
+          <div className="overflow-x-auto rounded-2xl border border-[#040F2F]/10">
+            <table className="w-full text-left border-collapse">
+              <thead><tr className="bg-[#040F2F] text-white"><th className="p-4">Prestation</th><th className="p-4">Repère de prix</th></tr></thead>
+              <tbody>{priceRows.map(([a, b]) => (<tr key={a} className="border-b border-[#040F2F]/10"><td className="p-4">{a}</td><td className="p-4 font-bold">{b}</td></tr>))}</tbody>
             </table>
           </div>
-          <p className="mt-5 reveal">
-            <Link to="/tarifs-couvreur-caen" className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-[#0A2A5C] link-underline">Voir tous les repères de prix <ArrowRight className="w-4 h-4" /></Link>
-          </p>
+          <p className="mt-5"><Link to="/tarifs-couvreur-caen" className="inline-flex items-center gap-2 text-sm font-bold text-[#C70909]">Voir tous les repères de prix <ArrowRight className="w-4 h-4" /></Link></p>
         </div>
       </section>
-
-      <PhotoBand src="/toiture-ardoise.webp" title="Du littoral au bocage, nous venons chez vous" text={`Caen et ${CITIES.length} communes dans un rayon d'environ 70 km, de la côte au Pays d'Auge : une seule entreprise, un seul interlocuteur.`} />
 
       {/* ZONE */}
-      <section className="py-24 bg-[#EDF1F7]" data-testid="zone-section">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5 reveal">
-            <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Zone d'intervention</p>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#0B1220] font-light leading-tight tracking-tight mb-5">Où intervient CS Couverture Rénovation ?</h2>
-            <p className="text-lg text-[#475569] leading-relaxed mb-6">
-              L'entreprise est basée à Caen et se déplace dans un rayon d'environ {COMPANY.radiusKm} km : {CITIES.length + 1} communes, de la côte de Nacre au Pays d'Auge, jusqu'à Lisieux, Bernay, Vimoutiers, Falaise et Argentan. Chaque commune a sa page.
-            </p>
-            <Link to="/zone-d-intervention" className="inline-flex items-center gap-2 bg-[#0A2A5C] text-[#F6F8FB] px-7 py-3.5 rounded-full font-sans font-semibold text-sm hover:bg-[#061C42] transition-colors">
-              Toutes les communes <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="lg:col-span-7 reveal">
-            <p className="text-xs font-sans font-bold tracking-[0.2em] uppercase text-[#D7141E] mb-3">Secteurs prioritaires</p>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
-              {PRIORITY_CITIES.map((c) => (
-                <li key={c.slug}>
-                  <Link to={`/couvreur-${c.slug}`} className="block rounded-xl bg-[#0A2A5C] text-white border border-[#0A2A5C] px-4 py-3 text-sm font-semibold hover:bg-[#D7141E] hover:border-[#D7141E] transition-colors">
-                    Couvreur {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <Link to="/couvreur-pays-d-auge" className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-[#0A2A5C] link-underline mb-6">Couvreur dans tout le Pays d'Auge <ArrowRight className="w-4 h-4" /></Link>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {CITIES.filter((c) => !c.priority).slice(0, 15).map((c) => (
-                <li key={c.slug}>
-                  <Link to={`/couvreur-${c.slug}`} className="block rounded-xl bg-white border border-[#D9E0EA] px-4 py-3 text-sm text-[#0B1220] hover:border-[#0A2A5C] hover:text-[#0A2A5C] transition-colors">
-                    Couvreur {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <section className="py-20 sm:py-24 bg-[#040F2F] text-white" data-testid="zone-section">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <p className={`${eyebrow} mb-3`}>Zone d'intervention</p>
+          <h2 className={`${h2} mb-5 max-w-3xl`}>Caen, le Pays d'Auge et les communes voisines</h2>
+          <p className="text-white/80 text-lg max-w-3xl mb-10">Basés à Caen, nous intervenons dans un rayon d'environ {COMPANY.radiusKm} km : {CITIES.length + 1} communes, jusqu'à Lisieux, Bernay, Vimoutiers, Falaise et Argentan. Chaque commune a sa page.</p>
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/60 mb-3">Secteurs prioritaires</p>
+          <ul className="flex flex-wrap gap-3 mb-8">
+            {PRIORITY_CITIES.map((c) => (
+              <li key={c.slug}><Link to={`/couvreur-${c.slug}`} className="inline-block rounded-2xl bg-[#C70909] px-5 py-3 font-bold text-sm hover:bg-white hover:text-[#C70909] transition-colors">{c.name}<span className="block text-[11px] font-medium opacity-80">{c.code}</span></Link></li>
+            ))}
+          </ul>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+            {CITIES.filter((c) => !c.priority).slice(0, 18).map((c) => (
+              <li key={c.slug}><Link to={`/couvreur-${c.slug}`} className="block rounded-2xl bg-white/[0.07] border border-white/10 px-4 py-3 text-sm hover:bg-white/15">{c.name}<span className="block text-[11px] text-white/60">{c.code}</span></Link></li>
+            ))}
+          </ul>
+          <p className="text-white/80">Votre commune n'apparaît pas ? <a href={telHref} className="font-bold underline">Appelez-nous</a> · <Link to="/zone-d-intervention" className="font-bold underline">Toutes les communes</Link> · <Link to="/couvreur-pays-d-auge" className="font-bold underline">Couvreur dans le Pays d'Auge</Link></p>
         </div>
       </section>
 
-      {/* AVIS */}
-      <section className="py-20" data-testid="reviews-section">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center reveal">
-          <div className="flex justify-center gap-1 mb-4">
-            {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="w-6 h-6 fill-[#D4A841] text-[#D4A841]" strokeWidth={1} />)}
+      {/* CONTACT */}
+      <section className="py-20 sm:py-24 bg-[#F1F2F5]" data-testid="contact-section">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-5">
+            <p className={`${eyebrow} mb-3`}>Contact</p>
+            <h2 className={`${h2} mb-5`}>Parlons de votre toiture</h2>
+            <p className="text-lg text-[#475569] mb-8">Une fuite au plafond, des tuiles tombées dans le jardin, une toiture à refaire ? Expliquez-nous la situation, nous vous répondons vite.</p>
+            <dl className="space-y-5">
+              <div><dt className="text-xs font-bold uppercase tracking-[0.2em] text-[#C70909]">Téléphone</dt><dd><a href={telHref} className="text-2xl font-bold">{COMPANY.phone}</a></dd></div>
+              <div><dt className="text-xs font-bold uppercase tracking-[0.2em] text-[#C70909]">Horaires</dt><dd className="font-semibold">{COMPANY.hours}</dd></div>
+              <div><dt className="text-xs font-bold uppercase tracking-[0.2em] text-[#C70909]">Adresse</dt><dd className="font-semibold">{COMPANY.address}</dd></div>
+            </dl>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#0B1220] font-light leading-tight tracking-tight mb-4">
-            {COMPANY.rating.value}/5 sur {COMPANY.rating.count} avis Google
-          </h2>
-          <p className="text-lg text-[#475569] leading-relaxed mb-8">
-            Les avis de nos clients sont publiés sur la fiche Google de {COMPANY.brand}. Note relevée en {COMPANY.rating.asOf}.
-          </p>
-          <a href={COMPANY.social.gbp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-2 border-[#0A2A5C] text-[#0A2A5C] px-7 py-3.5 rounded-full font-sans font-semibold text-sm hover:bg-[#0A2A5C] hover:text-[#F6F8FB] transition-colors">
-            Lire les avis sur Google <ExternalLink className="w-4 h-4" />
-          </a>
+          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 shadow-sm">
+            <h3 className="text-2xl font-bold mb-6">Votre devis toiture gratuit</h3>
+            <ContactForm />
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-[#EDF1F7]" data-testid="faq-section">
+      <section className="py-20 sm:py-24 bg-white" data-testid="faq-section">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-4">Questions fréquentes</p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#0B1220] font-light leading-tight tracking-tight mb-10">Vos questions sur les travaux de toiture</h2>
+          <p className={`${eyebrow} mb-3`}>Vos questions</p>
+          <h2 className={`${h2} mb-10`}>Les réponses à vos questions</h2>
           <FAQAccordion items={GLOBAL_FAQ} />
         </div>
       </section>
 
-      <CTASection />
-    </>
+      {/* BLOG */}
+      <section className="py-20 sm:py-24 bg-[#F1F2F5]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex items-end justify-between mb-10">
+            <div><p className={`${eyebrow} mb-3`}>Conseils</p><h2 className={h2}>Nos conseils et actualités</h2></div>
+            <Link to="/blog" className="hidden sm:inline-flex items-center gap-2 font-bold text-sm border-b-2 border-[#C70909] pb-1">Tout voir <ArrowRight className="w-4 h-4" /></Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {BLOG_POSTS.slice(0, 6).map((p) => (
+              <Link key={p.slug} to={`/blog/${p.slug}`} className="bg-white rounded-3xl p-7 border border-[#040F2F]/5 hover:shadow-xl transition-shadow">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#C70909] mb-3">{p.category}</p>
+                <h3 className="text-lg font-bold leading-snug mb-3">{p.title}</h3>
+                <p className="text-sm text-[#475569] leading-relaxed mb-4">{p.excerpt}</p>
+                <span className="text-sm font-bold text-[#1F2D5A]">Lire la suite →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="py-20 bg-[#C70909] text-white text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-5">Et si vous remettiez votre toiture à neuf cette année ?</h2>
+          <p className="text-lg text-white/90 mb-8">Dites-nous ce qui ne va pas sur votre toit : nous passons voir et vous répondons rapidement.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-white text-[#C70909] px-8 py-4 rounded-full font-bold">Demander un devis gratuit <ArrowUpRight className="w-5 h-5" /></Link>
+            <a href={telHref} className="inline-flex items-center justify-center gap-2 border-2 border-white px-8 py-4 rounded-full font-bold"><Phone className="w-5 h-5" /> {COMPANY.phone}</a>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 // Motif de tuiles inspiré du logo, utilisé comme fond (aucune fausse photo de chantier).
 export default function RoofPattern({ className = "", opacity = 0.12, light = true }) {
-  const stroke = light ? "#E4EAF3" : "#0A2A5C";
+  const stroke = light ? "#DCE1EB" : "#1F2D5A";
   return (
     <svg className={`absolute inset-0 w-full h-full ${className}`} aria-hidden="true" focusable="false" style={{ opacity }}>
       <defs>

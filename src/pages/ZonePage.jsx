@@ -32,9 +32,9 @@ export default function ZonePage() {
           buildBreadcrumbSchema([["Accueil", COMPANY.site + "/"], ["Zone d'intervention", url]]),
         ]}
       />
-      <section className="pt-28 pb-16 bg-[#F6F8FB]">
+      <section className="pt-28 pb-16 bg-[#F1F2F5]">
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#0A2A5C] mb-5">Zone d'intervention</p>
+          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#1F2D5A] mb-5">Zone d'intervention</p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#0B1220] font-light leading-tight tracking-tight mb-6">
             Couvreur à Caen et dans un rayon de {COMPANY.radiusKm} km
           </h1>
@@ -47,18 +47,18 @@ export default function ZonePage() {
         </div>
       </section>
 
-      <section className="pb-12 bg-[#F6F8FB]">
+      <section className="pb-12 bg-[#F1F2F5]">
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-5">Nos secteurs prioritaires</h2>
           <ul className="flex flex-wrap gap-3">
             {PRIORITY_CITIES.map((c) => (
-              <li key={c.slug}><Link to={`/couvreur-${c.slug}`} className="inline-block rounded-full bg-[#0A2A5C] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[#D7141E] transition-colors">Couvreur {c.name}</Link></li>
+              <li key={c.slug}><Link to={`/couvreur-${c.slug}`} className="inline-block rounded-full bg-[#1F2D5A] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[#C70909] transition-colors">Couvreur {c.name}</Link></li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="pb-20 bg-[#F6F8FB]">
+      <section className="pb-20 bg-[#F1F2F5]">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 space-y-12">
           {groups.map(({ s, list }) => (
             <div key={s}>
@@ -66,9 +66,9 @@ export default function ZonePage() {
               <p className="text-[#475569] mb-5">{INTRO[s]}</p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {list.map((c) => (
-                  <li key={c.slug} className="rounded-xl border border-[#0A2A5C]/10 bg-white p-4">
-                    <Link to={c.home ? "/" : `/couvreur-${c.slug}`} className="font-semibold text-[#0B1220] hover:text-[#0A2A5C] flex items-center gap-2">
-                      <MapPin size={16} className="text-[#0A2A5C]" /> Couvreur {c.name} <span className="font-normal text-[#475569]">({c.code})</span>
+                  <li key={c.slug} className="rounded-xl border border-[#1F2D5A]/10 bg-white p-4">
+                    <Link to={c.home ? "/" : `/couvreur-${c.slug}`} className="font-semibold text-[#0B1220] hover:text-[#1F2D5A] flex items-center gap-2">
+                      <MapPin size={16} className="text-[#1F2D5A]" /> Couvreur {c.name} <span className="font-normal text-[#475569]">({c.code})</span>
                     </Link>
                     {c.distance && <p className="text-sm text-[#475569] mt-1">{c.distance}</p>}
                   </li>

@@ -11,14 +11,14 @@ export default function StatsBar() {
     { value: "0 €", label: "Devis", sub: "Gratuit, après examen de la toiture" },
   ];
   return (
-    <section className="py-16 sm:py-20 bg-[#0A2A5C] text-[#F6F8FB]" data-testid="stats-bar">
+    <section className="py-16 sm:py-20 bg-[#1F2D5A] text-[#F1F2F5]" data-testid="stats-bar">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8 text-left">
           {stats.map((s) => (
-            <div key={s.label} className="border-l-2 border-[#E4EAF3]/30 pl-5 reveal">
-              <p className="font-serif text-4xl md:text-5xl font-light leading-none text-[#E4EAF3]">{s.value}</p>
+            <div key={s.label} className="border-l-2 border-[#DCE1EB]/30 pl-5 reveal">
+              <p className="font-serif text-4xl md:text-5xl font-light leading-none text-[#DCE1EB]">{s.value}</p>
               <p className="mt-3 font-sans font-semibold text-sm tracking-wide">{s.label}</p>
-              <p className="text-xs text-[#F6F8FB]/60 mt-1">{s.sub}</p>
+              <p className="text-xs text-[#F1F2F5]/60 mt-1">{s.sub}</p>
             </div>
           ))}
         </div>

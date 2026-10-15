@@ -34,15 +34,15 @@ export default function BeforeAfter({ before, after, labelBefore = "Avant", labe
         <img loading="lazy" decoding="async" src={before} alt={labelBefore} className="absolute inset-0 h-full object-cover" style={{ width: `${ref.current?.getBoundingClientRect().width || 0}px` }} />
       </div>
       <div
-        className="absolute top-0 bottom-0 w-0.5 bg-[#E4EAF3] shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+        className="absolute top-0 bottom-0 w-0.5 bg-[#DCE1EB] shadow-[0_0_20px_rgba(0,0,0,0.5)]"
         style={{ left: `${pos}%`, transform: "translateX(-50%)" }}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#E4EAF3] flex items-center justify-center cmp-handle">
-          <Move className="w-5 h-5 text-[#0A2A5C]" strokeWidth={1.75} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#DCE1EB] flex items-center justify-center cmp-handle">
+          <Move className="w-5 h-5 text-[#1F2D5A]" strokeWidth={1.75} />
         </div>
       </div>
-      <span className="absolute top-4 left-4 bg-[#0B1220]/75 backdrop-blur text-[#E4EAF3] px-3 py-1.5 rounded-full text-xs font-sans font-semibold tracking-[0.18em] uppercase">{labelBefore}</span>
-      <span className="absolute top-4 right-4 bg-[#E4EAF3]/95 text-[#0A2A5C] px-3 py-1.5 rounded-full text-xs font-sans font-semibold tracking-[0.18em] uppercase">{labelAfter}</span>
+      <span className="absolute top-4 left-4 bg-[#0B1220]/75 backdrop-blur text-[#DCE1EB] px-3 py-1.5 rounded-full text-xs font-sans font-semibold tracking-[0.18em] uppercase">{labelBefore}</span>
+      <span className="absolute top-4 right-4 bg-[#DCE1EB]/95 text-[#1F2D5A] px-3 py-1.5 rounded-full text-xs font-sans font-semibold tracking-[0.18em] uppercase">{labelAfter}</span>
     </div>
   );
 }

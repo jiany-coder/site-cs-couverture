@@ -32,36 +32,36 @@ export default function AugePage() {
           buildFAQSchema(FAQ),
         ]}
       />
-      <section className="relative pt-32 pb-20 bg-[#061C42] overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-[#040F2F] overflow-hidden">
         <HeroBg src="/toiture-ardoise.webp" />
         <div className="relative max-w-5xl mx-auto px-6 sm:px-8">
-          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#E4EAF3] mb-5">Secteur prioritaire</p>
+          <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#DCE1EB] mb-5">Secteur prioritaire</p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-light leading-tight tracking-tight mb-6">Couvreur dans le Pays d'Auge : Lisieux, Orbec, Livarot, Vimoutiers</h1>
-          <p className="text-lg text-[#E4EAF3] leading-relaxed mb-8 max-w-3xl">
+          <p className="text-lg text-[#DCE1EB] leading-relaxed mb-8 max-w-3xl">
             {COMPANY.brand} intervient dans tout le Pays d'Auge pour la réparation de fuite, le démoussage, la zinguerie, les gouttières et la rénovation de toiture. L'examen de la toiture et le devis sont gratuits.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/contact" className="inline-flex bg-[#D7141E] text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-[#B50F18]">Demander un devis gratuit</Link>
+            <Link to="/contact" className="inline-flex bg-[#C70909] text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-[#9E0707]">Demander un devis gratuit</Link>
             <a href={`tel:${COMPANY.phoneRaw}`} className="inline-flex bg-white/10 border border-white/30 text-white px-7 py-3.5 rounded-full font-semibold text-sm">{COMPANY.phone}</a>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-[#F6F8FB]">
+      <section className="py-16 bg-[#F1F2F5]">
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-4">Quels travaux de toiture dans le Pays d'Auge ?</h2>
           <p className="text-lg text-[#475569] leading-relaxed mb-6">Toitures à forte pente, noues, lucarnes et grandes dépendances : voici les prestations les plus demandées dans le secteur.</p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-14">
             {SERVICES.map((s) => (
-              <li key={s.slug}><Link to={`/${s.slug}`} className="block rounded-xl bg-white border border-[#D9E0EA] px-4 py-3 text-sm font-semibold text-[#0A2A5C] hover:border-[#0A2A5C]">{s.title}</Link></li>
+              <li key={s.slug}><Link to={`/${s.slug}`} className="block rounded-xl bg-white border border-[#D9E0EA] px-4 py-3 text-sm font-semibold text-[#1F2D5A] hover:border-[#1F2D5A]">{s.title}</Link></li>
             ))}
           </ul>
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-5">Dans quelles communes du Pays d'Auge intervenez-vous ?</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {list.map((c) => (
-              <li key={c.slug} className="rounded-xl border border-[#0A2A5C]/10 bg-white p-4">
-                <Link to={`/couvreur-${c.slug}`} className="font-semibold text-[#0B1220] hover:text-[#0A2A5C] flex items-center gap-2">
-                  <MapPin size={16} className="text-[#0A2A5C]" /> Couvreur {c.name} <span className="font-normal text-[#475569]">({c.code})</span>
+              <li key={c.slug} className="rounded-xl border border-[#1F2D5A]/10 bg-white p-4">
+                <Link to={`/couvreur-${c.slug}`} className="font-semibold text-[#0B1220] hover:text-[#1F2D5A] flex items-center gap-2">
+                  <MapPin size={16} className="text-[#1F2D5A]" /> Couvreur {c.name} <span className="font-normal text-[#475569]">({c.code})</span>
                 </Link>
                 <p className="text-sm text-[#475569] mt-1">{c.distance}</p>
               </li>
@@ -70,7 +70,7 @@ export default function AugePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#EDF1F7]">
+      <section className="py-16 bg-[#E8EBF1]">
         <div className="max-w-4xl mx-auto px-6 sm:px-8">
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-8">Questions sur nos interventions dans le Pays d'Auge</h2>
           <FAQAccordion items={FAQ} />
