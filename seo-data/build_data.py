@@ -271,15 +271,18 @@ def main(out_dir):
         picks = sorted({(k + i * 3) % len(SERVICES) for i in range(6)})[:3]
         if len(picks) < 3:
             picks = [(k % len(SERVICES)), ((k + 4) % len(SERVICES)), ((k + 7) % len(SERVICES))]
-        rows = [PRICES[(k + i * 2) % len(PRICES)] for i in range(4)]
-        rows = list(dict.fromkeys(rows))
+        picks = [4] + [i for i in picks if i != 4][:2]
+        rows = [PRICES[0]] + [PRICES[(k + i * 2) % len(PRICES)] for i in range(4)]
+        rows = list(dict.fromkeys(rows))[:4]
         while len(rows) < 4:
             rows.append(PRICES[(k + len(rows) * 5 + 1) % len(PRICES)]); rows = list(dict.fromkeys(rows))
         rows.sort(key=PRICES.index)
         fq = [LQ[(k >> 2) % 3](nom, a, c["cp"]),
               (f"À quelle distance de Caen se trouve {nom} ?",
                f"{nom} est à environ {c['km']} km de Caen, {c['dir']}, soit environ {minutes} minutes de route. Elle fait partie du secteur {REGION_LABEL[c['reg']]}, dans la zone d'environ {RADIUS_KM} km desservie depuis Caen."),
-              [FAQ_COMMON[(k >> 6) % 4][0].format(nom=nom), FAQ_COMMON[(k >> 6) % 4][1].format(nom=nom)]]
+              [FAQ_COMMON[(k >> 6) % 4][0].format(nom=nom), FAQ_COMMON[(k >> 6) % 4][1].format(nom=nom)],
+              (f"Faites-vous le démoussage et le nettoyage de toiture {a} ?",
+               f"Oui. Nous nettoyons et démoussons les toitures {a} : contrôle de la couverture, retrait des mousses, traitement anti-mousse, puis contrôle final. La méthode est adaptée au matériau. Repère de prix publié en France : 25 à 35 € le m². Devis gratuit au {PHONE}.")]
         h1 = f"Couvreur {a} ({c['cp']})"
         title = f"{h1} | {BRAND}"
         if len(title) > 60: title = f"Couvreur {a} | {BRAND}"
@@ -297,6 +300,8 @@ def main(out_dir):
             roof=roof, tip=ctx["tip"], prices=[list(r) for r in rows],
             fiche=[["Commune", f"{nom} ({c['cp']})"], ["Habitants", fr(c["pop"])], ["Secteur", REGION_LABEL[c["reg"]]],
                    ["Distance de Caen", f"{c['km']} km, {c['dir']}"], ["Communes voisines", nbtxt], ["Devis", "Gratuit, après examen de la toiture"]],
+            demoussage=[f"Mousses et lichens s'installent surtout sur les versants peu exposés au soleil et sous les arbres. {a[0].upper()+a[1:]}, nous assurons le nettoyage et le démoussage de votre toiture : contrôle préalable de la couverture, retrait des mousses par brossage ou nettoyage à pression maîtrisée, traitement anti-mousse, rinçage et contrôle final.",
+                        "La méthode est adaptée au matériau (tuiles, ardoises) pour ne pas l'abîmer, et un nettoyage ne sert jamais à masquer un défaut d'étanchéité. Repère de prix publié en France : 25 à 35 € le m² pour un démoussage."],
             how=how, faq=[list(x) for x in fq],
             near=[dict(slug=o["slug"], nom=o["nom"], cp=o["cp"], km=round(km(c["pos"], o["pos"]))) for o in c["near"]],
         )

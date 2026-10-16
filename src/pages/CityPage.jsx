@@ -77,6 +77,9 @@ export default function CityPage() {
               </li>
             ))}
           </ul>
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Démoussage et nettoyage de toiture à {d.nom}</h2>
+          {d.demoussage.map((p, i) => <p key={i} className="text-lg leading-[1.75]">{p}</p>)}
+          <p className="text-lg leading-[1.75]">Détails de la méthode et des prix sur la page <Link to="/demoussage-toiture-caen" className="text-[#1F2D5A] underline">démoussage et nettoyage de toiture</Link>.</p>
           <p className="text-lg leading-[1.75]">Retrouvez aussi toutes nos prestations sur la page <Link to="/" className="text-[#1F2D5A] underline">couvreur à Caen</Link>.</p>
 
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Les toitures de {d.nom} : ce qu'il faut savoir</h2>
