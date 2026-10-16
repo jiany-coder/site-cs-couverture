@@ -19,6 +19,8 @@ import NotFound from "./pages/NotFound";
 import ZonePage from "./pages/ZonePage";
 import Tarifs from "./pages/Tarifs";
 import AugePage from "./pages/AugePage";
+import ServiceCityPage from "./pages/ServiceCityPage";
+import { SERVICE_CITY_PAGES } from "./data/serviceCities";
 
 import { CITIES } from "./data/cities";
 import { SERVICES } from "./data/services";
@@ -49,6 +51,11 @@ export function AppRoutes() {
           {/* Pages communes (70 km autour de Caen) */}
           {CITIES.map((c) => (
             <Route key={c.slug} path={`/couvreur-${c.slug}`} element={<CityPage />} />
+          ))}
+
+          {/* Pages activité × ville (villes principales) */}
+          {SERVICE_CITY_PAGES.map((p) => (
+            <Route key={p.path} path={p.path} element={<ServiceCityPage />} />
           ))}
 
           <Route path="*" element={<NotFound />} />

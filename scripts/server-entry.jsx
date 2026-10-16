@@ -5,6 +5,7 @@ import { StaticRouter } from "react-router";
 import { AppRoutes } from "../src/App";
 import { CITIES } from "../src/data/cities";
 import { SERVICES } from "../src/data/services";
+import { SERVICE_CITY_PAGES } from "../src/data/serviceCities";
 import { BLOG_POSTS } from "../src/data/blog_all";
 
 export { SERVICES };
@@ -18,6 +19,7 @@ export function routes() {
     ...BLOG_POSTS.map((p) => `/blog/${p.slug}`),
   ];
   for (const c of CITIES) list.push(`/couvreur-${c.slug}`);
+  for (const p of SERVICE_CITY_PAGES) list.push(p.path);
   return [...new Set(list)];
 }
 

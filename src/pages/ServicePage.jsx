@@ -6,7 +6,8 @@ import HeroBg from "../components/HeroBg";
 import PhotoBand from "../components/PhotoBand";
 import { COMPANY, telHref } from "../data/company";
 import { SERVICES, getService, ICONS, PRICE_SOURCE, PAGE_UPDATED } from "../data/services";
-import { CITIES } from "../data/cities";
+import { PRIORITY_CITIES } from "../data/cities";
+import { svcCityPath, aPrep, svcLabel } from "../data/serviceCities";
 import { PHOTOS, HAS_PHOTOS, SERVICE_IMAGES, PAIR_BY_SERVICE, pickIllustrations, seedOf } from "../data/photos";
 import BeforeAfter from "../components/BeforeAfter";
 import FAQAccordion from "../components/FAQAccordion";
@@ -162,8 +163,8 @@ export default function ServicePage() {
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold mb-4">{service.title.replace(" à Caen", "")} près de chez vous</h2>
           <p className="text-[#475569] mb-5">{COMPANY.brand} intervient dans un rayon d'environ {COMPANY.radiusKm} km autour de Caen. Retrouvez la page de votre commune :</p>
           <ul className="flex flex-wrap gap-3">
-            {CITIES.slice(0, 12).map((c) => (
-              <li key={c.slug}><Link to={`/couvreur-${c.slug}`} className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#0B1220] hover:border-[#1F2D5A] hover:text-[#1F2D5A]">Couvreur {c.name}</Link></li>
+            {PRIORITY_CITIES.map((c) => (
+              <li key={c.slug}><Link to={svcCityPath(service, c)} className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#0B1220] hover:border-[#1F2D5A] hover:text-[#1F2D5A]">{svcLabel(service)} {aPrep(c.name)}</Link></li>
             ))}
             <li><Link to="/zone-d-intervention" className="inline-block rounded-full bg-[#1F2D5A] px-4 py-2 text-sm text-[#F1F2F5]">Toutes les communes</Link></li>
           </ul>

@@ -65,7 +65,7 @@ AUGE = {"Mézidon Vallée d'Auge", "Cambremer", "Saint-Pierre-en-Auge", "Dozulé
         "Saint-Martin-de-Mailloc", "Bonnebosq", "Coquainvilliers", "Saint-Hymer", "Blangy-le-Château", "Saint-Philbert-des-Champs",
         "Bonneville-la-Louvet", "La Vespière-Friardel", "Le Pin", "Moyaux", "Saint-Gatien-des-Bois"}
 BOCAGE = {"Villers-Bocage", "Aurseulles", "Les Monts d'Aunay", "Val d'Arry", "Creully sur Seulles", "Bayeux", "Saint-Vigor-le-Grand",
-          "Souleuvre en Bocage", "Tilly-sur-Seulles", "Vire Normandie", "Condé-en-Normandie", "Valdallière", "Noues de Sienne",
+          "Souleuvre en Bocage", "Condé-sur-Noireau", "Tilly-sur-Seulles", "Vire Normandie", "Condé-en-Normandie", "Valdallière", "Noues de Sienne",
           "Caumont-sur-Aure", "Le Molay-Littry"}
 SUD = {"Argentan", "Falaise", "Potigny", "Thury-Harcourt-le-Hom", "Bretteville-sur-Laize", "Laize-Clinchamps", "Valambray"}
 URBAN = {"Hérouville-Saint-Clair", "Mondeville", "Ifs", "Colombelles", "Fleury-sur-Orne", "Cormelles-le-Royal", "Giberville", "Louvigny",
@@ -206,6 +206,7 @@ LOCAL = {
     "falaise": "Falaise, bâtie autour de son château du XIIe-XIIIe siècle et de son enceinte de 1123, a subi les bombardements de 1944 (source : Wikipédia). Le bâti y mêle maisons anciennes et constructions plus récentes : nous examinons chaque toiture pour ce qu'elle est, sans solution toute faite.",
     "livarot-pays-d-auge": "Livarot-Pays-d'Auge est une commune nouvelle née en 2015 de la fusion de 22 communes (source : Wikipédia), ce qui explique l'étendue du territoire, ses manoirs, ses châteaux et ses nombreuses dépendances. Avec environ 677 mm de pluie par an (moyenne 1991-2020) et des étés frais et ventés, les grandes toitures demandent un entretien régulier des gouttières et des raccords.",
     "mezidon-vallee-d-auge": "Mézidon Vallée d'Auge est une commune nouvelle créée en 2017 ; sa commune déléguée Mézidon-Canon comptait 4 780 habitants en 2021, avec le château de Canon, classé monument historique (source : Wikipédia). Entre bâti ancien et pavillons plus récents, nous adaptons la méthode au matériau de chaque toiture.",
+    "conde-sur-noireau": "À Condé-sur-Noireau (commune de Condé-en-Normandie, 14110), la ville a été détruite à 95 % par les bombardements de 1944 et sa reconstruction s'est achevée en 1963 (source : Wikipédia) : une grande partie du bâti date donc de l'après-guerre. Le climat océanique apporte environ 900 mm de pluie par an, ce qui rend utiles le contrôle de la couverture, des gouttières et l'entretien contre les mousses.",
     "argences": "À Argences, l'église Saint-Jean, détruite par les bombardements de 1944, a été reconstruite en 1961, et la tuilerie du Fresne puis les Tuileries de Beauvais font partie de son histoire industrielle (source : Wikipédia). Avec environ 743 mm de pluie par an (moyenne 1991-2020) et des étés ventés, les éléments de rive et de faîtage sont à surveiller après chaque tempête.",
     "ouistreham": "Ouistreham, en bord de mer, expose les toitures aux embruns et au vent : la zinguerie, les fixations et le faîtage y méritent un contrôle régulier.",
     "courseulles-sur-mer": "À Courseulles-sur-Mer, face à la Manche, les toitures subissent le sel et le vent : un nettoyage adapté et un contrôle de la zinguerie prolongent la vie de la couverture.",
@@ -233,7 +234,7 @@ LQ = [
 
 
 PRIORITY = ["Lisieux", "Bernay", "Orbec", "Argences", "Vimoutiers", "Livarot-Pays-d'Auge", "Mézidon Vallée d'Auge", "Argentan", "Falaise",
-            "Pont-l'Évêque", "Saint-Pierre-en-Auge", "Cambremer", "Soliers", "Bourguébus", "Louvigny"]
+            "Pont-l'Évêque", "Saint-Pierre-en-Auge", "Cambremer", "Soliers", "Bourguébus", "Louvigny", "Condé-sur-Noireau"]
 
 
 def main(out_dir):

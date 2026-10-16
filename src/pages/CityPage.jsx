@@ -12,6 +12,9 @@ import { pickIllustrations, seedOf } from "../data/photos";
 import ContactForm from "../components/ContactForm";
 import CTASection from "../components/CTASection";
 import RoofPattern from "../components/RoofPattern";
+import { SERVICES } from "../data/services";
+import { getCity } from "../data/cities";
+import { svcLabel, svcCityPath } from "../data/serviceCities";
 
 export default function CityPage() {
   const { pathname } = useLocation();
@@ -77,6 +80,17 @@ export default function CityPage() {
               </li>
             ))}
           </ul>
+          {getCity(d.slug)?.priority > 0 && (
+            <>
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Toutes nos prestations à {d.nom}</h2>
+              <ul className="flex flex-wrap gap-3 list-none ml-0">
+                {SERVICES.map((s) => (
+                  <li key={s.slug}><Link to={svcCityPath(s, getCity(d.slug))} className="inline-block rounded-full bg-white border border-[#D9E0EA] px-4 py-2 text-sm text-[#1F2D5A] hover:border-[#1F2D5A]">{svcLabel(s)}</Link></li>
+                ))}
+              </ul>
+            </>
+          )}
+
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Démoussage et nettoyage de toiture à {d.nom}</h2>
           {d.demoussage.map((p, i) => <p key={i} className="text-lg leading-[1.75]">{p}</p>)}
           <p className="text-lg leading-[1.75]">Détails de la méthode et des prix sur la page <Link to="/demoussage-toiture-caen" className="text-[#1F2D5A] underline">démoussage et nettoyage de toiture</Link>.</p>

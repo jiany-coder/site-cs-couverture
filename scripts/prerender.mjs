@@ -135,7 +135,8 @@ fs.writeFileSync(path.join(buildDir, "llms.txt"), [
   `> Couvreur à Caen (13 rue des Quatre Vents, 14000 Caen) : réparation, rénovation, démoussage, zinguerie et entretien de toiture dans un rayon d'environ 70 km, de Caen au Pays d'Auge (Lisieux, Bernay, Orbec, Vimoutiers, Livarot, Mézidon, Falaise, Argentan, Argences). Devis gratuit. Tél. 06 04 11 66 68. Lundi au samedi, 8 h à 20 h.`, "",
   "## Pages principales",
   ...["/", ...SERVICES.map((x) => `/${x.slug}`), "/tarifs-couvreur-caen", "/zone-d-intervention", "/a-propos", "/blog", "/contact"].map((u) => `- ${SITE}${u}`), "",
-  "## Pages communes", `- ${SITE}/zone-d-intervention (liste des ${CITIES_COUNT} communes, une page /couvreur-<commune> par commune)`, "",
+  "## Pages communes", `- ${SITE}/zone-d-intervention (liste des ${CITIES_COUNT} communes, une page /couvreur-<commune> par commune)`,
+  `- Pages prestation x ville : /<prestation>-<ville> pour les villes principales (Lisieux, Bernay, Orbec, Argences, Vimoutiers, Livarot, Mézidon, Falaise, Argentan, Condé-sur-Noireau…)`, "",
 ].join("\n"));
 
 fs.writeFileSync(path.join(buildDir, "_redirects"), "");
