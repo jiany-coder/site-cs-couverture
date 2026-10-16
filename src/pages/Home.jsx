@@ -86,7 +86,7 @@ export default function Home() {
           <h1 className="text-inherit text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-white max-w-4xl mb-7">
             Couvreur à Caen et dans le Pays d'Auge : <span className="italic font-medium text-white/80">un toit qui tient</span>
           </h1>
-          <p className="text-lg sm:text-xl text-white/85 max-w-2xl mb-10 leading-relaxed">{DESCRIPTION}</p>
+          <p className="text-lg sm:text-xl text-white font-medium max-w-2xl mb-10 leading-relaxed bg-[#040F2F]/70 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-4 sm:px-6 sm:py-5 [text-shadow:0_1px_2px_rgba(0,0,0,.5)]">{DESCRIPTION}</p>
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#C70909] text-white px-8 py-4 rounded-full font-bold hover:bg-[#9E0707] transition-colors" data-testid="hero-cta-devis">Demander mon devis <ArrowUpRight className="w-5 h-5" /></Link>
             <a href="#services" className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-colors">Découvrir nos services</a>

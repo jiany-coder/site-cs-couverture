@@ -50,7 +50,7 @@ export default function CityPage() {
             <span className="text-xs font-sans font-semibold tracking-[0.18em] uppercase text-[#DCE1EB]">{d.cp} · {d.km} km de Caen</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light leading-[1.1] tracking-tight text-[#F1F2F5] max-w-4xl">{d.h1}</h1>
-          <p className="text-lg sm:text-xl text-[#F1F2F5]/88 max-w-3xl mt-7 leading-relaxed">{d.intro}</p>
+          <p className="text-lg sm:text-xl text-white font-medium max-w-3xl mt-7 leading-relaxed bg-[#040F2F]/70 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-4 sm:px-6 sm:py-5 [text-shadow:0_1px_2px_rgba(0,0,0,.5)]">{d.intro}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-9">
             <Link to="/contact" className="inline-flex items-center justify-center gap-2 bg-[#C70909] text-white px-8 py-4 rounded-full font-sans font-semibold text-base hover:bg-[#9E0707] hover:-translate-y-1 hover:shadow-xl transition-all">
               Devis gratuit <ArrowRight className="w-5 h-5" />

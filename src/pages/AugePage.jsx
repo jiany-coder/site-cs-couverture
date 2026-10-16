@@ -37,7 +37,7 @@ export default function AugePage() {
         <div className="relative max-w-5xl mx-auto px-6 sm:px-8">
           <p className="text-xs font-sans font-bold tracking-[0.3em] uppercase text-[#DCE1EB] mb-5">Secteur prioritaire</p>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white font-light leading-tight tracking-tight mb-6">Couvreur dans le Pays d'Auge : Lisieux, Orbec, Livarot, Vimoutiers</h1>
-          <p className="text-lg text-[#DCE1EB] leading-relaxed mb-8 max-w-3xl">
+          <p className="text-lg sm:text-xl text-white font-medium leading-relaxed mb-8 max-w-3xl bg-[#040F2F]/70 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-4 sm:px-6 sm:py-5 [text-shadow:0_1px_2px_rgba(0,0,0,.5)]">
             {COMPANY.brand} intervient dans tout le Pays d'Auge pour la réparation de fuite, le démoussage, la zinguerie, les gouttières et la rénovation de toiture. L'examen de la toiture et le devis sont gratuits.
           </p>
           <div className="flex flex-wrap gap-3">
