@@ -233,7 +233,7 @@ LQ = [
 
 
 PRIORITY = ["Lisieux", "Bernay", "Orbec", "Argences", "Vimoutiers", "Livarot-Pays-d'Auge", "Mézidon Vallée d'Auge", "Argentan", "Falaise",
-            "Pont-l'Évêque", "Saint-Pierre-en-Auge", "Cambremer"]
+            "Pont-l'Évêque", "Saint-Pierre-en-Auge", "Cambremer", "Soliers", "Bourguébus", "Louvigny"]
 
 
 def main(out_dir):

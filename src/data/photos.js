@@ -33,8 +33,8 @@ const RAW = [
 // Villes prioritaires du client, réparties dans un ordre mélangé (fixe) sur les photos.
 // Elles servent uniquement à l'attribut alt (« couvreur à <ville> ») : ce n'est pas le lieu de prise de vue.
 // À remplacer par la vraie commune de chaque chantier dès qu'elle est connue (champ `ville` de p()).
-const VILLES = ["Argences", "Lisieux", "Falaise", "Bernay", "Mézidon-Canon", "Orbec", "Argentan", "Vimoutiers", "Livarot"];
-const ORDRE = [3, 7, 0, 5, 1, 8, 4, 2, 6, 2, 5, 8, 0, 6, 3, 1, 7, 4, 6, 1, 4, 7, 2, 5, 8];
+const VILLES = ["Argences", "Lisieux", "Falaise", "Bernay", "Mézidon-Canon", "Orbec", "Argentan", "Vimoutiers", "Livarot", "Soliers", "Bourguébus", "Louvigny"];
+const ORDRE = [3, 10, 0, 7, 5, 11, 1, 8, 4, 2, 9, 6, 8, 2, 11, 5, 0, 9, 3, 6, 10, 1, 7, 4];
 export const PHOTOS = RAW.map((x, i) => {
   const ville = VILLES[ORDRE[i % ORDRE.length] % VILLES.length];
   return { ...x, ville, alt: `${x.alt}, couvreur à ${ville}` };
