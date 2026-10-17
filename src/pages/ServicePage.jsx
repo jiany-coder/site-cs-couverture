@@ -26,9 +26,9 @@ export default function ServicePage() {
   const Icon = ICONS[service.icon] || ICONS.House;
   const url = `${COMPANY.site}/${slug}`;
   const related = service.related.map(getService).filter(Boolean);
-  const photos = pickIllustrations(3, seedOf(service.slug) + 1);
   const pair = PAIR_BY_SERVICE[service.slug];
   const feature = SERVICE_IMAGES[service.slug];
+  const photos = [feature, ...pickIllustrations(4, seedOf(service.slug) + 1).filter((x) => x !== feature)].filter(Boolean).slice(0, 3);
 
   const jsonLd = [
     buildLocalBusinessSchema(),

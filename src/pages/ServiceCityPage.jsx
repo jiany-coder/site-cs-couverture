@@ -12,7 +12,7 @@ import { COMPANY, telHref } from "../data/company";
 import { SERVICES, PRICE_SOURCE, PAGE_UPDATED } from "../data/services";
 import { PRIORITY_CITIES } from "../data/cities";
 import CONTENT from "../data/communes_content.json";
-import { PAIR_BY_SERVICE, pickIllustrations, seedOf } from "../data/photos";
+import { PAIR_BY_SERVICE, SERVICE_IMAGES, pickIllustrations, seedOf } from "../data/photos";
 import { findServiceCity, svcLabel, svcCityPath, aPrep } from "../data/serviceCities";
 
 const SHORT_TITLE = {
@@ -67,8 +67,9 @@ export default function ServiceCityPage() {
 
   const others = SERVICES.filter((s) => s.slug !== service.slug);
   const sisters = PRIORITY_CITIES.filter((c) => c.slug !== city.slug);
-  const photos = pickIllustrations(3, seedOf(path));
   const pair = PAIR_BY_SERVICE[service.slug];
+  const feature = SERVICE_IMAGES[service.slug];
+  const photos = [feature, ...pickIllustrations(4, seedOf(path)).filter((x) => x !== feature)].filter(Boolean).slice(0, 3);
 
   const jsonLd = [
     buildLocalBusinessSchema(),
