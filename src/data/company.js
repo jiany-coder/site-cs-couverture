@@ -32,14 +32,15 @@ export const COMPANY = {
   // Offre affichée dans le bandeau du haut : à valider avec le client avant la mise en ligne (mettre enabled: false sinon).
   promo: { enabled: true, text: "Profitez-en ! 10 % de remise pour tout service de couvreur avant le 11/12/2026", until: "2026-12-11" },
   labels: [],
-  experienceYears: null,
+  decennale: true, // garantie décennale, confirmée par le client
+  experienceYears: 20, // confirmé par le client : expérience de l'artisan dans la couverture
   urgence: null,
   legal: {
-    name: "[À COMPLÉTER]",
-    form: "[À COMPLÉTER]",
-    siret: "[À COMPLÉTER]",
+    name: "Sony Capello (CS Couverture Rénovation)",
+    form: "Entrepreneur individuel",
+    siret: "538 869 132 00026", // SIREN 538 869 132, registre public (societe.com), siège 13 rue des Quatre Vents, 14000 Caen
     tva: "[À COMPLÉTER]",
-    publisher: "[À COMPLÉTER]",
+    publisher: "Sony Capello",
   },
 };
 

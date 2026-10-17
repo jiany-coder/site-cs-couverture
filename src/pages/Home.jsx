@@ -19,7 +19,7 @@ const h2 = "text-inherit text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tig
 
 const svc = (slug) => SERVICES.find((s) => s.slug === slug);
 
-const FILTERS = ["Tout voir", "Couverture", "Zinguerie", "Velux", "Étanchéité", "Charpente"];
+const FILTERS = ["Tout voir", "Couverture", "Zinguerie", "Velux", "Étanchéité", "Façade", "Charpente"];
 const CHANTIERS = [
   { cat: "Couverture", img: SERVICE_IMAGES["reparation-toiture-caen"], t: "Réparation de toiture en tuiles", to: "/reparation-toiture-caen" },
   { cat: "Couverture", img: SERVICE_IMAGES["remplacement-tuiles-ardoises-caen"], t: "Couverture en ardoises", to: "/remplacement-tuiles-ardoises-caen" },
@@ -95,6 +95,8 @@ export default function Home() {
           <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/85 font-semibold">
             <li className="inline-flex items-center gap-2"><Star className="w-4 h-4 fill-[#D4A841] text-[#D4A841]" strokeWidth={1} /> {COMPANY.rating.value}/5 · {COMPANY.rating.count} avis Google</li>
             <li className="inline-flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Devis gratuit et détaillé</li>
+            {COMPANY.decennale && <li className="inline-flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Garantie décennale</li>}
+            {COMPANY.experienceYears && <li className="inline-flex items-center gap-2"><Clock className="w-4 h-4" /> {COMPANY.experienceYears} ans d'expérience</li>}
             <li className="inline-flex items-center gap-2"><Clock className="w-4 h-4" /> {COMPANY.hours}</li>
             <li className="inline-flex items-center gap-2"><MapPin className="w-4 h-4" /> {CITIES.length + 1} communes desservies</li>
           </ul>

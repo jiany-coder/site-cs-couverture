@@ -15,6 +15,7 @@ export default function TrustBar() {
     { Icon: Clock, label: "Lundi au samedi", desc: "8 h à 20 h (fiche Google)" },
   ];
   if (COMPANY.labels && COMPANY.labels.length) items.push({ Icon: ShieldCheck, label: COMPANY.labels.join(", "), desc: "Qualifications de l'entreprise" });
+  if (COMPANY.decennale) items.push({ Icon: ShieldCheck, label: "Garantie décennale", desc: "Assurance des travaux de couverture" });
   if (COMPANY.experienceYears) items.push({ Icon: Award, label: `${COMPANY.experienceYears} ans d'expérience`, desc: "Métier de la couverture" });
   if (COMPANY.urgence) items.push({ Icon: Siren, label: "Urgences", desc: COMPANY.urgence });
 

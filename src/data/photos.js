@@ -28,6 +28,7 @@ const RAW = [
   p("etancheite-toit-terrasse-apres-2", "Étanchéité", "Toit-terrasse : étanchéité terminée", "Toit-terrasse après pose de l'étanchéité, avec sorties de ventilation et relevés", 1080, 675),
   p("renov-pierre-avant", "Couverture", "Changement de couverture : avant", "Maison en pierre avec ancienne toiture en tuiles foncées, avant travaux", 1179, 609),
   p("renov-velux-avant", "Démoussage", "Toiture envahie par la mousse : avant", "Ancienne toiture en tuiles couverte de mousse avec fenêtres de toit, avant rénovation", 1179, 595),
+  p("facade-ravalement-echafaudage", "Façade", "Ravalement de façade : pignon enduit", "Pignon d'une maison après ravalement, façade enduite blanche avec échafaudage de pied", 1600, 1145),
   p("zinc-bac-acier-avant-2", "Zinguerie", "Bac acier et faîtière : avant travaux", "Couverture en bac acier et faîtière avec joints à reprendre, avant intervention", 1080, 675),
 ];
 // Villes prioritaires du client, réparties dans un ordre mélangé (fixe) sur les photos.
@@ -56,7 +57,7 @@ export const SERVICE_IMAGES = {
   "etancheite-toiture-caen": by("etancheite-toit-terrasse-apres-1"),
   "traitement-charpente-caen": by("charpente-colombage-pignon"),
   "pose-velux-caen": by("ardoise-velux-pierre"),
-  "ravalement-facade-caen": by("ardoise-velux-colombage"),
+  "ravalement-facade-caen": by("facade-ravalement-echafaudage"),
   "peinture-exterieure-caen": by("charpente-colombage-pignon"),
   "nettoyage-facade-caen": by("tuiles-maison-pierre"),
 };
