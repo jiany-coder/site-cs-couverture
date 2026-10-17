@@ -94,6 +94,9 @@ SERVICES = [
     ("gouttieres-caen", "Gouttières", "Pose, remplacement, réparation et nettoyage des gouttières et descentes d'eaux pluviales."),
     ("etancheite-toiture-caen", "Étanchéité de toiture", "Traitement des points singuliers : raccords, souches de cheminée, jonctions et zones qui laissent passer l'eau."),
     ("traitement-charpente-caen", "Traitement de charpente", "Contrôle des bois et traitement adapté à leur état (humidité, insectes xylophages)."),
+    ("ravalement-facade-caen", "Ravalement de façade", "Nettoyage, réparation des fissures et des fonds, puis enduit ou peinture selon l'état du mur."),
+    ("peinture-exterieure-caen", "Peinture extérieure", "Façades, boiseries, volets et fer forgé, avec une préparation adaptée au support."),
+    ("nettoyage-facade-caen", "Nettoyage de façade", "Retrait des mousses et salissures par une méthode adaptée : haute pression douce, hydrogommage, anti-mousse."),
     ("pose-velux-caen", "Pose et remplacement de Velux", "Pose ou remplacement de fenêtres de toit avec reprise soignée de l'étanchéité autour du châssis."),
 ]
 

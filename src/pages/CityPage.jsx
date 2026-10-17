@@ -71,7 +71,7 @@ export default function CityPage() {
           <p className="text-lg leading-[1.75]">{d.popNote}</p>
 
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">Quels travaux de toiture à {d.nom} ?</h2>
-          <p className="text-lg leading-[1.75]">Voici trois des onze prestations de {COMPANY.brand}, que nous réalisons à {d.nom} comme dans les communes voisines :</p>
+          <p className="text-lg leading-[1.75]">Voici trois des {SERVICES.length} prestations de {COMPANY.brand}, que nous réalisons à {d.nom} comme dans les communes voisines :</p>
           <ul className="space-y-3 list-none ml-0">
             {d.services.map(([slug, t, p]) => (
               <li key={slug} className="flex items-start gap-3 mb-3">

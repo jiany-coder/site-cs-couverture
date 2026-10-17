@@ -153,7 +153,7 @@ export default function ServiceCityPage() {
               </tbody>
             </table>
           </div>
-          <p className="text-sm text-[#475569] mt-3">{PRICE_SOURCE} <Link to="/tarifs-couvreur-caen" className="text-[#1F2D5A] underline">Voir tous les repères de prix</Link></p>
+          <p className="text-sm text-[#475569] mt-3">{service.priceSource || PRICE_SOURCE} <Link to="/tarifs-couvreur-caen" className="text-[#1F2D5A] underline">Voir tous les repères de prix</Link></p>
         </div>
       </section>
 

@@ -56,6 +56,9 @@ export const SERVICE_IMAGES = {
   "etancheite-toiture-caen": by("etancheite-toit-terrasse-apres-1"),
   "traitement-charpente-caen": by("charpente-colombage-pignon"),
   "pose-velux-caen": by("ardoise-velux-pierre"),
+  "ravalement-facade-caen": by("ardoise-velux-colombage"),
+  "peinture-exterieure-caen": by("charpente-colombage-pignon"),
+  "nettoyage-facade-caen": by("tuiles-maison-pierre"),
 };
 
 // Montages avant/après réels, utilisés dans le curseur.

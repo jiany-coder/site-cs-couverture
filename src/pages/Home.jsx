@@ -38,6 +38,7 @@ const METIERS = [
   { id: "Zinguerie", intro: "Solins, noues, rives, abergements, gouttières et descentes : les éléments qui guident l'eau loin des murs.", slugs: ["couvreur-zingueur-caen", "gouttieres-caen"] },
   { id: "Étanchéité", intro: "Traitement des points singuliers (raccords, cheminées, jonctions) quand une fuite revient au même endroit.", slugs: ["etancheite-toiture-caen"] },
   { id: "Charpente", intro: "Contrôle des bois sous la couverture et traitement adapté à leur état : humidité, insectes xylophages.", slugs: ["traitement-charpente-caen"] },
+  { id: "Façade", intro: "Ravalement, peinture extérieure et nettoyage de façade : remise en état des murs, boiseries, volets et ferronneries.", slugs: ["ravalement-facade-caen", "peinture-exterieure-caen", "nettoyage-facade-caen"] },
   { id: "Velux", intro: "Pose ou remplacement de fenêtres de toit, avec reprise soignée de l'étanchéité autour du châssis.", slugs: ["pose-velux-caen"] },
 ];
 

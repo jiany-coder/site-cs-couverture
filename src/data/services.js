@@ -1,5 +1,5 @@
 // Pages services : une page par intention de recherche. Les prix viennent de guides publics (voir PRICE_SOURCE) : jamais de prix inventé.
-import { Wrench, House, Layers, Triangle, Sparkles, Droplets, Ruler, CloudRain, ShieldCheck, Hammer, PanelTop } from "lucide-react";
+import { Wrench, House, Layers, Triangle, Sparkles, Droplets, Ruler, CloudRain, ShieldCheck, Hammer, PanelTop, PaintRoller, Paintbrush, SprayCan } from "lucide-react";
 
 export const PRICE_SOURCE =
   "Repères publiés par La Maison Saint-Gobain (guides de prix mis à jour en mars et avril 2026) et MesDépanneurs (décembre 2025). Prix indicatifs, hors cas particuliers : seul le devis gratuit fait foi.";
@@ -566,9 +566,169 @@ export const SERVICES = [
     ],
     related: ["etancheite-toiture-caen", "couvreur-zingueur-caen", "reparation-toiture-caen", "traitement-charpente-caen"],
   },
+
+  {
+    slug: "ravalement-facade-caen",
+    title: "Ravalement de façade à Caen",
+    h1: "Ravalement de façade à Caen : nettoyage, enduit, peinture",
+    short: "Remise en état des murs extérieurs : diagnostic, réparations, enduit ou peinture, finitions.",
+    icon: "PaintRoller",
+    metaTitle: "Ravalement de façade Caen | CS Couverture Rénovation",
+    metaDescription: "Ravalement de façade à Caen et dans un rayon de 70 km : nettoyage, réparation des fissures, enduit et peinture. Devis gratuit. Tél. 06 04 11 66 68.",
+    keywords: ["ravalement façade caen", "rénovation façade caen", "enduit façade caen", "façadier caen"],
+    priceSource: "Repères publiés par Obat (guide « Tarif façadier », mis à jour le 30 octobre 2024). Prix indicatifs au m², hors cas particuliers : seul le devis gratuit fait foi.",
+    answer:
+      "Un ravalement de façade remet en état les murs extérieurs : nettoyage, reprise des fissures et des fonds abîmés, puis enduit ou peinture. CS Couverture Rénovation intervient à Caen et dans un rayon d'environ 70 km, après examen de la façade et devis gratuit.",
+    benefits: [
+      "Examen de la façade avant tout devis",
+      "Traitement des fissures et des fonds avant la finition",
+      "Enduit ou peinture choisis selon le support",
+      "Devis gratuit détaillant chaque poste",
+    ],
+    sections: [
+      {
+        h: "Pourquoi ravaler une façade ?",
+        p: "Une façade fatiguée laisse passer l'humidité, se fissure et perd son aspect. Le ravalement protège le mur, redonne de la tenue au bâtiment et évite que de petits désordres (fissures, enduit qui s'effrite, mousses) ne s'aggravent. Il s'accompagne souvent d'un contrôle des éléments voisins : gouttières, débords de toit et rives.",
+      },
+      {
+        h: "Comment se déroule un ravalement ?",
+        p: "Le chantier commence par un diagnostic du support (pierre, brique, enduit, crépi), puis un nettoyage adapté. Viennent ensuite la réparation des fissures et des zones dégradées, l'application d'un fond si nécessaire, puis la finition en enduit ou en peinture. Chaque étape dépend de l'état réel du mur, ce qui explique que le devis se fasse après examen.",
+      },
+      {
+        h: "Faut-il une autorisation pour un ravalement ?",
+        p: "Cela dépend de la commune : dans certains secteurs (zone protégée ou décision du conseil municipal), le ravalement exige une déclaration préalable en mairie. Un changement de couleur ou d'aspect est aussi concerné. Renseignez-vous auprès de votre mairie avant le chantier ; nous vous indiquons les points à vérifier lors de la visite.",
+      },
+      {
+        h: "Combien coûte un ravalement de façade ?",
+        p: "Selon Obat (guide mis à jour le 30 octobre 2024), un ravalement coûte de 40 à 160 € le m², et de 40 à 80 € le m² hors isolation par l'extérieur. L'écart dépend du support, de l'état du mur, de la hauteur et de l'accès (échafaudage). Le devis de CS Couverture Rénovation est gratuit et détaille chaque poste.",
+      },
+    ],
+    table: {
+      caption: "Repères de prix pour un ravalement de façade",
+      rows: [
+        ["Ravalement de façade, au m²", "40 à 160 €"],
+        ["Ravalement avec isolation thermique par l'extérieur, au m²", "75 à 180 €"],
+        ["Ravalement complet avec enduit, au m²", "35 à 140 €"],
+        ["Réparation de fissures, au m²", "15 à 30 €"],
+      ],
+    },
+    faq: [
+      { q: "Faites-vous le ravalement de façade à Caen ?", a: "Oui. CS Couverture Rénovation réalise le ravalement à Caen et dans un rayon d'environ 70 km, après examen de la façade et devis gratuit. Appelez le 06 04 11 66 68." },
+      { q: "Quelle différence entre ravalement et peinture de façade ?", a: "La peinture est une finition. Le ravalement est plus large : nettoyage, réparation des fissures et des fonds, puis enduit ou peinture selon l'état du mur." },
+      { q: "Faut-il un échafaudage pour ravaler une façade ?", a: "Dès que le chantier dépasse le rez-de-chaussée, un échafaudage ou une nacelle est généralement nécessaire. Il fait partie des postes détaillés dans le devis." },
+      { q: "Le devis est-il gratuit ?", a: "Oui, le devis est gratuit. Il est établi après examen de la façade." },
+    ],
+    related: ["peinture-exterieure-caen", "nettoyage-facade-caen", "gouttieres-caen", "couvreur-zingueur-caen"],
+  },
+  {
+    slug: "peinture-exterieure-caen",
+    title: "Peinture extérieure à Caen",
+    h1: "Peinture extérieure à Caen : façades, boiseries, volets, fer forgé",
+    short: "Peinture de façades, murs, boiseries, volets et ferronneries, avec préparation adaptée au support.",
+    icon: "Paintbrush",
+    metaTitle: "Peinture extérieure Caen | CS Couverture Rénovation",
+    metaDescription: "Peinture extérieure à Caen et dans un rayon de 70 km : façades, boiseries, volets, fer forgé. Préparation du support et devis gratuit. Tél. 06 04 11 66 68.",
+    keywords: ["peinture extérieure caen", "peinture façade caen", "peintre extérieur caen", "peinture volets caen"],
+    priceSource: "Repères publiés par Obat (guide « Tarif façadier », mis à jour le 30 octobre 2024). Prix indicatifs au m², hors cas particuliers : seul le devis gratuit fait foi.",
+    answer:
+      "La peinture extérieure protège et rafraîchit les façades, murs, boiseries, volets et ferronneries. CS Couverture Rénovation intervient à Caen et dans un rayon d'environ 70 km, avec une préparation du support adaptée avant application et un devis gratuit.",
+    benefits: [
+      "Préparation du support avant application",
+      "Produits choisis selon la surface : mur, bois ou métal",
+      "Façades, boiseries, volets et fer forgé",
+      "Devis gratuit détaillant les travaux",
+    ],
+    sections: [
+      {
+        h: "Sur quels supports peindre à l'extérieur ?",
+        p: "On peint à l'extérieur les façades et murs, les boiseries (portes, fenêtres, bardages), les volets et les éléments métalliques comme le fer forgé. Chaque support demande sa préparation : lessivage, grattage, traitement de la rouille, ponçage ou sous-couche. C'est cette préparation qui conditionne la durée de la peinture.",
+      },
+      {
+        h: "Comment choisir la peinture ?",
+        p: "Le choix dépend du support et de l'exposition : peinture acrylique ou siloxane sur un mur, produits spécifiques pour le bois ou pour le métal. À Caen et dans le Calvados, la pluie et le vent mettent les finitions à l'épreuve : une bonne sous-couche et deux couches de finition sont préférables.",
+      },
+      {
+        h: "Quand repeindre une façade ou des volets ?",
+        p: "Des écailles, des traces de moisissure, une peinture qui farine ou un bois qui grise indiquent qu'il est temps d'intervenir. Repeindre à temps évite des réparations plus lourdes : un support protégé reste sain plus longtemps. Les travaux se programment de préférence par temps sec et doux.",
+      },
+      {
+        h: "Combien coûte une peinture extérieure ?",
+        p: "Selon Obat (guide mis à jour le 30 octobre 2024), une peinture acrylique de façade coûte de 30 à 60 € le m², et une peinture sur bois pour bardage de 45 à 80 € le m². Le prix varie selon l'état du support, la hauteur et l'accès. Le devis de CS Couverture Rénovation est gratuit.",
+      },
+    ],
+    table: {
+      caption: "Repères de prix pour une peinture extérieure",
+      rows: [
+        ["Peinture acrylique de façade, au m²", "30 à 60 €"],
+        ["Peinture sur bois (bardage extérieur), au m²", "45 à 80 €"],
+        ["Sous-couche hydrofuge, au m²", "20 à 50 €"],
+        ["Peinture à la chaux ou siloxane, au m²", "35 à 50 €"],
+      ],
+    },
+    faq: [
+      { q: "Faites-vous la peinture extérieure à Caen ?", a: "Oui. CS Couverture Rénovation peint façades, boiseries, volets et fer forgé à Caen et dans un rayon d'environ 70 km. Appelez le 06 04 11 66 68." },
+      { q: "Peignez-vous les volets et le fer forgé ?", a: "Oui, avec une préparation adaptée au bois ou au métal : grattage, traitement de la rouille, sous-couche puis finition." },
+      { q: "Quelle est la meilleure période pour peindre à l'extérieur ?", a: "Par temps sec et doux, hors gel et forte chaleur : le printemps et le début de l'automne conviennent bien." },
+      { q: "Le devis est-il gratuit ?", a: "Oui, le devis est gratuit. Il est établi après examen des surfaces à peindre." },
+    ],
+    related: ["ravalement-facade-caen", "nettoyage-facade-caen", "gouttieres-caen", "couvreur-zingueur-caen"],
+  },
+  {
+    slug: "nettoyage-facade-caen",
+    title: "Nettoyage de façade à Caen",
+    h1: "Nettoyage de façade à Caen : entretien extérieur et démoussage",
+    short: "Nettoyage des façades et surfaces extérieures, méthode douce ou haute pression selon le support.",
+    icon: "SprayCan",
+    metaTitle: "Nettoyage de façade Caen | CS Couverture Rénovation",
+    metaDescription: "Nettoyage de façade et entretien extérieur à Caen et dans un rayon de 70 km : haute pression, hydrogommage, anti-mousse. Devis gratuit. Tél. 06 04 11 66 68.",
+    keywords: ["nettoyage façade caen", "nettoyage extérieur caen", "démoussage façade caen", "hydrogommage caen"],
+    priceSource: "Repères publiés par Obat (guide « Tarif façadier », mis à jour le 30 octobre 2024). Prix indicatifs au m², hors cas particuliers : seul le devis gratuit fait foi.",
+    answer:
+      "Le nettoyage de façade retire mousses, algues, salissures et traces de pollution des murs extérieurs, avec une méthode adaptée au support (haute pression, hydrogommage, traitement anti-mousse). CS Couverture Rénovation intervient à Caen et dans un rayon d'environ 70 km, avec devis gratuit.",
+    benefits: [
+      "Méthode choisie selon le support : pierre, enduit, brique",
+      "Traitement anti-mousse et anti-algues",
+      "Contrôle de l'état du mur avant et après",
+      "Devis gratuit, sans engagement",
+    ],
+    sections: [
+      {
+        h: "Pourquoi nettoyer une façade ?",
+        p: "Mousses, algues et salissures retiennent l'humidité contre le mur et ternissent l'aspect du bâtiment. Un nettoyage régulier prolonge la vie des enduits et des peintures, et permet de repérer à temps les fissures ou les infiltrations. C'est aussi une étape préalable à un ravalement ou à une peinture.",
+      },
+      {
+        h: "Quelles méthodes de nettoyage ?",
+        p: "Le nettoyage haute pression convient à de nombreux supports, mais un jet trop fort abîme les enduits et les joints. L'hydrogommage, plus doux, projette de l'eau et un abrasif fin. Un traitement anti-mousse peut compléter le nettoyage pour ralentir le retour des végétaux. La méthode est choisie après examen du mur.",
+      },
+      {
+        h: "Façade, toiture, gouttières : un entretien d'ensemble",
+        p: "Une façade se salit souvent à cause d'une gouttière qui déborde ou d'une toiture couverte de mousse. Nous contrôlons ces éléments en même temps : cela évite de nettoyer un mur qui sera de nouveau taché quelques mois plus tard. Le démoussage de toiture et le nettoyage des gouttières peuvent être faits lors de la même intervention.",
+      },
+      {
+        h: "Combien coûte un nettoyage de façade ?",
+        p: "Selon Obat (guide mis à jour le 30 octobre 2024), le nettoyage haute pression coûte de 5 à 20 € le m², l'hydrogommage de 20 à 25 € le m² et le gommage de 25 à 35 € le m². Le prix dépend du support, de la hauteur et de l'accès. Le devis de CS Couverture Rénovation est gratuit.",
+      },
+    ],
+    table: {
+      caption: "Repères de prix pour nettoyer une façade",
+      rows: [
+        ["Nettoyage haute pression, au m²", "5 à 20 €"],
+        ["Hydrogommage, au m²", "20 à 25 €"],
+        ["Gommage, au m²", "25 à 35 €"],
+        ["Nettoyage chimique, au m²", "5 à 25 €"],
+      ],
+    },
+    faq: [
+      { q: "Faites-vous le nettoyage de façade à Caen ?", a: "Oui. CS Couverture Rénovation nettoie les façades à Caen et dans un rayon d'environ 70 km, avec une méthode adaptée au support. Appelez le 06 04 11 66 68." },
+      { q: "Le nettoyage haute pression abîme-t-il la façade ?", a: "Un jet trop puissant peut abîmer enduits et joints. La pression et la méthode sont donc adaptées au matériau, ou remplacées par un procédé plus doux comme l'hydrogommage." },
+      { q: "Peut-on nettoyer la façade et la toiture en même temps ?", a: "Oui. Le démoussage de toiture et le nettoyage de façade peuvent être programmés ensemble, ce qui limite les déplacements et l'échafaudage." },
+      { q: "Le devis est-il gratuit ?", a: "Oui, le devis est gratuit. Il est établi après examen des surfaces à nettoyer." },
+    ],
+    related: ["ravalement-facade-caen", "peinture-exterieure-caen", "demoussage-toiture-caen", "gouttieres-caen"],
+  },
 ];
 
-export const ICONS = { Wrench, House, Layers, Triangle, Sparkles, Droplets, Ruler, CloudRain, ShieldCheck, Hammer, PanelTop };
+export const ICONS = { Wrench, House, Layers, Triangle, Sparkles, Droplets, Ruler, CloudRain, ShieldCheck, Hammer, PanelTop, PaintRoller, Paintbrush, SprayCan };
 
 export const getService = (slug) => SERVICES.find((s) => s.slug === slug);
 
