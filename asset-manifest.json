@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/site-cs-couverture/static/css/main.11fede6c.css",
+    "main.js": "/site-cs-couverture/static/js/main.dbe5b064.js",
+    "index.html": "/site-cs-couverture/index.html",
+    "main.11fede6c.css.map": "/site-cs-couverture/static/css/main.11fede6c.css.map",
+    "main.dbe5b064.js.map": "/site-cs-couverture/static/js/main.dbe5b064.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11fede6c.css",
+    "static/js/main.dbe5b064.js"
+  ]
+}

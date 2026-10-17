@@ -1,0 +1,29 @@
+# CS Couverture Rénovation
+
+> Couvreur à Caen (13 rue des Quatre Vents, 14000 Caen) : réparation, rénovation, démoussage, zinguerie et entretien de toiture dans un rayon d'environ 70 km, de Caen au Pays d'Auge (Lisieux, Bernay, Orbec, Vimoutiers, Livarot, Mézidon, Falaise, Argentan, Argences). Devis gratuit. Tél. 06 04 11 66 68. Lundi au samedi, 8 h à 20 h.
+
+## Pages principales
+- https://jiany-coder.github.io/site-cs-couverture/
+- https://jiany-coder.github.io/site-cs-couverture/reparation-toiture-caen
+- https://jiany-coder.github.io/site-cs-couverture/renovation-toiture-caen
+- https://jiany-coder.github.io/site-cs-couverture/remplacement-tuiles-ardoises-caen
+- https://jiany-coder.github.io/site-cs-couverture/reparation-faitage-caen
+- https://jiany-coder.github.io/site-cs-couverture/demoussage-toiture-caen
+- https://jiany-coder.github.io/site-cs-couverture/hydrofuge-toiture-caen
+- https://jiany-coder.github.io/site-cs-couverture/couvreur-zingueur-caen
+- https://jiany-coder.github.io/site-cs-couverture/gouttieres-caen
+- https://jiany-coder.github.io/site-cs-couverture/etancheite-toiture-caen
+- https://jiany-coder.github.io/site-cs-couverture/traitement-charpente-caen
+- https://jiany-coder.github.io/site-cs-couverture/pose-velux-caen
+- https://jiany-coder.github.io/site-cs-couverture/ravalement-facade-caen
+- https://jiany-coder.github.io/site-cs-couverture/peinture-exterieure-caen
+- https://jiany-coder.github.io/site-cs-couverture/nettoyage-facade-caen
+- https://jiany-coder.github.io/site-cs-couverture/tarifs-couvreur-caen
+- https://jiany-coder.github.io/site-cs-couverture/zone-d-intervention
+- https://jiany-coder.github.io/site-cs-couverture/a-propos
+- https://jiany-coder.github.io/site-cs-couverture/blog
+- https://jiany-coder.github.io/site-cs-couverture/contact
+
+## Pages communes
+- https://jiany-coder.github.io/site-cs-couverture/zone-d-intervention (liste des 143 communes, une page /couvreur-<commune> par commune)
+- Pages prestation x ville : /<prestation>-<ville> pour les villes principales (Lisieux, Bernay, Orbec, Argences, Vimoutiers, Livarot, Mézidon, Falaise, Argentan, Condé-sur-Noireau…)
