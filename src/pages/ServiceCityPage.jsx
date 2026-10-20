@@ -62,8 +62,10 @@ export default function ServiceCityPage() {
   const faq = [
     { q: `Intervenez-vous pour ${label.toLowerCase()} ${a} ?`, a: `Oui. ${COMPANY.brand} réalise cette prestation à ${d.nom} (${d.cp}) et dans les communes voisines. L'entreprise est basée à Caen, à environ ${d.km} km, soit ${minutes} minutes de route. Appelez le ${COMPANY.phone} pour décrire votre situation.` },
     { q: `Combien coûte ${label.toLowerCase()} ${a} ?`, a: `Le prix dépend de la surface, de l'accès et de l'état de la toiture. Repères publiés en France : ${service.table.rows.slice(0, 2).map(([x, y]) => `${x.toLowerCase()} : ${y}`).join(" ; ")}. Le devis est gratuit et détaille chaque poste.` },
+    ...(d.faq && d.faq[1] ? [{ q: d.faq[1][0], a: d.faq[1][1] }] : []),
     ...service.faq.slice(0, 2).map((f) => ({ q: f.q.replace(/ à Caen/g, ` ${a}`), a: f.a })),
   ];
+  const near = (d.near || []).filter((n) => CONTENT[`couvreur-${n.slug}`]);
 
   const others = SERVICES.filter((s) => s.slug !== service.slug);
   const sisters = PRIORITY_CITIES.filter((c) => c.slug !== city.slug);
@@ -141,7 +143,29 @@ export default function ServiceCityPage() {
           <p className="text-lg leading-[1.75]">{d.geo}</p>
           {d.special && <p className="text-lg leading-[1.75]">{d.special}</p>}
           <p className="text-lg leading-[1.75]">{roof}</p>
+          {d.popNote && <p className="text-lg leading-[1.75]">{d.popNote}</p>}
           <p className="text-lg leading-[1.75] bg-[#DCE1EB] rounded-2xl p-5"><strong>Conseil.</strong> {d.tip}</p>
+
+          {d.fiche && (
+            <>
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">{label} {a} en bref</h2>
+              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {d.fiche.map(([k, v]) => (
+                  <div key={k} className="bg-white border border-[#D9E0EA] rounded-2xl p-4"><dt className="text-xs font-sans font-bold uppercase tracking-[0.18em] text-[#1F2D5A]">{k}</dt><dd className="mt-1 text-[#0B1220]">{v}</dd></div>
+                ))}
+              </dl>
+              {d.how && <p className="text-lg leading-[1.75] mt-5">{d.how}</p>}
+            </>
+          )}
+          {near.length > 0 && (
+            <p className="text-lg leading-[1.75]">
+              Autour de {d.nom}, nous intervenons aussi à{" "}
+              {near.map((n, i) => (
+                <React.Fragment key={n.slug}>{i > 0 && (i === near.length - 1 ? " et " : ", ")}<Link to={`/couvreur-${n.slug}`} className="text-[#1F2D5A] underline">{n.nom}</Link> ({n.km} km)</React.Fragment>
+              ))}
+              .
+            </p>
+          )}
 
           <h2 className="font-serif text-2xl sm:text-3xl text-[#0B1220] font-semibold tracking-tight mt-12 mb-5">{service.table.caption} {a}</h2>
           <div className="overflow-x-auto">

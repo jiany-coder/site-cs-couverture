@@ -33,3 +33,19 @@ jobs:
           publish_dir: build
           publish_branch: gh-pages
           force_orphan: true
+      - name: IndexNow (prévenir Bing, Yandex et autres)
+        continue-on-error: true
+        run: |
+          sleep 90
+          python3 - <<'PY'
+          import re, json, urllib.request
+          urls = re.findall(r"<loc>([^<]+)</loc>", open("build/sitemap.xml", encoding="utf-8").read())
+          key = "678a6e68616e3c812832a7a1b56d6b8c"
+          for i in range(0, len(urls), 9000):
+              body = json.dumps({"host": "cscouverture14.fr", "key": key, "keyLocation": f"https://cscouverture14.fr/{key}.txt", "urlList": urls[i:i+9000]}).encode()
+              req = urllib.request.Request("https://api.indexnow.org/indexnow", body, {"Content-Type": "application/json; charset=utf-8"})
+              try:
+                  print(urllib.request.urlopen(req, timeout=30).status)
+              except Exception as e:
+                  print("IndexNow:", e)
+          PY
