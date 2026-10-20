@@ -27,7 +27,7 @@ export const COMPANY = {
   // Avis Google relevés dans l'audit du 13 octobre 2026 (à mettre à jour avec la fiche).
   rating: { value: "5", count: 18, asOf: "octobre 2026" },
   // Domaine : un seul endroit à changer. [À COMPLÉTER] domaine définitif.
-  site: process.env.REACT_APP_SITE_URL || "https://www.cs-couverture-caen.fr",
+  site: process.env.REACT_APP_SITE_URL || "https://cscouverture14.fr",
   // Informations à fournir par le client : tant qu'elles sont nulles, elles ne sont pas affichées sur le site.
   // Offre affichée dans le bandeau du haut : à valider avec le client avant la mise en ligne (mettre enabled: false sinon).
   promo: { enabled: true, text: "Profitez-en ! 10 % de remise pour tout service de couvreur avant le 11/12/2026", until: "2026-12-11" },
