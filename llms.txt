@@ -1,0 +1,29 @@
+# CS Couverture Rénovation
+
+> Couvreur à Caen (13 rue des Quatre Vents, 14000 Caen) : réparation, rénovation, démoussage, zinguerie et entretien de toiture dans un rayon d'environ 70 km, de Caen au Pays d'Auge (Lisieux, Bernay, Orbec, Vimoutiers, Livarot, Mézidon, Falaise, Argentan, Argences). Devis gratuit. Tél. 06 04 11 66 68. Lundi au samedi, 8 h à 20 h.
+
+## Pages principales
+- https://cscouverture14.fr/
+- https://cscouverture14.fr/reparation-toiture-caen
+- https://cscouverture14.fr/renovation-toiture-caen
+- https://cscouverture14.fr/remplacement-tuiles-ardoises-caen
+- https://cscouverture14.fr/reparation-faitage-caen
+- https://cscouverture14.fr/demoussage-toiture-caen
+- https://cscouverture14.fr/hydrofuge-toiture-caen
+- https://cscouverture14.fr/couvreur-zingueur-caen
+- https://cscouverture14.fr/gouttieres-caen
+- https://cscouverture14.fr/etancheite-toiture-caen
+- https://cscouverture14.fr/traitement-charpente-caen
+- https://cscouverture14.fr/pose-velux-caen
+- https://cscouverture14.fr/ravalement-facade-caen
+- https://cscouverture14.fr/peinture-exterieure-caen
+- https://cscouverture14.fr/nettoyage-facade-caen
+- https://cscouverture14.fr/tarifs-couvreur-caen
+- https://cscouverture14.fr/zone-d-intervention
+- https://cscouverture14.fr/a-propos
+- https://cscouverture14.fr/blog
+- https://cscouverture14.fr/contact
+
+## Pages communes
+- https://cscouverture14.fr/zone-d-intervention (liste des 143 communes, une page /couvreur-<commune> par commune)
+- Pages prestation x ville : /<prestation>-<ville> pour les villes principales (Lisieux, Bernay, Orbec, Argences, Vimoutiers, Livarot, Mézidon, Falaise, Argentan, Condé-sur-Noireau…)
